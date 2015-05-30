@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+  				tex2jax: {
+    					inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+    					processEscapes: true
+  				},
+  				"HTML-CSS": {
+    					availableFonts: ["STIX"],
+    					preferredFont: "STIX",
+    					webFont: "STIX-Web"
+  				},
+                TeX: { equationNumbers: { autoNumber: "AMS" },
+                       extensions: ["autoload-all.js"]
+                     }
+			});
+		</script>
+    	<script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+        </script>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>共形場理論(Conformal Field Theory for String Theory)</title>
+        <style type="text/css">/*<![CDATA[ */
+        h1, h2, h3, h4 { line-height: 1.1; margin: 0.2em; }
+        body { counter-reset: part; }
+        h1 { counter-reset: chapter; }
+        h1:before {
+            content: counter(part) ". ";
+            counter-increment: part;
+        }
+        h2 { counter-reset: section; }
+        h2:before {
+            content: counter(part) ". " counter(chapter) ". ";
+            counter-increment: chapter;
+        }
+        h3 { counter-reset: subsection; }
+        h3:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". ";
+            counter-increment: section;
+        }
+        h4:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". " counter(subsection) ". ";
+            counter-increment: subsection;
+        }
+        /* ]]> */</style>
+        <style type="text/css">
+
+        p {text-indent:1em;} 
+
+
+        ul { list-style-type: disc; }
+
+        </style>
+    </head>
+    <body>
+        <h1>はじめに</h1>
+        <p>
+        2次元の場の理論である共形場理論は超弦理論の一部であるとともに，物性理論などに広く応用されている重要な理論である。
+        超弦理論の多くの公式は，共形場理論を用いると簡明に導ける。そこで，
+        本ブログではR. Blumenhage, E. Plauschinn著，"Introduction to Conformal Field Theory with Applications to String
+            Theory"の重要部分を解説する。</p>
+        <h1>共形場理論の基礎</h1>
+        <h2>共形群</h2>
+        <h3>共形不変性</h3>
+        <h4>共形変換</h4>
+        <p>
+        <fieldset><legend><strong>共形変換</strong></legend>
+        $d$次元時空の一般座標変換$x\mapsto x^{\prime}$で計量テンソルが
+        \[ 
+        　	g_{\rho\sigma}^{\prime}(x^{\prime})\frac{\partial x^{\prime\rho}}{\partial x^{\mu}} 
+        		\frac{\partial x^{\prime\sigma}}{\partial x^{\nu}}=\mathit{\Lambda}(x) g_{\mu\nu}(x) 
+        \]
+            と変換されるとき，この座標変換を<b>共形変換</b>という。
+        </fieldset>
+        </p>
+       <p>ここでは，平坦な時空に限定して理論を展開するため，ミンコフスキー計量$\eta_{\mu\nu}=(-1,\ldots,+1,\ldots)$とする。
+          そうすると共形変換は
+        <fieldset>
+        \[
+             \eta_{\rho\sigma}\frac{\partial x^{\prime\rho}}{\partial x^{\mu}}\frac{\partial x^{\prime\sigma}}{\partial x^{\nu}}
+           =\mathit{\Lambda}(x)\eta_{\mu\nu}
+        \]
+       </fieldset>
+        となる。$\mathit{\Lambda}(x)=1$のときは空間並進，回転を含むPoincar&eacute;変換となる。
+       </p> 
+       <h4>共形変換の満たすべき条件</h4>
+       <p>無限小変換の一次まで考慮すると
+        \[
+           x^{\prime\rho}=x^{\rho}+\epsilon^{\rho}(x)+O(\epsilon^{2})
+        \]
+        ここで，$\epsilon_{\mu}=\eta_{\mu\nu}\epsilon^{\nu}$で$\eta_{\mu\nu}$が定数であることに注意すると，
+        \begin{eqnarray}
+           \eta_{\rho\sigma}\frac{\partial x^{\prime\rho}}{\partial x^{\mu}}\frac{\partial x^{\prime\sigma}}{\partial x^{\nu}}
+           &=& \eta_{\rho\sigma}\left(\delta_{\mu}^{\rho}+\frac{\partial\epsilon^{\rho}}{\partial x^{\mu}}+O(\epsilon^{2})\right)
+           \left(\delta_{\nu}^{\sigma}+\frac{\partial\epsilon^{\sigma}}{\partial x^{\nu}}+O(\epsilon^{2})\right)\nonumber\\
+           &=&\eta_{\mu\nu}+\eta_{\mu\sigma}\frac{\partial\epsilon^{\sigma}}{\partial x^{\nu}}+\eta_{\rho\nu}\frac{\partial\epsilon^{\rho}}{\partial x^{\mu}}+O(\epsilon^{2})\nonumber\\
+           &=&\eta_{\mu\nu}+\left(\frac{\partial\epsilon_{\mu}}{\partial x^{\nu}}+\frac{\partial\epsilon_{\nu}}{\partial x^{\mu}}\right)+O(\epsilon^{2})\nonumber
+        \end{eqnarray}
+           となる。$\frac{\partial}{\partial x^{\mu}}=\partial_{\mu}$とかくと
+           \[
+             \partial_{\mu}\epsilon_{\nu}+\partial_{\nu}\epsilon_{\mu}=K(x)\eta_{\mu\nu}
+           \]
+           が共形変換となる条件である。両辺に$\eta^{\mu\nu}$をかけるとトレースをとることになり
+           \begin{eqnarray}
+             \eta^{\mu\nu}(\partial_{\mu}\epsilon_{\nu}+\partial_{\nu}\epsilon_{\mu})&=&K(x)\eta^{\mu\nu}\eta_{\mu\nu}\nonumber\\
+             2\partial^{\mu}\epsilon_{\mu}&=&K(x)d\nonumber
+           \end{eqnarray}
+           を得る。以上から
+           <fieldset>
+               \begin{equation}
+                 \partial_{\mu}\epsilon_{\nu}+\partial_{\nu}\epsilon_{\mu}=\frac{2}{d}(\partial^{\mu}\epsilon_{\mu})\eta_{\mu\nu}
+                 \label{eq:2.3}
+               \end{equation}
+           </fieldset>
+           が無限小変換が共形変換となる条件である。スケールファクタは
+           \[
+              \mathit{\Lambda}(x)=1+\frac{2}{d}(\partial\cdot\epsilon)+O(\epsilon^{2})
+           \]
+           となる。ただし，$\partial\cdot\epsilon=\partial^{\mu}\epsilon_{\mu}$である。
+       </p>
+       <h4>便利な公式</h4>
+       <p>
+           $(\ref{eq:2.3})$に$\partial^{\nu}$または$\partial_{\mu}$をかけると
+           \[
+             \partial^{\nu}(\partial_{\mu}\epsilon_{\nu}+\partial_{\nu}\epsilon_{\mu})=\frac{2}{d}\partial^{\nu}(\partial\cdot\epsilon)\eta_{\mu\nu}
+           \]
+           \[
+             \partial_{\mu}(\partial\cdot\epsilon)+\Box\epsilon_{\mu}=\frac{2}{d}\partial_{\mu}(\partial\cdot\epsilon)
+           \]
+           となる。さらに$\partial_{\nu}$をかけると
+           \[
+             \partial_{\mu}\partial_{\nu}(\partial\cdot\epsilon)+\Box\partial_{\nu}\epsilon_{\mu}=\frac{2}{d}\partial_{\mu}\partial_{\nu}(\partial\cdot\epsilon)
+           \]
+           を得る。さらに，$\mu\leftrightarrow\nu$で入れ替えると
+           \[
+             2\partial_{\mu}\partial_{\nu}(\partial\cdot\epsilon)+\Box\left(\frac{2}{d}(\partial\cdot\epsilon)\eta_{\mu\nu}\right)=\frac{4}{d}\partial_{\mu}\partial_{\nu}(\partial\cdot\epsilon)
+           \]
+           となる。これを移項すると
+           \[
+             (\eta_{\mu\nu}+(d-2)\partial_{\mu}\partial_{\nu})(\partial\cdot\epsilon)=0
+           \]
+           となる。これに$\eta^{\mu\nu}$をかけると
+           <fieldset>
+           \[
+               (d-1)\Box(\partial\cdot\epsilon)=0
+           \]
+           </fieldset>
+           を得る。さらに$\partial_{\rho}$をかけて添字を巡回させると
+           \begin{eqnarray}
+              \partial_{\rho}\partial_{\mu}\epsilon_{\nu}+\partial_{\rho}\partial_{\nu}\epsilon_{\mu}&=&\frac{2}{d}\eta_{\mu\nu}\partial_{\rho}(\partial\cdot\epsilon)\nonumber\\
+              \partial_{\nu}\partial_{\rho}\epsilon_{\mu}+\partial_{\mu}\partial_{\rho}\epsilon_{\nu}&=&\frac{2}{d}\eta_{\rho\mu}\partial_{\nu}(\partial\cdot\epsilon)\nonumber\\
+              \partial_{\mu}\partial_{\nu}\epsilon_{\rho}+\partial_{\nu}\partial_{\mu}\epsilon_{\rho}&=&\frac{2}{d}\eta_{\nu\mu}\partial_{\rho}(\partial\cdot\epsilon)\nonumber\\
+           \end{eqnarray}
+           を得る。第1行に-1をかけて，両辺を足すと
+           \begin{equation}
+              2\partial_{\mu}\partial_{\nu}\epsilon_{\rho}=\frac{2}{d}(-\eta_{\mu\nu}\partial_{\rho}+\eta_{\rho\mu}\partial_{\nu}+\eta_{\nu\rho}\partial_{\mu})(\partial\cdot\epsilon)
+              \nonumber
+           \end{equation}
+           を得る($\mu\leftrightarrow\nu$)と順序の入れ替えが可能であることに注意)。
+       </p>
+       <h3>$d=2$次元上の共形群</h3>
+       <p>これまでは$d$次元の共形場理論を考えてきたが，$d=2$次元ユークリッド空間上の共形場理論を考えていく。</p>
+       <h4>共形変換</h4>
+       <p>
+           条件$(\ref{eq:2.3})$を$2$次元に限定して考えると
+           \begin{align}
+           \partial_{0}\epsilon_{0}&=-\partial_{1}\epsilon_{1}&\partial_{0}\epsilon_{1}=-\partial_{1}\epsilon_{0}\nonumber
+           \end{align}
+           となる。これを複素変数で表そう。
+           \begin{align}
+           z&=x^{0}+ix^{1}&\epsilon&=\epsilon^{0}+i\epsilon^{1}&\partial_{z}&=\frac{\partial_{0}-i\partial_{1}}{2}\nonumber\\
+           \bar{z}&=x^{0}-ix^{1}&\bar{\epsilon}&=\epsilon^{0}-i\epsilon^{1}&\partial_{\bar{z}}&=\frac{\partial_{0}+i\partial_{1}}{2}\nonumber
+           \end{align}
+           とおく。$\epsilon(z)$をある開集合上で正則と仮定しておく。そうすると$f(z)=z+\epsilon(z)$も正則である。よって
+           <fieldset>正則関数$f(z)=z+\epsilon(z)$は$2$次元共形変換$z\mapsto f(z)$を引き起こす。</fieldset>
+           といえる。
+           これは，変換$z\mapsto f(z)$の下で
+           \[
+               ds^{2}=dzd\bar{z}\mapsto\frac{\partial f}{\partial z}\frac{\partial\bar{f}}{\partial\bar{z}}dzd\bar{z}
+           \]
+           と変換されることを主張している。そして，スケールファクタは
+           \[
+               \left|\frac{\partial f}{\partial z}\right|^{2}
+           \]
+           である。
+　　　　</p>
+       <h4>Witt代数</h4>
+       <p>上でみたように無限小変換はある開集合上で正則であればよいのだから，さらに拡張して，複素平面上で離散的な点を除いて
+           正則な有理型関数にまで拡張してよい。そうすると
+           \begin{eqnarray}
+             z^{\prime}&=&z+\epsilon(z)=z+\sum_{n\in\mathbb{Z}}\epsilon_{n}(-z^{n+1})\nonumber\\
+             \bar{z}^{\prime}&=&\bar{z}+\bar{\epsilon}(\bar{z})=\bar{z}+\sum_{n\in\mathbb{Z}}\bar{\epsilon}_{n}(-\bar{z}^{n+1})\nonumber
+           \end{eqnarray}
+           とローラン展開できる。$n\in\mathbb{Z}$が無限であることに注意すべきである。これは$2$次元特有のことである$(?)$。
+           対応する無限小変換の生成子は
+           \begin{align}
+           l_{n}&=-z^{n+1}\partial_{z}&\bar{l}_{n}&=-\bar{z}^{n+1}\partial_{\bar{z}}\label{eq:2.11}
+           \end{align}
+           である。以下，誤解のない場合は$\partial_{z}=\partial,\partial_{\bar{z}}=\bar{\partial}$とかくことにする。次に生成子の従う代数を決定する。
+           \begin{eqnarray}
+             [l_{m},l_{n}]&=&z^{n+1}\partial(z^{n+1}\partial)-z^{n+1}\partial(z^{m+1}\partial)\nonumber\\
+                          &=&(n+1)z^{m+n+1}\partial-(m+1)z^{m+n+1}\partial\nonumber\\
+                          &=&-(m-n)z^{m+n+1}\partial\nonumber\\
+                          &=&(m-n)l_{m+n}\label{eq:2.12}\\
+             [\bar{l}_{m},\bar{l}_{n}]&=&(m-n)\bar{l}_{m+n}\nonumber
+           \end{eqnarray}
+           となる。このことから，以下のことがわかる。
+           <fieldset>$2$次元ユークリッド空間における無限小変換の代数は<b>無限次元</b>である。</fieldset>
+           以下，$z,\bar{z}$を独立変数とみなして，$\mathbb{C}$ではなく$\mathbb{C}^{2}$上で考察をしていく。
+       </p>
+       <h4>Virasoro代数</h4>
+       <p>Witt代数$\mathfrak{g}$に対して<b>中心拡大</b>$\tilde{\mathfrak{g}}$なるものを考える。中心拡大された$\tilde{\mathfrak{g}}$は以下の関係式を満たす。
+           $\tilde{x},\tilde{y}\in\tilde{\mathfrak{g}}$に対して，定数$c,p(x,y)\in\mathbb{C}$が存在して
+           \begin{eqnarray}
+             [\tilde{x},\tilde{y}]_{\tilde{\mathfrak{g}}}&=&[x,y]+cp(x,y)\nonumber\\
+             [\tilde{x},c]_{\tilde{\mathfrak{g}}}&=&0\nonumber\\
+             [c,c]_{\tilde{\mathfrak{g}}}&=&0\nonumber
+           \end{eqnarray}
+           $p:\mathfrak{g}\times\mathfrak{g}\rightarrow\mathbb{C}$は双線型である。代数の中心拡大は量子力学における射影表現と近い関係にある。ここで，さらに構造
+           を加えよう。
+       </p>
+       <p>$L_{n}$を中心拡大されたWitt代数の元とする$(n\in\mathbb{Z})$。交換関係が
+           \begin{equation}
+             [L_{m},L_{n}]=(m-n)L_{m+n}+cp(m,n)\label{eq:2.15}
+           \end{equation}
+           となるものとする。$\bar{l}_{n}\leftrightarrow\bar{L}_{n}$も同様とする。$p(m,n)$を以下のようにして決める。
+           <ul>
+             <li>交換関係は反対称なので$p(n,m)=-p(m,n)$を満たすものとする。</li>
+             <li>$p(1,-1)=p(n,0)=0$と定義して，
+                 \begin{eqnarray}
+                   \hat{L}_{n}&=&L_{n}+\frac{cp(n,0)}{n}\quad(n\neq 0)\nonumber\\
+                   \hat{L}_{0}&=&L_{0}+\frac{cp(1,-1)}{2}\nonumber
+                 \end{eqnarray}
+                 と再定義する。そうすると
+                 \begin{eqnarray}
+                   [\hat{L}_{n},\hat{L}_{0}]&=&nL_{n}+cp(n,0)=n\hat{L}_{n}\nonumber\\
+                   [\hat{L}_{1},\hat{L}_{-1}]&=&2L_{0}+cp(1,-1)=2\hat{L}_{0}\nonumber
+                 \end{eqnarray}
+                 となり，$p(n,m)$は見かけ上消える。
+             </li>
+             <li>次に，Jacobi恒等式を計算する。
+                 \begin{eqnarray}
+                   0&=&\left[\left[L_{m},L_{n}\right],L_{0}\right]+\left[\left[L_{n},L_{0}\right],L_{m}\right]+\left[\left[L_{0},L_{m}\right],L_{n}\right]\nonumber\\
+                   0&=&(m-n)cp(m+n,0)+ncp(n,m)-mcp(m,n)\nonumber\\
+                 \end{eqnarray}
+                 $p(n,0)=0$と定義したから第$1$項は消えて
+                 \begin{equation}
+                   0=(m+n)p(n,m)\nonumber
+                 \end{equation}
+                 を得る。このことから$n\neq-m$のとき，$p(n,m)\neq 0$であることを主張している。
+             </li>
+             <li>
+                 さらに，以下のJacobi恒等式を計算する。
+                 \begin{eqnarray}
+                   0&=&\left[\left[L_{-n+1},L_{n}\right],L_{-1}\right]+\left[\left[L_{n},L_{-1}\right],L_{-n+1}\right]+\left[\left[L_{-1},L_{-n+1}\right],L_{n}\right]\nonumber\\
+                   0&=&(-2n+1)cp(1,-1)+(n+1)cp(n-1,-n+1)+(n-2)cp(-n,n)\nonumber
+                 \end{eqnarray}
+                 第$1$項は定義により$0$なので
+                 \begin{eqnarray}
+                   p(n,-n)&=&\frac{n+1}{n-2}p(n-1,-n+1)\nonumber\\
+                          &=&\frac{n+1}{n-2}\frac{n}{n-3}\cdots\frac{3}{1}p(2,-2)\nonumber
+                 \end{eqnarray}
+                 となる。$p(2,-2)=1/2$と規格化すれば
+                 \begin{equation}
+                   p(n,-n)=\frac{1}{2}\binom{n+1}{3}=\frac{1}{12}(n+1)n(n-1)\nonumber
+                 \end{equation}
+                 を得る。
+             </li>
+           </ul>
+           以上の結果をまとめると，中心拡大されたWitt代数を<b>Virasoro代数</b>といい，定数$c$を<b>セントラルチャージ</b>という。
+           そして，その交換関係は以下で与えられる。
+           <fieldset>
+               セントラルチャージ$c$を持つVirasoro代数$\mathfrak{v}_{c}$の交換関係は
+               \begin{equation}
+                 \left[L_{m},L_{n}\right]=(m-n)L_{m+n}+\frac{c}{12}(m^{3}-m)\delta(m+n=0)\label{eq:2.16}
+               \end{equation}
+               である。ただし，$\delta(x)$は$x$が真のとき$1$,そうでないとき$0$である。
+           </fieldset>
+       </p>
+       <h2>プライマリ場</h2>
+       <p>本節ではユークリッド空間における$2$次元共形場理論の基本的な定義を紹介する。</p>
+       <h3>複素化</h3>
+         <p>
+          $\mathbb{R}^{2}\simeq\mathbb{C}$なので独立な変数として
+          \begin{align}
+            z&=x^{0}+ix^{1}&\bar{z}&=x^{0}-ix^{1}\nonumber
+          \end{align}
+          をとることができる。複素化とは場の変数を
+          \begin{equation}
+            \phi(x^{0},x^{1})\rightarrow\phi(z,\bar{z})\nonumber
+          \end{equation}
+          とすることである。
+         </p>
+       <h3>カイラル場，プライマリ場の定義</h3>
+    </body>
+</html>
