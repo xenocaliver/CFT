@@ -251,7 +251,7 @@
                  \begin{equation}
                    0=(m+n)p(n,m)\nonumber
                  \end{equation}
-                 を得る。このことから$n\neq-m$のとき，$p(n,m)\neq 0$であることを主張している。
+                 を得る。このことから$n\neq-m$のとき，$p(n,m)=0$であることを主張している。
              </li>
              <li>
                  さらに，以下のJacobi恒等式を計算する。
@@ -296,5 +296,112 @@
           とすることである。
          </p>
        <h3>カイラル場，プライマリ場の定義</h3>
+         <fieldset><legend><strong>正則場，反正則場</strong></legend>
+             場$\phi$が$z$だけに依存するとき，これを<b>カイラル場</b>という。場$\phi$が$\bar{z}$だけに依存するとき<b>反カイラル場</b>という。カイラル場のことを<b>正則場</b>と呼ばれることが
+             主流である。反カイラル場のことは<b>反正則場</b>と呼ばれることが主流である。
+         </fieldset>
+         <fieldset><legend><strong>共形次元</strong></legend>
+             場$\phi(z,\bar{z})$がスケール変換$z\mapsto\lambda z$に対して
+             \begin{equation}
+               \phi(z,\bar{z})\mapsto\phi^{\prime}(z,\bar{z})=\lambda^{h}\bar{\lambda}^{\bar{h}}\phi(\lambda z,\bar{\lambda}\bar{z})\nonumber
+             \end{equation}
+             と変換されるとき，$(h,\bar{h})$を<b>共形次元</b>という。
+         </fieldset>
+         <fieldset><legend><strong>プライマリ場</strong></legend>
+             共形変換$z\mapsto f(z)$に対して場$\phi(z,\bar{z})$が
+             \begin{equation}
+               \phi(z,\bar{z})\mapsto\phi^{\prime}(z,\bar{z})=\left(\frac{\partial f}{\partial z}\right)^{h}
+               \left(\frac{\partial\bar{f}}{\partial\bar{z}}\right)^{\bar{h}}\phi(f(z),\bar{f}(\bar{z})\label{eq:2.17}
+             \end{equation}
+             と変換されるとき，$\phi(z,\bar{z})$を共形次元$(h,\bar{h})$の<b>プライマリ場</b>という。
+         </fieldset>
+　　　　<h3>無限小共形変換</h3>
+       <p>無限小共形変換に対して，プライマリ場がどのように変換されるか調べてみよう。$f(z)=z+\epsilon(z),\epsilon(z)\ll 1$
+          という写像を考える。そうすると
+          \begin{equation}
+             \left(\frac{\partial f}{\partial z}\right)=1+h\partial\epsilon(z)+O(\epsilon^{2})\nonumber
+          \end{equation}
+          \begin{equation}
+             \phi(z+\epsilon(z),\bar{z})=\phi(z)+\epsilon(z)\partial\phi(z,\bar{z})+O(\epsilon^{2})\nonumber
+          \end{equation}
+          となる。プライマリ場の定義$(\ref{eq:2.17})$より
+          \begin{equation}
+             \phi(z,\bar{z})\mapsto\phi(z,\bar{z})=\left(h\partial\epsilon+\epsilon\partial+\bar{h}\bar{\partial}\bar{\epsilon}
+             +\bar{\epsilon}\bar{\partial}\right)\phi(z,\bar{z})
+          \end{equation}
+          を得る。以上から，変換則は
+          <fieldset>
+          \begin{equation}
+             \delta_{\epsilon,\bar{\epsilon}}\phi(z,\bar{z})=\left(h\partial\epsilon+\epsilon\partial+\bar{h}\bar{\partial}\bar{\epsilon}
+             +\bar{\epsilon}\bar{\partial}\right)\phi(z,\bar{z})\label{eq:2.18}
+          \end{equation}
+          </fieldset>
+          を得る。
+       </p>
+       <h2>エネルギー-運動量テンソル</h2>
+       <p>通常，場の量子論では理論が備えているべき性質を持ったラグランジアンから出発する。特にエネルギー-運動量テンソルは作用に含まれる計量テンソルの無限小変換
+       $g_{\mu\nu}\mapsto g_{\mu\nu}+\delta g_{\mu\nu},g_{\mu\nu}\ll 1$から導かれる。</p>
+       <p>2次元の無限小変換の代数が無限次元であることから理論は強く拘束をうける。とくに，理論に現れる作用の具体的な形を知らなくてもよくなる。エネルギー-運動量テンソルの
+       振る舞いをみるだけで，必要な情報がえられるようになる。</p>
+       <h3>共形不変性</h3>
+       <p>共形場理論のエネルギー-運動量テンソルを求めるわけだが，場の量子論のNoetherの定理を思い出すとよい。連続対称性があれば保存するカレント$j_{\mu}$が存在して
+       保存則$\partial^{\mu}j_{\mu}=0$を満たす。共形不変性$x^{\mu}\mapsto x^{\mu}+\epsilon^{\mu}(x)$に対して保存するカレントが存在して
+       \begin{equation}
+          j_{\mu}=T_{\mu\nu}\epsilon^{\nu}\label{eq:2.19}
+       \end{equation}
+       という形をしている。$T_{\mu\nu}$がエネルギー-運動量テンソルと呼ばれる。このカレントが保存するので，$\epsilon^{\mu}=一定$の場合を考える。
+       \begin{equation}
+           0=\partial^{\mu}j_{\mu}=\partial^{\mu}(T_{\mu\nu}\epsilon^{\nu})=(\partial^{\mu}T_{\mu\nu})\epsilon^{\nu}\rightarrow\partial^{\mu}T_{\mu\nu}=0\label{eq:2.20}
+       \end{equation}
+       となり保存する。もっと一般の場合では
+       \begin{eqnarray}
+           0=\partial^{\mu}j_{\mu}&=&(\partial^{\mu}T_{\mu\nu}\epsilon^{\nu}+T_{\mu\nu}(\partial^{\mu}\epsilon^{\nu})\nonumber\\
+                                  &=&0+\frac{1}{2}T_{\mu\nu}(\partial^{\mu}\epsilon^{\nu}+\partial^{\nu}\epsilon^{\mu})
+           =\frac{1}{2}T_{\mu\nu}\eta^{\mu\nu}(\partial\cdot\epsilon)\frac{2}{d}=\frac{1}{d}T_{\mu}^{\,\,\mu}(\partial\cdot\epsilon)\nonumber
+       \end{eqnarray}
+       となる。ここで，$T_{\mu\nu}$は対称テンソルであることを使った。この方程式は任意の無限小変換$\epsilon(z)$に対して成り立つので，以下の結論を得る。
+       <fieldset>共形場理論ではエネルギー-運動量テンソルの対角和は$0$である。すなわち，$T_{\mu}^{\,\,\mu}=0$である。</fieldset>
+       </p>
+       <h3>2次元ユークリッド空間に適用</h3>
+       <p>2次元ユークリッド空間上の理論を複素変数で議論する。
+           \begin{equation}
+           T_{\mu\nu}=\frac{\partial x^{\alpha}}{\partial x^{\mu}}\frac{\partial x^{\beta}}{\partial x^{\nu}}T_{\alpha\beta}\nonumber
+           \end{equation}
+           \begin{align}
+             x^{0}&=\frac{z+\bar{z}}{2}& x^{1}&=\frac{z-\bar{z}}{2}\nonumber
+           \end{align}
+           であることから
+           \begin{align}
+             \frac{\partial x^{0}}{\partial z}&=\frac{1}{2}&\frac{\partial x^{0}}{\partial\bar{z}}&=\frac{1}{2}\nonumber\\
+             \frac{\partial x^{1}}{\partial z}&=\frac{1}{2i}&\frac{\partial x^{1}}{\partial\bar{z}}&=-\frac{1}{2i}\nonumber
+           \end{align}
+           である。
+           よって，
+           \begin{align}
+             T_{zz}&=\frac{1}{4}(T_{00}-2iT_{10}-T_{11})& T_{\bar{z}\bar{z}}&= \frac{1}{4}(T_{00}+2iT_{10}-T_{11})\nonumber
+           \end{align}
+           \begin{equation}
+             T_{z\bar{z}}=T_{\bar{z}z}=\frac{1}{2}(T_{00}+T_{11})=\frac{1}{4}T_{\mu}^{\,\,\mu}=0\nonumber
+           \end{equation}
+           である。$T_{00}=-T_{11}$であるから
+           \begin{align}
+             T_{zz}&=\frac{1}{2}(T_{00}-iT_{10})& T_{\bar{z}\bar{z}}=\frac{1}{2}(T_{00}+iT_{10})\label{eq:2.21}
+           \end{align}
+           である。並進不変性$(\ref{eq:2.20})$を使うと
+           \begin{align}
+             \partial_{0}T_{00}+\partial_{1}T_{10}&= 0& \partial_{0}T_{01}+\partial_{1}T_{11} &= 0\label{eq:2.22}
+           \end{align}
+           となる。これ使うと
+           \begin{equation}
+             \partial_{\bar{z}}T_{zz}=\frac{1}{4}(\partial_{0}+i\partial_{1})(T_{00}-iT_{10})=\frac{1}{4}(\partial_{0}T_{00}+\partial_{1}T_{10}
+             +i\partial_{1}\underbrace{T_{00}}_{=-T_{11}}-i\partial_{0}\underbrace{T_{10}}_{=T_{01}})=0\nonumber
+           \end{equation}
+           を得る。同様に$\partial_{z}T_{\bar{z}\bar{z}}=0$である。以上から以下の結論を得る。
+           <fieldset>正則，反正則なエネルギー-運動量テンソルで$0$でない成分は以下の$2$つである。
+               \begin{align}
+               T_{zz}(z,\bar{z})&\triangleq T(z) & T_{\bar{z}\bar{z}}(z,\bar{z}) &\triangleq \bar{T}(\bar{z})\nonumber
+               \end{align}
+           </fieldset>
+       </p>
     </body>
 </html>
