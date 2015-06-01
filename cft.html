@@ -403,5 +403,80 @@
                \end{align}
            </fieldset>
        </p>
+       <h2>演算子積展開(Operator Product Exapansion)</h2>
+       <p>本節では，エネルギー-運動量テンソルについてさらに詳細に解説する。そして，演算子積による定式化を導入する。</p>
+       <h3>保存するチャージ</h3>
+       <p>まず最初にカレント$j_{\mu}=T_{\mu\nu}\epsilon^{\nu}$は共形対称性に対応して，保存している。保存するチャージは
+           \begin{equation}
+             Q=\int dx^{1}\,\,j_{0}\quad x^{0}=一定\label{eq:2.33}
+           \end{equation}
+          である。場の量子論では，保存するチャージは対応する対称性変換の生成子と以下の関係にある。
+           \begin{equation}
+             \delta A=[Q,A]\nonumber
+           \end{equation}
+           この交換関係はどう自国である。$x^{0}$は一定なので保存チャージは$|z|=$一定の経路をたどる線積分となる。よって
+           \begin{equation}
+             Q=\frac{1}{2\pi i}\oint_{\mathcal{C}}(dzT(z)\epsilon(z)+dz\bar{T}(z)\bar{\epsilon}(\bar{z}))\label{eq:2.34}
+           \end{equation}
+           となる。
+       </p>
+       <p>よって，場の無限小変換は
+           \begin{equation}
+             \delta_{\epsilon,\bar{\epsilon}}\phi(w,\bar{w})=\frac{1}{2\pi i}\oint_{\mathcal{C}}[T(z)\epsilon(z),\phi(w,\bar{w})]
+           +\frac{1}{2\pi i}\oint_{\mathcal{C}}d\bar{z}[\bar{T}(\bar{z})\bar{\epsilon}(\bar{z}),\phi(w,\bar{w})]\label{eq:2.35}
+           \end{equation}
+           とかける。
+       </p>
+       <h3>Radial Ordering</h3>
+       <p>この積分は$w$が$\mathcal{C}$の内側にあるか，外側にあるかで，計算結果が変わってくる。場の量子論では相関関数に時間順序を導入していた。
+          このとき，複素数への変数変換
+          \begin{equation}
+             z=e^{x^{0}}e^{ix^{1}}\nonumber
+          \end{equation}
+          を考慮すると，$|z|>|w|$のときのみ意味を持つ。よって，以下の順序積
+          \begin{equation}
+             R(A(z)B(w))\triangleq
+             \begin{cases}
+               A(z)B(w)& (|z|>|w|)\nonumber\\
+               B(w)A(z)& (|w|>|z|)\nonumber\\
+             \end{cases}
+             \nonumber
+          \end{equation}
+          を定義する。これをRadial Orderingという。そうすると
+          \begin{eqnarray}
+            \oint dz[A(z),B(w)]&= & \oint_{|z|>|w|}dz\,A(z)B(w)-\oint_{|z|< |w|}dzB(w)A(z)\nonumber\\
+                               &= & \oint_{\mathcal{C}(w)}dz\,R\left(A(z)B(w)\right)\label{eq:2.36}
+          \end{eqnarray}
+          となる。よって，$(\ref{eq:2.35})$は
+          \begin{equation}
+            \delta_{\epsilon,\bar{\epsilon}}\phi(w,\bar{w})=h(\partial_{w}\epsilon(w))\phi(w,\bar{w})+
+            \epsilon(w)\left(\partial_{w}\phi(w,\bar{w})\right) + 反正則項
+          \end{equation}
+          さらに，Cauchyの積分定理より
+          \begin{align}
+            \begin{split}
+             h\left(\partial_{w}\epsilon(w)\right)\phi(w,\bar{w})&= \frac{1}{2\pi i}\oint_{\mathcal{C}(w)}
+             dz\,h\frac{\epsilon(z)}{(z-w)^{2}}\phi(w,\bar{w})\label{eq:2.38}\\
+             \epsilon(w)\left(\partial_{w}\phi(w,\bar{w})\right)&=\frac{1}{2\pi i}\oint_{\mathcal{C}(w)}
+             dz\,\frac{\epsilon(z)}{z-w}\partial_{w}\phi(w,\bar{w})
+            \end{split}
+          \end{align}
+          となる。よって，両正則な場$\phi(w,\bar{w})$に対して
+          \begin{equation}
+             R\left(T(z)\phi(w,\bar{w})\right)=\frac{h}{(z-w)^{2}}\phi(w,\bar{w})+\frac{1}{z-w}\partial_{w}\phi(w,\bar{w})+非特異項\label{eq:2.39}
+          \end{equation}
+          を得る。$(\ref{eq:2.39})$を<b>演算子積展開(Operator Product Expansion)</b>(OPE)という。
+       </p>
+　　　　<p>演算子積展開においてはRadial Orderingの意味は明らかなので省略する。これを定義の形で述べると以下の通りである。
+         <fieldset>場$\phi(z,\bar{z})$が以下のように演算子積展開できるとき，$\phi(z,\bar{z})$を共形次元$(h,\bar{h})$の
+             プライマリ場という。
+             \begin{align}
+               \begin{split}
+                 T(z)\phi(w,\bar{w})&= \frac{h}{(z-w)^{2}}\phi(w,\bar{w})+\frac{1}{z-w}\partial_{w}\phi(w,\bar{w})+非特異項\label{eq:2.40}\\
+                 \bar{T}(\bar{z})\phi(w,\bar{w})&= \frac{\bar{h}}{(\bar{z}-\bar{w})^{2}}\phi(w,\bar{w})+\frac{1}{\bar{z}-\bar{w}}\partial_{\bar{w}}\phi(w,\bar{w})+非特異項
+             　 \end{split}
+             \end{align}
+         </fieldset>
+       </p>
     </body>
 </html>
