@@ -478,5 +478,110 @@
              \end{align}
          </fieldset>
        </p>
+       <h3>エネルギー-運動量テンソルの演算子積展開</h3>
+       <p>演算子積展開を定義できたので，この例を示そう。
+           <fieldset>エネルギー-運動量テンソルの演算子積展開は
+               \begin{equation}
+                 T(z)T(w)=\frac{c/2}{(z-w)^{4}}+\frac{2T(w)}{(z-w)^{2}}+\frac{\partial_{w}T(w)}{z-w}+\ldots\label{eq:2.41}
+               \end{equation}
+               である。ただし，$c$はセントラルチャージで$|z|>|w|$である。
+           </fieldset>
+           反正則部も同様である。
+　　　　</p>
+       <p>$(\ref{eq:2.41})$を示すために，$T(z)$をローラン展開する。すなわち，
+           \begin{align}
+             T(z)&=\sum_{n\in\mathbb{Z}}z^{-n-2}L_{n}& L_{n}=\frac{1}{2\pi i}\oint dz\,z^{n+1}T(z)\label{eq:2.42}
+           \end{align}
+           と展開する。さらに，無限小共形変換の保存チャージ$(\ref{eq:2.34})$が$\epsilon(z)=-\epsilon_{n}z^{n+1}$と展開できるとすると
+           \begin{equation}
+             Q_{n}=\oint\frac{dz}{2\pi i}T(z)\left(-\epsilon_{n}z^{n+1}\right)=-\epsilon_{n}\sum_{m\in\mathbb{Z}}
+             \oint\frac{dz}{2\pi i}L_{m}z^{n-m-1}=-\epsilon_{n}L_{n}\nonumber
+           \end{equation}
+           となる。ここで，交換関係を計算する。
+           \begin{eqnarray}
+             [L_{m},L_{n}]&=&\oint\frac{dz}{2\pi i}\oint\frac{dw}{2\pi i}z^{m+1}w^{n+1}[T(z),T(w)]\nonumber\\
+                          &=&\oint_{\mathcal{C}(0)}\frac{dw}{2\pi i}w^{n+1}\oint_{\mathcal{C}(w)}\frac{dz}{2\pi i}z^{m+1}R\left(T(z)T(w)\right)\nonumber\\
+                          &=&\oint_{\mathcal{C}(0)}\frac{dw}{2\pi i}w^{n+1}\oint_{\mathcal{C}(w)}\frac{dz}{2\pi i}z^{m+1}
+                             \left(\frac{c/2}{(z-w)^{4}}+\frac{2T(w)}{(z-w)^{2}}+\frac{\partial_{w}T(w)}{z-w}\right)\nonumber\\
+                          &=&\oint_{\mathcal{C}(0)}\frac{dw}{2\pi i}w^{n+1}\left((m+1)m(m-1)w^{m-2}\frac{c}{2\cdot 3!}
+                             +2(m+1)w^{m}T(w)+w^{m+1}\partial_{w}T(w)\right)\nonumber\\
+                          &=&\oint\frac{dw}{2\pi i}\left(\frac{c}{12}(m^{3}-m)w^{m+n+1}T(w)+2(m+1)w^{m+n+1}T(w)+w^{m+n+2}\partial_{w}T(w)\right)\nonumber\\
+                          &=&\frac{c}{12}(m^{3}-m)\delta(m+n=0)+2(m+1)L_{m+n}+0-\underbrace{\oint\frac{dw}{2\pi i}(m+n+2)T(w)w^{m+n+1}}_{=(m+n+2)L_{m+n}}\nonumber\\
+                          &=&(m-n)L_{m+n}+\frac{c}{12}(m^{3}-m)\delta(m+n=0)\nonumber
+
+           \end{eqnarray}
+           となって，$(\ref{eq:2.41})$が示された。
+　　　　</p>
+       <h2>正則擬プライマリ場の演算子代数</h2>
+       <p>場の量子論における興味の対象は，正準量子化あるいは経路積分を経由して到達する摂動論における$n-$点相関関数である。この節では<b>厳密な</b>
+          2点，3点関数を求める。相関関数はOPEによって求められる。
+       </p>
+       <h3>共形Ward恒等式</h3>
+       <p>場の量子論ではいわゆるWardは対称性の量子論的な現れである。2次元の共形不変性から恒等式を求める。プライマリ場$\phi_{i}$に対して
+           \begin{eqnarray}
+             \left\langle\oint\frac{dz}{2\pi i}\epsilon(z)T(z)\phi_{1}(w_{1},\bar{w}_{1})\ldots\phi_{N}(w_{N},\bar{w}_{N})\right\rangle
+           &=&\sum_{i=1}^{N}\left\langle\phi_{1}(w_{1},\bar{w}_{1})\ldots\left(\oint_{\mathcal{C}(w_{i})}\frac{dz}{2\pi i}\epsilon(z)T(z)\phi_{i}(w_{i},\bar{w}_{i})\right)\ldots\phi_{N}(w_{N},\bar{w}_{N})\right\rangle\nonumber\\
+           &=&\sum_{i=1}^{N}\left\langle\phi_{1}(w_{1},\bar{w}_{1})\ldots\left(h_{i}\partial\epsilon(w_{i})+\epsilon(w_{i})\partial_{w_{i}}\right)\phi_{i}(w_{i},\bar{w}_{i})\ldots\phi_{N}(w_{N},\bar{w}_{N}\right\rangle\label{eq:2.46}
+           \end{eqnarray}
+           となる。その一方で，エネルギー運動量テンソルのOPEを考えると
+           \begin{equation}
+           0=\oint\frac{dz}{2\pi i}\epsilon(z)\left[\left\langle T(z)\phi_{1}(w_{1},\bar{w}_{1})\ldots\phi_{N}(w_{N},\bar{w}_{N})\right\rangle
+            -\sum_{i=1}^{N}\left(\frac{h_{i}}{(z-w_{i})^{2}}+\frac{1}{z-w_{i}}\partial_{w_{i}}\right)
+           \left\langle\phi_{1}(w_{1},\bar{w}_{1})\ldots\phi_{N}(w_{N},\bar{w}_{N})\right\rangle\right]
+           \end{equation}
+           となる。これに，$\epsilon(z)=-z^{n+1},n\in\mathbb{Z}$を代入すると，被積分関数について
+           <fieldset>
+               \begin{equation}
+                 \left\langle T(z)\phi_{1}(w_{1},\bar{w}_{1})\ldots\phi_{N}(w_{N},\bar{w}_{N})\right\rangle
+               =\sum_{i=1}^{N}\left(\frac{h_{i}}{(z-w_{i})^{2}}+\frac{1}{z-w_{i}}\partial_{w_{i}}\right)
+               \left\langle\phi_{1}(w_{1},\bar{w}_{1})\ldots\phi_{N}(w_{N},\bar{w}_{N})\right\rangle\label{eq:2.48}
+               \end{equation}
+           </fieldset>
+           が成り立つ。
+       </p>
+       <h3>2点，3点関数</h3>
+       <p>本節では大域的共形対称性が2点，3点関数を決定することを示す。</p>
+       <h4>2点関数</h4>
+       <p>2点関数は
+           \begin{equation}
+             \langle\phi_{1}(z)\phi_{2}(w)\rangle=g(z,w)\nonumber
+           \end{equation}
+          とかける。並進対称性から$g(z,w)=g(z-w)$であることがわかる。さらにスケール変換不変性から
+           \begin{equation}
+             \langle\phi_{1}(z)\phi_{2}(w)\rangle\mapsto\langle\lambda^{h_{1}}\phi_{1}(\lambda z)\lambda^{h_{2}}\phi_{2}(\lambda w)\rangle
+           =\lambda^{h_{1}+h_{2}}g\left(\lambda(z-w)\right)=g(z-w)\nonumber
+           \end{equation}
+           でなければならない。よって，
+           \begin{equation}
+             g(z-w)=\frac{d_{12}}{(z-w)^{h_{1}+h_{2}}}\nonumber
+           \end{equation}
+           といえる。$d_{12}$を構造定数という。最後に$f(z)=-1/z$という変換に対して
+           \begin{eqnarray}
+             \langle\phi_{1}(z)\phi_{2}(w)\rangle&\rightarrow&\left\langle\frac{1}{z^{2h_{1}}w^{2h_{2}}}\phi_{1}\left(-\frac{1}{z}\right)
+             \phi_{2}\left(-\frac{1}{w}\right)\right\rangle\nonumber\\
+           &=&\frac{1}{z^{2h_{1}}w^{2h_{2}}}\frac{d_{12}}{\left(-\frac{1}{z}+\frac{1}{w}\right)^{h_{1}+h_{2}}}\nonumber\\
+           &=&\frac{d_{12}}{(z-w)^{h_{1}+h_{2}}}\nonumber
+           \end{eqnarray}
+           となる。これは$h_{1}=h_{2}$のときのみ成り立つ。よって，$2$点関数に以下の事実がわかる。
+           <fieldset>共形対称性により，2点関数は
+               \begin{equation}
+                 \langle\phi_{i}(z)\phi_{j}(w)\rangle=\frac{d_{ij}\delta_{h_{i}h_{j}}}{(z-w)^{2h_{i}}}\label{eq:2.49}
+               \end{equation}
+               に決まる。
+           </fieldset>
+           一つの例として，エネルギー-運動量テンソル$T(z)$をあげよう。OPEは$(\ref{eq:2.41})$から示されるように
+           \begin{equation}
+             \langle T(z)T(w)\rangle=\frac{c/2}{(z-w)^{4}}\nonumber
+           \end{equation}
+           を得る。</p>
+           <h4>3点関数</h4>
+           <p>3点関数も同様に議論によって，以下の形に決まる。
+               <fieldset>
+                   \begin{equation}
+                   \langle\phi_{1}(z_{1})\phi_{2}(z_{2})\phi_{3}(z_{3})\rangle=\frac{C_{123}}{z_{12}^{h_{1}+h_{2}-h_{3}}z_{23}^{h_{2}+h_{3}-h_{1}}z_{13}^{h_{1}+h_{3}-h_{2}}}
+                   \end{equation}
+               </fieldset>
+           </p>
+           <h3>正則擬プライマリ場の演算子積展開</h3>
     </body>
 </html>
