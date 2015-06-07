@@ -422,7 +422,7 @@
        </p>
        <p>よって，場の無限小変換は
            \begin{equation}
-             \delta_{\epsilon,\bar{\epsilon}}\phi(w,\bar{w})=\frac{1}{2\pi i}\oint_{\mathcal{C}}[T(z)\epsilon(z),\phi(w,\bar{w})]
+             \delta_{\epsilon,\bar{\epsilon}}\phi(w,\bar{w})=\frac{1}{2\pi i}\oint_{\mathcal{C}}dz[T(z)\epsilon(z),\phi(w,\bar{w})]
            +\frac{1}{2\pi i}\oint_{\mathcal{C}}d\bar{z}[\bar{T}(\bar{z})\bar{\epsilon}(\bar{z}),\phi(w,\bar{w})]\label{eq:2.35}
            \end{equation}
            とかける。
@@ -582,6 +582,645 @@
                    \end{equation}
                </fieldset>
            </p>
-           <h3>正則擬プライマリ場の演算子積展開</h3>
+           <h3>正則擬プライマリ場の演算子積展開の一般形</h3>
+           <h4>OPEの一般形</h4>
+           <p>これまでの議論から
+               \begin{equation}
+                 \phi_{i}(z)\phi_{j}(w)=\sum_{k,n\geqq 0}C_{ij}^{k}\frac{a_{ijk}^{n}}{n!}\frac{1}{(z-w)^{h_{i}+h_{j}-h_{k}-n}}\partial^{n}\phi_{k}(w)\label{eq:2.51}
+               \end{equation}
+               であることが予想できる。ここから先は，長い計算の果てに以下の公式にたどり着く。
+               <fieldset>
+                   $2$つの正則擬プライマリ場の演算子積展開は以下の形となる。
+                   \begin{equation}
+                     \phi_{i}(z)\phi_{j}(w)=\sum_{k,n\geqq 0}C_{ij}^{k}\frac{a_{ijk}^{n}}{n!}\frac{1}{(z-w)^{h_{i}+h_{j}-h_{k}-n}}\partial^{n}\phi_{k}(w)\label{eq:2.53}
+                   \end{equation}
+                   ただし，
+                   \begin{eqnarray}
+                     a_{ijk}^{n}&=&\binom{2h_{k}+n-1}{n}^{-1}\binom{h_{k}+h_{i}-h_{j}+n-1}{n}\nonumber\\
+                     C_{ijk}&=&C_{ij}^{l}d_{lk}\nonumber
+                   \end{eqnarray}
+               </fieldset>
+           </p>
+           <h4>交換関係の一般形</h4>
+           <p>この形から，交換関係の一般形も導ける。$\phi_{i}(z)$をローラン展開すると
+               \begin{equation}
+                 \phi_{i}(z)=\sum_{m}\phi_{m}^{(i)}z^{-m-h_{i}}\nonumber
+               \end{equation}
+               となる。ローラン係数どうしの交換関係は長い計算の果てに以下のようになる。
+               <fieldset>
+                   \begin{equation}
+                     [\phi_{m}^{(i)},\phi_{n}^{(j)}]=\sum_{k}C_{ij}^{k}p_{ijk}(m,n)\phi_{m+n}^{(k)}+d_{ij}\delta(m+n=0)
+                     \binom{m+h_{i}-1}{2h_{i}-1}\label{eq:2.54}
+                   \end{equation}
+                   ただし，係数は
+                   \begin{equation}
+                     p_{ijk}(m,n)=\sum_{\substack{r,s\in\mathbb{Z}_{0}^{+}\\ r+s=h_{i}+h_{j}-h_{k}-1}}C_{rs}^{ijk}
+                     \binom{-m+h_{i}-1}{r}\binom{-n+h_{j}-1}{s}\nonumber
+                   \end{equation}
+                   \begin{equation}
+                     C_{rs}^{ijk}=(-1)^{r}\frac{(2h_{k}-1)!}{h_{i}+h_{j}+h_{k}-2)!}\prod_{t=0}^{s-1}(2h_{i}-2-r-t)
+                     \prod_{u=0}^{r-1}(2h_{j}-2-s-u)\label{eq:2.55}
+                   \end{equation}
+               </fieldset>
+           </p>
+           <h4>応用1:2点関数</h4>
+           <p>まず最初の応用として，簡単な$2$点関数を計算する。
+               \begin{eqnarray}
+                 \parallel\phi_{-n}^{(i)}|0\rangle\parallel^{2}&=&\langle 0|\phi_{-n}^{(i)\dagger}\phi_{-n}^{(i)}|0\rangle\nonumber\\
+               &=&\langle 0|\phi_{n}^{(i)}\phi_{-n}^{(i)}|0\rangle\nonumber\\
+               &=& C_{ii}^{j}p_{h_{i}h_{i}h_{j}}(n,-n)\langle 0|\phi_{0}^{(j)}|0\rangle+d_{ii}\binom{n+h_{i}-1}{2h_{i}-1}\nonumber\\
+               &=& d_{ii}\binom{n+h_{i}-1}{2h_{i}-1}\nonumber
+               \end{eqnarray}
+               となる。ここで，一般の状態について$|\phi\rangle=\phi_{-h}|0\rangle$であることを使うと
+               \begin{equation}
+                 \langle\phi|\phi\rangle=\langle 0|\phi_{+h}\phi_{-h}|0\rangle=d_{\phi\phi}\label{eq:2.56}
+               \end{equation}
+               となる。
+           </p>
+           <h4>応用3: Virasoro代数</h4>
+           <p>$2$点関数を計算できたわけだが，エネルギー-運動量テンソルをモード展開したときの$L_{m}$に関する交換関係がVirasoro代数である。公式
+              $(\ref{eq:2.55})$から導けることを示そう。$L_{m}$の共形次元は$h_{i}=h_{j}=h_{k}=2$なので
+               \begin{equation}
+                 [L_{m},L_{n}]=C_{LL}^{L}p_{222}(m,n)L_{m+n}+d_{LL}\delta(m+n=0)\binom{m+1}{3}\nonumber
+               \end{equation}
+               である。$p_{222}$についても$T(z)$の共形次元が$2$であることを注意すると
+               \begin{equation}
+                 p_{222}(m,n)=C_{r=1,s=0}^{222}\binom{-m+1}{1}+C_{r=0,s=1}^{222}\binom{-n+1}{1}\nonumber
+               \end{equation}
+               である。一方，
+               \begin{align}
+                 C_{r=1,s=0}^{222}&= (-1)^{1}\frac{3!}{4!}2=-\frac{1}{2}&
+                 C_{r=0,s=1}^{222}&= (-1)^{0}\frac{3!}{4!}2=+\frac{1}{2}\nonumber
+               \end{align}
+               となる。これから
+               \begin{equation}
+                 [L_{m},L_{n}]=C_{LL}^{L}\frac{m-n}{2}L_{m+n}+d_{LL}\delta(m+n=0)\frac{m^{3}-m}{6}\nonumber
+               \end{equation}
+               となる。Virasoro代数$(\ref{eq:2.16})$と比較すれば
+               \begin{align}
+                 d_{LL}&= \frac{c}{2}& C_{LL}^{L}=2\label{eq:2.58}
+               \end{align}
+               と決まる。
+           </p>
+           <h4>応用4:カレント代数</h4>
+           <p>本節ではいわゆるカレント代数について議論する。$2$次元共形場理論におけるカレントの定義は以下の通りである。
+           <fieldset><legend><strong>カレント</strong></legend>
+             共形次元$h=1$の正則場$j(z)$をカレントという。反正則セクタについても同様である。
+           </fieldset>
+             $N$個の擬プライマリカレント$j_{i}(z)(i=1,\ldots,N)$を考える。$j_{i}(z)$をローラン展開すると
+             $j_{i}(z)=\sum_{n\in\mathbb{Z}}z^{-n-1}j_{n}^{(i)}$となると仮定する。このとき，$(\ref{eq:2.54})$
+             を使うと
+             \begin{equation}
+               [j_{m}^{(i)},j_{n}^{(j)}]=\sum_{k}C_{ij}^{k}p_{111}(m,n)j_{m+n}^{(k)}+d_{ij}m\delta(m+n=0)\label{eq:2.59}
+             \end{equation}
+              となる。$(\ref{eq:2.55})$を使うと$p_{111}(m,n)=1$である。さらに，交換関係の反対称性により$C_{ij}^{k}=-C_{ji}^{k}$である。
+           </p>
+           <p>ここで行列$d_{ij}$を対角化して$d_{ij}\rightarrow k\delta_{ij}$とする。さらに，$C_{ij}^{k}$を$f^{ijl}$と書き換える
+              と，
+               \begin{equation}
+                 [j_{m}^{i},j_{n}^{j}]=\sum_{l}f^{ijl}j_{m+n}^{l}+km\delta^{ij}\delta(m+n=0)\label{eq:2.60}
+               \end{equation}
+              を得る。$f^{ijl}$を構造定数と呼び，$k$をレベルという。$(\ref{eq:2.60})$は<b>Ka&#x10D-Moody代数</b>の一般化となっている。
+           </p>
+           <h2>正規順序積</h2>
+            <p>生成演算子を消滅演算子の左に持ってくる処方を正規順序積(Normal Ordering)という。本節ではOPEの非特異部が正規順序積を与えることを示す。</p>
+              <h3>正規順序積の処方箋</h3>
+               <p>
+                   場$\phi(z,\bar{z})$のローラン展開は
+                   \begin{equation}
+                     \phi(z,\bar{z})=\sum_{n,\bar{m}\in\mathbb{Z}}z^{-n-h}\bar{z}^{-\bar{m}-\bar{h}}\phi_{n,\bar{m}}\nonumber
+                   \end{equation}
+                   である。$z=e^{x^{0}}e^{ix^{1}}$であったから，初期状態$x^{0}\rightarrow-\infty$は$z,\bar{z}\rightarrow 0$
+                   に対応づけられる。よって，
+                   \begin{equation}
+                     |\phi\rangle=\lim_{z,\bar{z}\rightarrow 0}\phi(z,\bar{z})|0\rangle\label{eq:2.26}
+                   \end{equation}
+                   となる。$(\ref{eq:2.26})$は非特異でなければならないため
+                   \begin{equation}
+                     \phi_{n,\bar{m}}|0\rangle=0, n>-h,\bar{m}>-\bar{h}\label{eq:2.61}
+                   \end{equation}
+                   を初期状態に要求する。
+                   これを簡単にかくと
+                   \begin{equation}
+                     |\phi\rangle=\lim_{z,\bar{z}\rightarrow0}\phi(z,\bar{z})|0\rangle=\phi_{-h,-\bar{h}}|0\rangle\nonumber
+                   \end{equation}
+                   となる。
+               </p>
+               <p>さらに考察を進めよう。ハミルトニアンは$H=L_{0}+\bar{L}_{0}$とかける。さらに，交換関係の一般形より
+                   \begin{equation}
+                     [L_{m},\phi_{n}]=\{(h-1)m-n\}\phi_{m+n}\label{eq:2.45}
+                   \end{equation}
+                   である。よって，
+                   \begin{equation}
+                     L_{0}\phi_{n}|0\rangle=(L_{0}\phi_{m}-\phi_{n}L_{0}|0\rangle=[L_{0},\phi]|0\rangle=-n\phi_{n}|0\rangle
+                   \nonumber
+                   \end{equation}
+                   となる。ただし，$L_{0}|0\rangle=0$を用いた。$(\ref{eq:2.61})$を考慮にいれるとカイラルエネルギーは下に有界である。すなわち，
+                   $m\geqq 0$に対して$h+m$だけが許される。生成演算子は正のエネルギー状態を作り出すことを要求すると
+                   \begin{eqnarray}
+                     \phi_{n}& n>-h\quad 消滅演算子\nonumber\\
+                     \phi_{n}& n\leqq -h\quad 生成演算子\nonumber
+                   \end{eqnarray}
+                   となることがわかる。反正則な$\bar{L}_{0}$についても同様である。
+               </p>
+               <h3>正規順序積と演算子積展開</h3>
+               <p>正規順序積を$N(\chi\phi)$とかく。記号としては$:\phi\chi:$が一般的である。まず，以下の事実を示そう。
+                   <fieldset>OPEで非特異な部分は
+                       \begin{equation}
+                         \phi(z)\chi(w)=特異部+\sum_{n=0}^{\infty}\frac{(z-w)^{n}}{n!}N(\chi\partial^{n}\phi)(w)\label{eq:2.63}
+                       \end{equation}
+                       とかける。
+                   </fieldset>
+                   $(\ref{eq:2.63})$の計算を実行するには，Cauchyの積分定理により
+                   \begin{equation}
+                      N(\chi\phi)(w)=\oint_{\mathcal{C}(w)}\frac{dz}{2\pi i}\frac{\phi(z)\chi(w)}{z-w}\label{eq:2.64}
+                   \end{equation}
+                   となる。これをLaurent展開すると
+                   \begin{eqnarray}
+                      N(\chi\phi)(w)&=&\sum_{n\in\mathbb{Z}}w^{-n-h^{\phi}-h^{\chi}}N(\chi\phi)_{n}\nonumber\\
+                      N(\chi\phi)_{n}&=&\oint_{\mathcal{C}(0)}\frac{dw}{2\pi i}w^{n+h^{\phi}+h^{\chi}-1}N(\chi\phi)(w)\label{eq:2.65}
+                   \end{eqnarray}
+                   となる。$(\ref{eq:2.64})$を$(\ref{eq:2.65})$に代入して
+                   \begin{eqnarray}
+                      N(\chi\phi)_{n}&=&\oint_{\mathcal{C}(0)}\frac{dw}{2\pi i}w^{n+h^{\phi}+h^{\chi}-1}\oint_{\mathcal{C}(w)}\frac{dz}{2\pi i}
+                      \frac{\phi(z)\chi(w)}{z-w}\label{eq:2.66}\\
+                      &=&\oint\frac{dw}{2\pi i}w^{n+h^{\phi}+h^{\chi}-1}\left(\underbrace{\oint_{|z|>|w|}\frac{dz}{2\pi i}\frac{\phi(z)\chi(w)}{z-w}}_{\mathcal{I}_{1}}-\oint_{|z|<|w|}\frac{dz}{2\pi i}\frac{\chi(w)\phi(z)}{z-w}\right)\nonumber
+                   \end{eqnarray}
+                   となる。ここで，$\mathcal{I}_{1}$を計算する。
+                   \begin{eqnarray}
+                     \mathcal{I}_{1}&=&\oint_{|z|>|w|}\frac{dz}{2\pi i}\frac{1}{z-w}\sum_{r,s}z^{-r-h^{\phi}}w^{-s-h^{\chi}}\phi_{r}\chi_{s}\nonumber\\
+                     &=&\oint_{|z|>|w|}\frac{dz}{2\pi i}\frac{1}{z}\sum_{p\geqq 0}\left(\frac{w}{z}\right)^{p}\sum_{r,s}z^{-r-h^{\phi}}w^{-s-h^{\chi}}\phi_{r}\chi_{s}\nonumber\\
+                     &=&\oint_{|z|>|w|}\frac{dz}{2\pi i}\sum_{p\geqq 0}\sum_{r,s}z^{-r-h^{\phi}-p-1}w^{-s-h^{\chi}+p}\phi_{r}\chi_{s}\nonumber
+                   \end{eqnarray}
+                   となる。$z$積分を実行すると，$\delta$関数は$r=-h^{\phi}-p$のときのみ生き残る。さらに，$w$積分をすると
+                   \begin{equation}
+                     \mathcal{I}_{2}=\oint\frac{dw}{2\pi i}\sum_{p\geqq 0}\sum_{s}w^{-s-h^{\chi}+p+n+h^{\phi}+h^{\chi}-1}\phi_{-h^{\phi}-p}\chi_{s}\nonumber
+                   \end{equation}
+                   となるが，$w^{-1}$だけが生き残るため，$s=p+n+h^{\phi}$だけが許される。よって
+                   \begin{equation}
+                     \mathcal{I}_{2}=\sum_{p\geqq 0}\phi_{-h^{\phi}-p}\chi_{h^{\phi}+n+p}=\sum_{k\leqq-h^{\phi}}\phi_{k}\chi_{n-k}\nonumber
+                   \end{equation}
+                   となる。第二項についても同様に計算すると，以下の公式を得る。
+                   <fieldset>
+                       \begin{equation}
+                         N(\chi\phi)_{n}=\sum_{k>-h^{\phi}}\chi_{n-k}\phi_{k}+\sum_{k\leqq-h^{\phi}}\phi_{k}\chi_{n-k}\label{eq:2.67}
+                       \end{equation}
+                   </fieldset>
+                   第$1$項では$\phi_{k}$は消滅演算子が右に来ている。一方，第二項では$\phi_{k}$は生成演算子となり左に来ている。よって，正規順序積はOPEの非特異部に
+　　　　　　　　　　　対応していることがわかる。
+               </p>
+               <h3>便利な公式</h3>
+                   Laurent展開公式を$z$で微分すると
+                   \begin{equation}
+                      \partial\phi(z)=\partial\sum_{n}z^{-n-h}\phi_{n}=\sum_{n}(-n-h)z^{-n-(h+1)}\phi_{n}\label{eq:2.68}
+                   \end{equation}
+                   となる。これを$(\ref{eq:2.67})$に代入すると
+             \begin{align}
+               \begin{split}
+                  N(\chi\partial\phi)_{n}&=&\sum_{k>-h^{\phi}-1}(-h^{\phi}-k)\chi_{n-k}\phi_{k}+\sum_{k\leqq-h^{\phi}-1}(-h^{\phi}-k)\phi_{k}\chi_{n-k}\label{eq:2.69}\\
+                  N(\partial\chi\phi)_{n}&=&\sum_{k>-h^{\phi}}(-h^{\chi}-n+k)\chi_{n-k}\phi_{k}
+                  +\sum_{k\leqq-h^{\phi}}(-h^{\chi}-n+k)\phi_{k}\chi_{n-k}\nonumber
+             　 \end{split}
+             \end{align}
+              を得る。
+         <h2>CFTの簡単な事例</h2>
+         <p>これまではCFTの一般的な枠組みからわかることを紹介してきていた。ここからは具体的な例にCFTを適用してみて，CFTの威力を理解してもらおう。</p>
+           <h3>自由なボーズ粒子</h3>
+               <h4>動機</h4>
+               <p>$0$質量で円筒上を運動するスカラー粒子を考えてみよう。座標系は$(x^{0},x^{1})\in\mathbb{R}^{2}$で$x^{1}\simeq x^{1}+2\pi$
+                  である。このときのラグランジアンは
+                  \begin{eqnarray}
+                       \mathcal{S}&=&\frac{1}{4\pi\kappa}\int dx^{0}dx^{1}\sqrt{|h|}h^{\alpha\beta}\partial_{\alpha}X\partial_{\beta}X\\
+                       &=&\frac{1}{4\pi\kappa}\int dx^{0}dx^{1}\left((\partial_{0}X)^{2}+(\partial_{1}X)^{2}\right)\label{eq:2.75}
+                  \end{eqnarray}
+                   である。ここで，$h=\det h_{\alpha\beta},h_{\alpha\beta}=\mathrm{diag}(+1,+1)$で$\kappa$は規格化定数である。これがこれが座標$X$の
+                   平坦な背景時給を運動するユークリッド化された(共形ゲージの)世界面の作用である。この理論ではスケールを規定する質量項がないため，共形
+                   不変であることが期待される。
+　　　　　　　　　</p>
+               <p>作用$(\ref{eq:2.75})$をもっと詳しく調べるために，円筒を複素平面に写すことにする。すなわち
+                   \begin{equation}
+                     z=e^{x^{0}}\cdot e^{ix^{1}}\label{eq:2.76}
+                   \end{equation}
+                と変数変換する。そうすると，作用は
+                   \begin{eqnarray}
+                     \mathcal{S} &=& \frac{1}{4\pi\kappa}\int dzd\bar{z}\sqrt{|g|}g^{ab}\partial_{a}X\partial_{b}X\label{eq:2.77}\\
+                     &=& \frac{1}{4\pi\kappa}\int dzd\bar{z}\partial X\cdot\bar{\partial}X\label{eq:2.78}
+                   \end{eqnarray}
+                となる。$a,b$は$z,\bar{z}$を示す。また，$\partial=\partial_{z},\bar{\partial}=\partial_{\bar{z}}$である。$(\ref{eq:2.77})$
+                から$(\ref{eq:2.78})$に行くのに
+                   \begin{equation}
+                      g_{ab}=\frac{\partial x^{\alpha}}{\partial x^{a}}\frac{\partial x^{\beta}}{\partial x^{b}}\nonumber
+                   \end{equation}
+                   を具体的に計算すると
+                   \begin{align}
+                      g_{ab}&=\left(
+                      \begin{array}{cc}
+                        0& 1/2z\bar{z}\\
+                        1/2z\bar{z} &0
+                      \end{array}
+                      \right)&
+                      g^{ab} &= \left(
+                       \begin{array}{cc}
+                         0& 2z\bar{z}\\
+                         2z\bar{z}& 0
+                       \end{array}
+                       \right)\nonumber
+                   \end{align}
+                   となる。これを使った。
+               </p>
+               <h4>基本的な性質</h4>
+               <p>まずは，$X$で$\mathcal{S}$を変分して運動方程式を導こう。
+                   \begin{eqnarray}
+                      0&=&\delta_{X}\mathcal{S}\nonumber\\
+                       &=&\frac{1}{4\pi\kappa}\int dzd\bar{z}\left(\partial\delta X\cdot\bar{\partial}X+\partial X\cdot\bar{\partial}\delta X\right)\nonumber\\
+                       &=& \frac{1}{4\pi\kappa}\int dzd\bar{z}\left(\partial (\delta X\cdot\bar{\partial}X)-\delta X\cdot\partial\bar{\partial}X
+                          +\bar{\partial}(\partial X\cdot\delta X)-\bar{\partial}\partial X\cdot\delta X\right)\nonumber\\
+                       &=& -\frac{1}{2\pi\kappa}\int dzd\bar{z}\delta X(\partial\bar{\partial}X)\nonumber
+                   \end{eqnarray}
+               となる。任意の$\delta X$について$0$にならなくてはならないので，運動方程式
+                   \begin{equation}
+                     \partial\bar{\partial}X(z,\bar{z})=0\nonumber
+                   \end{equation}
+               を得る。これに対応するカレントは
+                   \begin{eqnarray}
+                        j(z) &=& i\partial X(z,\bar{z}) は正則な場 \label{eq:2.80}\\
+                        \bar{j}(\bar{z}) &=& i\bar{\partial}X(z,\bar{z})は反正則な場
+                   \end{eqnarray}
+               である。
+               </p>
+               <p>次に，作用$(\ref{eq:2.78})$の共形不変性を確かめよう。
+                   \begin{eqnarray}
+                     \mathcal{S}&\rightarrow&\frac{1}{2\pi\kappa}\int dzd\bar{z}\partial_{z}X^{\prime}(z,\bar{z})\cdot
+                     \partial_{\bar{z}}X^{\prime}(z,\bar{z})\nonumber\\
+                     &=&\frac{1}{4\pi\kappa}\int\frac{\partial z}{\partial w}dw\frac{\partial\bar{z}}{\partial\bar{w}}d\bar{w}
+                     \frac{\partial w}{\partial z}\partial_{w}X(w,\bar{w})\cdot\frac{\bar{w}}{\partial\bar{z}}\partial_{\bar{w}}X(w,\bar{w})\nonumber\\
+                     &=&\frac{1}{4\pi\kappa}\int dwd\bar{w}\partial_{w}X(w,\bar{w})\cdot\partial_{\bar{w}}X(w,\bar{w})\nonumber
+
+                   \end{eqnarray}
+                   となり，共形不変である。さらに，$X$の共形次元は$(h,\bar{h})=(1,0),(h,\bar{h})=(0,1)$であることがわかる。
+               </p>
+               <h4>$2$点関数とLaurentモード代数</h4>
+               <p>作用$(\ref{eq:2.78})$から自由ボーズ粒子$X(z,\bar{z})$のプロパゲーター$K(z,\bar{z},w,\bar{w})=\langle X(z,\bar{z})X(w,\bar{w})$
+                  と求めよう。まず，プロパゲーターは
+                  \begin{equation}
+                     \partial_{z}\partial_{\bar{z}}K(z,\bar{z},w,\bar{w})=-2\pi\kappa\delta^{(2)}(z-w)\nonumber
+                  \end{equation}
+                  を満たさなければならない。しかし，よく知られているように$2$次元のプロパゲーターは対数関数である。すなわち，
+                  \begin{equation}
+                     K(z,\bar{z},w,\bar{w})=\langle X(z,\bar{z})X(w,\bar{w})\rangle=-\kappa\log|z-w|^{2}\label{eq:2.81}
+                  \end{equation}
+                  である。これを$z$と$w$で微分すると
+                  \begin{equation}
+                   -\langle\partial_{z}X(z,\bar{z})\partial_{w}X(w,\bar{w})\rangle=-\kappa\partial_{w}\partial_{w}
+                   \left(-\log(z-w)-\log(\bar{z}-\bar{w})\right)\nonumber
+                   \end{equation}
+                   となり，カレントとの関係は
+                   \begin{equation}
+                     \langle j(z)j(w)\rangle=\frac{\kappa}{(z-w)^{2}}\label{eq:2.82}
+                   \end{equation}
+                   となる。これから，$d_{jj}=\kappa$であることがわかる。
+               </p>
+               <p>カレント代数の議論では，交換関係の反対称性から$C_{ij}^{k}=-C_{ji}^{k}$であるので，$C_{jj}^{j}=0$である。Laurentモードの代数は
+                   <fieldset>
+                       \begin{equation}
+                         [j_{m},j_{n}]=\kappa m\delta(m+n=0)\label{eq:2.83}
+                       \end{equation}
+                   </fieldset>
+                  であることがわかる。
+               </p>
+               <h4>エネルギー-運動量テンソル</h4>
+               <p>理論のエネルギー-運動量テンソルを得るには作用$\mathcal{S}$を計量$g^{ab}$で変分せねばならない。
+                  \begin{equation}
+                     T_{ab}=4\pi\kappa\gamma\frac{1}{\sqrt{|g|}}\frac{\delta\mathcal{S}}{\delta g^{ab}}\label{eq:2.84}
+                  \end{equation}
+                  $\gamma$は規格化定数で$a,b$は$z,\bar{z}$を指す。変分をするときに，問題となるのは$\delta\sqrt{|g|}$の計算だが，
+                  公式
+                  \begin{equation}
+                     \delta\sqrt{|g|}=-\frac{1}{2}\sqrt{|g|}g_{ab}\delta g^{ab}\nonumber
+                  \end{equation}
+                  を使う。そうすると，
+                  \begin{eqnarray}
+                     \frac{\delta\mathcal{S}}{\delta g^{ab}}&=& \frac{1}{4\pi\kappa}\gamma\int dzd\bar{z}
+                   \left(-\frac{1}{2}\sqrt{|g|}g_{ab}\delta g^{ab}\right)g^{cd}\partial_{c}X\partial_{d}X
+                   +\frac{1}{4\pi\kappa}\gamma\int dzd\bar{z}\sqrt{|g|}\partial_{a}X\partial_{b}X\delta g^{ab}\nonumber\\
+                   &=&\frac{1}{4\pi\kappa}\gamma\int dzd\bar{z}\frac{1}{2}\sqrt{|g|}\partial X\cdot\partial X\delta g^{ab}\nonumber
+                  \end{eqnarray}
+                  となる。よって
+                  \begin{align}
+                     T_{zz}=\gamma\partial X\partial X,& T_{z\bar{z}}=T_{\bar{z}z}&= 0& T_{\bar{z}\bar{z}} &=\gamma\bar{\partial}X\bar{\partial}X
+                     \nonumber
+                  \end{align}
+                  を得る。量子論ではエネルギー-運動量テンソルの期待値は$0$でないといけない。そのため，エネルギー-運動量テンソルを正規順序積に変形する。
+                  正則場に関して
+                  \begin{equation}
+                     T(z)=\gamma N(\partial X\partial X)(z)=\gamma N(jj)(z)\nonumber
+                  \end{equation}
+                  である。
+               </p>
+               <p>規格化定数$\gamma$はプライマリ場$j(z)$の共形次元が$h=1$であることから決定される。そこで，$T(z)$をLaurent展開する。
+                  すなわち，$T(z)=\sum_{n\in\mathbb{Z}}z^{-n-2}L_{n}$と展開する。そうすると，展開係数は
+                  \begin{equation}
+                     L_{n}=\gamma N(jj)=\gamma\sum_{k>-1}j_{n-k}j_{k}+\gamma\sum_{k\leqq-1}j_{k}j_{n-k}\label{eq:2.85}
+                  \end{equation}
+                  となる。カレントとの交換関係は
+                  \begin{eqnarray}
+                     [L_{m},j_{n}]&=&\gamma[N(jj)_{m},j_{n}]\nonumber\\
+                     &=& \gamma\sum_{k>-1}\left(j_{m-k}[j_{k},j_{n}]+[j_{m-k},j_{n}]j_{k}\right)
+                        +\gamma\sum_{k\leqq-1}\left(j_{k}[j_{m-k},j_{n}]+[j_{k},j_{n}]j_{m-k}\right)\nonumber\\
+                     &=&\gamma\kappa\left(\sum_{k>-1}j_{m-k}k\delta(k+n=0)+(m-k)\delta(m+n-k=0)j_{k}
+                     +\sum_{k\leqq-1}j_{k}(m-k)\delta(m+n-k=0)+k\delta(k+n=0)j_{m-k}\right)\nonumber\\
+                     &=&-2\gamma\kappa nj_{m+n}\nonumber
+                  \end{eqnarray}
+                  となる。ここで，$(\ref{eq:2.83})$を使った。$(\ref{eq:2.45})$と比較すれば，$2\gamma\kappa=1$であることがわかる。
+                  これは共形次元$h=1$の$L_{m}$の交換関係である。というわけで，エネルギー-運動量テンソルは
+                  \begin{equation}
+                     T(z)=\frac{1}{2\kappa}N(jj)(z)\label{eq:2.86}
+                  \end{equation}
+                  である。
+               </p>
+               <h4>セントラルチャージ</h4>
+               <p>セントラルチャージ$c$を決めるにはVirasoro代数
+                   \begin{equation}
+                     \langle 0|L_{+2}L_{-2}|0\rangle=\langle 0|[L_{2},L_{-2}]|0\rangle=\frac{c}{2}\label{eq:2.87}
+                   \end{equation}
+                  から決める。ただし，$L_{n}|0\rangle=0(n>-2)$である。次に$L_{\mp2}=N(jj)_{\mp 2}/2\kappa$なので
+                   \begin{align}
+                     L_{-2}|0\rangle&=\frac{1}{2\kappa}j_{-1}j_{-1}|0\rangle&\langle 0|L_{+2}&=\frac{1}{2\kappa}\langle 0|(j_{2}j_{0}+j_{1}j_{1})
+                   =\frac{1}{2\kappa}\langle 0|j_{1}j_{1}\nonumber
+                   \end{align}
+                  である。ここで，$\langle 0|j_{2}j_{0}=-\langle 0|j_{0}j_{2}=0$を使った。よって
+                   \begin{eqnarray}
+                      \frac{c}{2}&=&\frac{1}{4\kappa^{2}}\langle 0|j_{1}j_{1}j_{-1}j_{-1}|0\rangle\nonumber\\
+                                 &=&\frac{1}{4\kappa^{2}}\left(\langle 0|j_{1}j_{-1}j_{1}j_{-1}|0\rangle
+                                    +\langle 0|j_{1}\underbrace{[j_{1},j_{-1}]}_{\kappa}j_{-1}|0\rangle\right)\nonumber\\
+                                 &=&\frac{1}{4\kappa^{2}}\left(\langle 0|[j_{1},j_{-1}][j_{1},j_{-1}]|0\rangle+\kappa\langle 0|[j_{1},j_{-1}]|0\rangle\right)\nonumber\\
+                                 &=&\frac{1}{4\kappa^{2}}2\kappa^{2}=\frac{1}{2}\nonumber
+                   \end{eqnarray}
+                   である。ここで，$j_{k}|0\rangle=0(k>-1)$と$\langle 0|j_{k}=0 (k< 1)$を使った。以上から以下のことがわかった。
+                   <fieldset>自由ボーズ粒子の共形場理論のセントラルチャージは$c=1$である。</fieldset>
+               </p>
+               <h4>弦の重心と運動量</h4>
+               <p>(\ref{eq:2.80})に戻ってカレントのLaurent展開をしてみよう。
+                   \begin{align}
+                     j(z)&= i\partial X(z)=\sum_{n\in\mathbb{Z}}j_{n}z^{-n-1}& 
+                     \bar{j}(\bar{z})&= i\bar{\partial}X(z)=\sum_{n\in\mathbb{Z}}\bar{j}_{n}\bar{z}^{-n-1}\nonumber
+                   \end{align}
+                   これを積分すると
+                   \begin{equation}
+                     X(z,\bar{z})=x_{0}-i\left(j_{0}\ln z+\bar{j}_{0}\ln\bar{z}\right)+i\sum_{n\neq 0}\frac{1}{n}
+                     (j_{n}z^{-n}+\bar{j}_{n}\bar{z}^{-n})\label{eq:2.89}
+                   \end{equation}
+                   $(\ref{eq:2.89})$は回転$z\mapsto e^{2\pi i}z$に対して不変であるから
+                   \begin{equation}
+                     j_{0}=\bar{j}_{0}\label{eq:2.90}
+                   \end{equation}
+                   であることがわかる。
+               </p>
+               <p>さらに，$z=e^{x^{0}}e^{ix^{1}}$であることを思い出すと
+                   \begin{equation}
+                     X(x^{0},x^{1})=x_{0}-i(j_{0}+\bar{j}_{0})x^{0}+(j_{0}-\bar{j}_{0})x^{1}
+                     +i\sum_{n\neq 0}\frac{1}{n}(j_{n}e^{-n(x^{0}+ix^{1})}+\bar{j}_{n}e^{-n(x^{0}-ix^{1})})\nonumber
+                   \end{equation}
+                   となる。弦の重心運動量は
+                   \begin{equation}
+                     \pi_{0}=\frac{1}{4\pi}\int_{0}^{2\pi}dx^{1}\frac{\partial X(x^{0},x^{1})}{\partial(-ix^{0})}=
+                     \frac{j_{0}+\bar{j}_{0}}{2}=j_{0}\label{eq:2.91}
+                   \end{equation}
+                   となる。$-i$はユークリッド化したことを考慮したものである。同様に
+                   \begin{equation}
+                     \frac{1}{2\pi}\int_{0}^{2\pi}dx^{1}X(x^{0}=0,x^{1})=x_{0}\nonumber
+                   \end{equation}
+                   を得る。$x_{0}$は弦の重心を示している。$x_{0}$は重心の演算子，$\pi_{0}$はその運動量であるので，交換関係
+                   \begin{equation}
+                     [x_{0},\pi_{0}]=i\label{eq:2.92}
+                   \end{equation}
+                   を要求するのが自然である。
+               </p>
+               <h4>頂点演算子</h4>
+               <p>$X(z,\bar{z})$は共形次元が$(h,\bar{h})=(0,0)$となり，共形場ではない。しかし，$X(z,\bar{z})を使うと
+                  いわゆる頂点演算子を定義できる。
+               <fieldset>頂点演算子$V(z,\bar{z})=:e^{i\alpha X(z,\bar{z})}:$はプライマリ場で，その共形次元は
+                  $(h,\bar{h})=(\alpha^{2}/2,\alpha^{2}/2)$である。対応するエネルギー-運動量テンソルは$T(z)=\frac{1}{2}N(jj)(z)$
+                  と$\bar{T}(z)=\frac{1}{2}N(\overline{jj})(\bar{z})$である。
+               </fieldset>    
+　　　　　　　　　</p>
+               <p>まず，頂点演算子を陽な形に書き下す。$n>-1$のとき，$j_{n}$は消滅演算子であることを使うと
+                   \begin{equation}
+                     V(z,\bar{z})=\exp\left[i\alpha x_{0}-\alpha\sum_{n\leqq -1}\frac{j_{n}}{n}z^{-n}\right]
+                   \exp\left[\alpha\pi_{0}\ln z-\alpha\sum_{n\geqq 1}\frac{j_{n}}{n}z^{-n}\right]\bar{v}(\bar{z})\label{eq:2.93}
+                   \end{equation}
+                   となる。ここで，$\bar{v}(\bar{z})$は反正則な部分である。$[j_{m},j_{n}]=m\delta(m+n=0)$であることを使うと
+                   \begin{equation}
+                     [j_{0},e^{i\alpha x_{0}}]=\sum_{k=0}^{\infty}\frac{(i\alpha)^{k}}{k!}\underbrace{[j_{0},x_{0}^{k}]}_{=k(-i)x_{0}^{k-1}}
+                   =-sum_{k=1}^{\infty}\frac{i(i\alpha)^{k}}{(k-1)!}x_{0}^{k-1}=-i(i\alpha)e^{i\alpha x_{0}}\label{eq:2.94}
+                   \end{equation}
+                   というわけで，$[j_{0},V]=\alpha V$であることがわかる。漸近的な初期状態は
+                   \begin{equation}
+                     j_{0}|\alpha\rangle=\lim_{z,\bar{z}\rightarrow 0}[j_{0},V_{\alpha}(z,\bar{z})|0\rangle
+                     =\lim_{z,\bar{z}\rightarrow 0}\alpha V(z,\bar{z})|0\rangle=\alpha|\alpha\rangle\nonumber
+                   \end{equation}
+                   となる。よって，頂点演算子$(\ref{eq:2.93})$の$j_{0}$固有値は$\alpha$であることがわかる。
+               </p>
+　　　　　　　　　<p>次に頂点演算子$(\ref{eq:2.93})$の共形次元を求めよう。そのために，$[L_{0},V]$を計算する。
+                  まず，最初に$(\ref{eq:2.88})$を思い出そう。
+                  \begin{equation}
+                     L_{0}=\frac{1}{2}j_{0}j_{0}+\frac{1}{2}\sum_{k\geqq 1}j_{-k}j_{k}+\frac{1}{2}\sum_{k\leqq-1}j_{k}j_{-k}\nonumber
+                  \end{equation}
+                  交換関係のなかで，非自明な部分は$j_{0}$と$x_{0}$に関する部分だけなので$(\ref{eq:2.93})$の最初の部分との交換関係を計算する。
+                  \begin{equation}
+                    [L_{0},e^{i\alpha x_{0}}]=\frac{1}{2}[j_{0}j_{0},e^{i\alpha x_{0}}]=
+                     \frac{\alpha}{2}(j_{0}e^{i\alpha x_{0}},e^{i\alpha x_{0}}j_{0})\label{eq:2.95}
+                  \end{equation}
+                  さらに$(\ref{eq:2.93})$の$j_{n}(n\neq 0)$に関する部分を
+             　　　\begin{align}
+                     J^{-1}&=-\sum_{n\leqq-1}\frac{j_{n}}{n}z^{-n}&J^{+}&= -\sum_{n\geqq 1}\frac{j_{n}}{n}\frac{j_{n}}{n}z^{-n}\nonumber
+                  \end{align}
+                  とかくことにする。$[L_{0},j_{n}]=-nj_{n}$を使うと
+                  \begin{align}
+                     [L_{0},J^{-}]&=\sum_{n\leqq 1}j_{n}z^{-n}=z\partial_{z}J^{-}&[L_{0},J^{+}]&=z\partial_{z}J^{+}\nonumber
+                  \end{align}
+                  を得る。さらにLaurent級数展開にこれを用いると
+                  \begin{eqnarray}
+                     [L_{0},e^{\alpha J^{-}}]&=&\sum_{k=0}^{\infty}\frac{alpha^{k}}{k!}\left[L_{0},(J^{-})^{k}\right]\nonumber\\
+                                             &=&\sum_{k=0}^{\infty}kz(\partial J^{-})(J^{-})^{k-1}\nonumber\\
+                                             &=&\sum_{k=0}^{\infty}z\partial\left((J^{-})^{k}\right)=z\partial(e^{\alpha J^{-}})\nonumber
+                  \end{eqnarray}
+                  となる。$J^{+}$についても同様である。これを見ると$[L_{0},\bar{v}(\bar{z})]=0$であることがわかる。これで，$V(z,\bar{z})$の
+                  共形次元を計算する準備が整った。
+                  \begin{eqnarray}
+                    [L_{0},V(z,\bar{z})]&=&[L_{0},e^{i\alpha x^{0}}]e^{\alpha J^{-}}z^{\alpha\pi_{0}}e^{\alpha J^{+}}\bar{v}
+                                        +e^{i\alpha x_{0}}[L_{0},e^{\alpha J^{-}}]z^{\alpha\pi_{0}}e^{\alpha J^{+}}\bar{v}\nonumber\\
+                                        &+& e^{i\alpha x_{0}}e^{\alpha J^{-}}[L_{0},z^{\alpha\pi_{0}}]e^{\alpha J^{+}}\bar{v}
+                                        +e^{i\alpha x_{0}}e^{\alpha J^{-}}z^{\alpha\pi_{0}}[L_{0},e^{\alpha J^{+}}]\bar{v}\nonumber\\
+                                        &=&\frac{\alpha}{2}(j_{0}e^{i\alpha x_{0}}+e^{i\alpha x_{0}}j_{0})e^{\alpha J^{-}}z^{\alpha\pi_{0}}e^{\alpha J^{+}}\bar{v}
+                                        +e^{i\alpha x_{0}}(z\partial_{z}e^{\alpha J^{-}})z^{\alpha\pi_{0}}e^{\alpha J^{+}}\bar{v}\nonumber\\
+                                        &+& 0+e^{i\alpha x_{0}}e^{\alpha J^{-}}z^{\alpha\pi_{0}}(z\partial_{z}e^{\alpha J^{+}})\bar{v}\nonumber\\
+                                        &=&\frac{\alpha}{2}(j_{0}e^{i\alpha x_{0}}+e^{i\alpha x_{0}}j_{0})e^{\alpha J^{-}}z^{\alpha\pi_{0}}e^{\alpha J^{+}}\bar{v}+z\partial V(z,\bar{z})
+                                        -e^{i\alpha x_{0}}e^{\alpha J^{-}}(z\partial_{z}z^{\alpha\pi_{0}})e^{\alpha J^{+}}\bar{v}\nonumber\\
+                                        &=&\frac{\alpha}{2}(j_{0}e^{i\alpha x_{0}}+e^{i\alpha x_{0}}j_{0})e^{\alpha J^{-}}z^{\alpha\pi_{0}}e^{\alpha J^{+}}\bar{v}+z\partial V(z,\bar{z})
+                                        -\alpha e^{i\alpha x_{0}}j_{0}e^{\alpha J^{-}}z^{\alpha\pi_{0}}e^{\alpha J^{+}}\bar{v}\nonumber\\
+                                        &=&\frac{\alpha}{2}[j_{0},e^{i\alpha x_{0}}]e^{\alpha J^{-}}z^{\alpha\pi_{0}}e^{\alpha J^{+}}\bar{v}
+                                         +z\partial V(z,\bar{z})\nonumber\\
+                                        &=&\frac{\alpha^{2}}{2}V(z,\bar{z})+z\partial V(z,\bar{z})\nonumber
+                  \end{eqnarray}
+                  固有値を求めるために，漸近的初期状態を計算する。
+                  \begin{eqnarray}
+                     L_{0}|\alpha\rangle&=&\lim_{z,\bar{z}\rightarrow 0}[L_{0},V_{\alpha}(z,\bar{z})|0\rangle
+                                        =\lim_{z,\bar{z}\rightarrow 0}\left(\frac{\alpha^{2}}{2}V(z,\bar{z})+z\partial V(z,\bar{z})\right)|0\rangle\nonumber\\
+                                        &=&\frac{\alpha^{2}}{2}\lim_{z,\bar{z}\rightarrow 0}V(z,\bar{z})|0\rangle=\frac{\alpha^{2}}{2}|\alpha\rangle\nonumber
+                  \end{eqnarray}
+               ということで，頂点演算子$V_{\alpha}(z,\bar{z})$の共形次元は$h=\alpha^{2}/2$である。反正則な部分についても同様である。
+               </p>
+               <p>自由ボーズ粒子の作用は並進対称性を持っている。すなわち，$X(z,\bar{z})\mapsto X(z,\bar{z})+a$($a$は任意の定数)で不変である。
+                  ここで$\langle V_{\alpha}V_{\beta}\rangle$を計算するわけだが，$V_{\alpha}=:e^{i\alpha X}:$だったわけだから並進対称性のために
+                  $\alpha+\beta=0$でなくてはならない。$V_{\alpha}(z,\bar{z})$はプライマリ場であることを思い出すと，頂点演算子の$2$点相関関数は
+                   \begin{equation}
+                      \langle V_{-\alpha}(z,\bar{z})V_{\alpha}(w,\bar{w})\rangle=\frac{1}{(z-w)^{\alpha^{2}}(\bar{z}-\bar{w})^{\alpha^{2}}}
+                   \nonumber
+                   \end{equation}
+                   であることがわかる。$\alpha+\beta=0$なので
+                   \begin{equation}
+                     \langle V_{+\alpha}V_{+\alpha}\rangle=\langle V_{-\alpha}V_{-\alpha}\rangle=0\nonumber
+                   \end{equation}
+                   である。
+               </p>
+               <h3>自由フェルミオン</h3>
+               <h4>動機</h4>
+               <p>共形場理論の第二の例として，$2$次元Minkowski空間におけるMajoranaフェルミオンの作用を調べよう。計量は$h_{\alpha\beta}=\mathrm{diag}
+               (+1,-1)$である。作用は
+                   \begin{equation}
+                     \mathcal{S}=\frac{1}{4\pi\kappa}\int dx^{0}dx^{1}\sqrt{|h|}(-i)\overline{\mathit{\Psi}}\gamma^{\alpha}\partial_{\alpha}
+                     \mathit{\Psi}\label{eq:2.99}
+                   \end{equation}
+                   である。$\kappa$は規格化定数で，$\overline{\mathit{\Psi}}\triangleq\mathit{\Psi}^{\dagger}\gamma^{0}$である。$\{\gamma^{\alpha}\}$
+                   は$2\times 2$行列でClifford代数
+                   \begin{equation}
+                     \gamma^{\alpha}\gamma^{\beta}+\gamma^{\beta}\gamma^{\alpha}=2h^{\alpha\beta}\mathbf{1}_{2}\nonumber
+                   \end{equation}
+                   を満たす。$\mathbf{1}_{2}$は$2\times 2$の単位行列である。$\gamma$行列にはいくつかの表現がありえるがここでは
+                   \begin{align}
+                     \gamma^{0}&=\left(
+                     \begin{array}{cc}
+                       0& 1\\
+                       1& 0
+                     \end{array}
+                     \right)&
+                     \gamma^{1}&=\left(
+                     \begin{array}{cc}
+                      0& 1\\
+                      -1 & 0
+                     \end{array}\right)
+                   \end{align}
+                   \nonumber
+                   を選ぶ。これは，Majorana条件によってその成分$\psi,\overline{\psi}$が実となるからである。ここでEuclid化するためにWick回転する。すなわち，
+                   $x_{1}\rightarrow ix_{1}$とする。それに伴って$\partial_{1}\rightarrow-i\partial_{1}$とする。そうすると，$\gamma$行列は
+                   \begin{align}
+                     \gamma^{0}&=\left(
+                     \begin{array}{cc}
+                       0& 1\\
+                       1& 0
+                   \end{array}
+                   \right)&
+                   \gamma^{1}&=\left(
+                   \begin{array}{cc}
+                      0& -i\\
+                      i& 0
+                   \end{array}
+                   \right)\nonumber
+                   \end{align}
+                   となる。作用に現れる微分は
+                   \begin{equation}
+                     \gamma^{0}\gamma^{\mu}\partial_{\mu}=\gamma^{0}(\gamma^{0}\partial_{0}+\gamma^{1}\partial_{1})
+                     =\left(
+                     \begin{array}{cc}
+                       \partial_{0}+i\partial_{1} & 0\\
+                       0& \partial_{0}-i\partial_{1}
+                     \end{array}
+                     \right)=2\left(
+                     \begin{array}{cc}
+                       \partial_{\bar{z}} & 0\\
+                       0 & \partial_{z}
+                     \end{array}
+                     \right)\nonumber
+                   \end{equation}
+                   となる。ここで，$z=x^{0}+ix^{1}$とした。簡単のため，複素変数$z,\bar{z}$に依存するMajoranaスピノルも
+                   \begin{equation}
+                     \mathit{\Psi}=\left(
+                      \begin{array}{c}
+                        \psi(z,\bar{z})\\
+                        \overline{\psi}(z,\bar{z})
+                      \end{array}
+                      \right)\nonumber
+                   \end{equation}
+                   とかく。$\psi(z,\bar{z}),\overline{\psi}(z,\bar{z})$ともに実数の場であり，特に
+                   $\psi^{\dagger}=\psi,\overline{\psi}^{\dagger}=\overline{\psi}$である。Wick回転した後の作用は
+                   \begin{equation}
+                     \mathcal{S}=\frac{1}{4\pi\kappa}\int dzd\bar{z}\sqrt{|g|}\mathit{\Psi}^{\dagger}
+                   \left(
+                     \begin{array}{cc}
+                      \partial_{\bar{z}}& 0\\
+                       0& \partial_{z}
+                     \end{array}
+                   \right)\mathit{\Psi}
+                   =\frac{1}{4\pi\kappa}\int dzd\bar{z}(\psi\bar{\partial}\psi+\overline{\psi}\partial\overline{\psi})
+                   \label{eq:2.100}
+                   \end{equation}
+                   となる。計量$g$は
+                   \begin{align}
+                     g_{ab}&=\left(
+                     \begin{array}{cc}
+                       0& 1/2\\
+                       1/2& 0
+                   \end{array}
+                   \right)&
+                   g^{ab}&=\left(
+                   \begin{array}{cc}
+                      0& 2\\
+                      2& 0
+                   \end{array}
+                   \right)\nonumber
+                   \end{align}
+                   となる。
+               </p>
+               <h4>基本的な性質</h4>
+　　　　　　　　　<p>まず作用
+                  <fieldset>
+                      \begin{equation}
+                        \mathcal{S}=\frac{1}{4\pi\kappa}\int dzd\bar{z}(\psi\bar{\partial}\psi+\overline{\psi}\partial\overline{\psi})\label{eq:2.102}
+                      \end{equation}
+                  </fieldset>
+                  から始めよう。運動方程式を得るために，作用を$\psi$で変分すると
+                  \begin{eqnarray}
+                   0=\delta_{\psi}\mathcal{S}&=& \frac{1}{4\pi\kappa}\int dzd\bar{z}(\delta\psi\bar{\partial}\psi+\psi\bar{\partial}(\delta\psi))\nonumber\\
+                   &=& \frac{1}{4\pi\kappa}\int d^{2}z(\delta\psi\bar{\partial}\psi+\underbrace{\bar{\partial}(\psi\delta\psi)}_{=0}
+                      -\underbrace{(\bar{\partial}\psi)\delta\psi}_{=-\delta\psi(\bar{\partial}\psi)})\nonumber\\
+                   &=& \frac{1}{2\pi\kappa}\int d^{2}z\delta\psi\bar{\partial}\psi\nonumber
+                  \end{eqnarray}
+                  というわけで運動方程式は
+                  \begin{equation}
+                    \partial\overline{\psi}=\bar{\partial}\psi=0\label{eq:2.103}
+                  \end{equation}
+                  となる。$\psi(z)$は正則場で$\overline{\psi}(\bar{z})$は反正則場である。
+               </p>
+               <p>次に共形次元を求めてみよう。作用に入っている微分が$1$次であることと自由ボーズ粒子場との比較から共形次元は$(h,\bar{h})=(1/2,0)$か
+                  $(h,\bar{h})=(0,1/2)$であることが推測される。実際にこれを確かめてみよう。
+                  \begin{eqnarray}
+                   \mathcal{S}&\rightarrow&\int dzd\bar{z}(\psi^{\prime}(z)(z,\bar{z})\partial_{\bar{z}}\psi^{\prime}(z,\bar{z})
+                   +\overline{\psi}^{\prime}(z,\bar{z})\partial_{z}\overline{\psi}^{\prime}(z,\bar{z}))\nonumber\\
+                   &=&\frac{1}{4\pi\kappa}\int\frac{\partial z}{\partial w}dw\frac{\partial\bar{z}}{\partial\bar{z}}d\bar{w}
+                   \left(\left(\frac{\partial w}{\partial z}\right)^{\frac{1}{2}}\psi(w,\bar{w})\frac{\partial\bar{w}}{\partial\bar{z}}
+                   \partial_{\bar{w}}\left(\frac{\partial w}{\partial z}\right)^{\frac{1}{2}}\psi(w,\bar{w})\right.\nonumber\\
+                   &+&\left.\left(\frac{\partial\bar{w}}{\partial\bar{z}}\right)^{\frac{1}{2}}\overline{\psi}(w,\bar{w})\frac{\partial w}{\partial z}
+                   \partial_{w}\left(\frac{\partial\bar{w}}{\partial\bar{z}}\right)^{\frac{1}{2}}\overline{\psi}(w,\bar{w})\right)\nonumber\\
+                   &=&\frac{1}{4\pi\kappa}\int dwd\bar{w}(\psi(w,\bar{w})\partial_{\bar{w}}\psi(w,\bar{w})+\overline{\psi}(w,\bar{w})\partial_{w}\overline{\psi}(w,\bar{w})\nonumber
+                  \end{eqnarray}
+                   となり共形不変である。よって，フェルミオン場の共形次元は$(1/2,0)$か$(0,1/2)$であることが確かめられた。
+　　　　　　　　　</p>
+　　　　　　　　　<p>最後にフェルミオン場の位相変換に関する変換性について議論する。$z\mapsto e^{2\pi i}z$と変換したとき，$2$つの可能性が考えられる。
+             　\begin{eqnarray}
+                \psi(e^{2\pi i}z)&=&+\psi(z)\quad\mathrm{Neveu-Schwarz}セクタ(\mathrm{NS}セクタ)\nonumber\\
+                \psi(e^{2\pi i}z)&=&-\psi(z)\quad\mathrm{Ramon}セクタ(\mathrm{R}セクタ)\nonumber
+               \end{eqnarray}
+　　　　　　　　　</p>
     </body>
 </html>
