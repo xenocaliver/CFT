@@ -777,10 +777,11 @@
                    となる。これを$(\ref{eq:2.67})$に代入すると
              \begin{align}
                \begin{split}
-                  N(\chi\partial\phi)_{n}&=&\sum_{k>-h^{\phi}-1}(-h^{\phi}-k)\chi_{n-k}\phi_{k}+\sum_{k\leqq-h^{\phi}-1}(-h^{\phi}-k)\phi_{k}\chi_{n-k}\label{eq:2.69}\\
+                  N(\chi\partial\phi)_{n}&=&\sum_{k>-h^{\phi}-1}(-h^{\phi}-k)\chi_{n-k}\phi_{k}+\sum_{k\leqq-h^{\phi}-1}(-h^{\phi}-k)\phi_{k}\chi_{n-k}\\
                   N(\partial\chi\phi)_{n}&=&\sum_{k>-h^{\phi}}(-h^{\chi}-n+k)\chi_{n-k}\phi_{k}
-                  +\sum_{k\leqq-h^{\phi}}(-h^{\chi}-n+k)\phi_{k}\chi_{n-k}\nonumber
+                  +\sum_{k\leqq-h^{\phi}}(-h^{\chi}-n+k)\phi_{k}\chi_{n-k}
              　 \end{split}
+                \label{eq:2.69}
              \end{align}
               を得る。
          <h2>CFTの簡単な事例</h2>
@@ -997,7 +998,7 @@
                    を要求するのが自然である。
                </p>
                <h4>頂点演算子</h4>
-               <p>$X(z,\bar{z})$は共形次元が$(h,\bar{h})=(0,0)$となり，共形場ではない。しかし，$X(z,\bar{z})を使うと
+               <p>$X(z,\bar{z})$は共形次元が$(h,\bar{h})=(0,0)$となり，共形場ではない。しかし，$X(z,\bar{z})$を使うと
                   いわゆる頂点演算子を定義できる。
                <fieldset>頂点演算子$V(z,\bar{z})=:e^{i\alpha X(z,\bar{z})}:$はプライマリ場で，その共形次元は
                   $(h,\bar{h})=(\alpha^{2}/2,\alpha^{2}/2)$である。対応するエネルギー-運動量テンソルは$T(z)=\frac{1}{2}N(jj)(z)$
@@ -1041,7 +1042,7 @@
                   \end{align}
                   を得る。さらにLaurent級数展開にこれを用いると
                   \begin{eqnarray}
-                     [L_{0},e^{\alpha J^{-}}]&=&\sum_{k=0}^{\infty}\frac{alpha^{k}}{k!}\left[L_{0},(J^{-})^{k}\right]\nonumber\\
+                     [L_{0},e^{\alpha J^{-}}]&=&\sum_{k=0}^{\infty}\frac{\alpha^{k}}{k!}\left[L_{0},(J^{-})^{k}\right]\nonumber\\
                                              &=&\sum_{k=0}^{\infty}kz(\partial J^{-})(J^{-})^{k-1}\nonumber\\
                                              &=&\sum_{k=0}^{\infty}z\partial\left((J^{-})^{k}\right)=z\partial(e^{\alpha J^{-}})\nonumber
                   \end{eqnarray}
@@ -1178,7 +1179,7 @@
                       0& 2\\
                       2& 0
                    \end{array}
-                   \right)\nonumber
+                   \right)\label{eq:2.101}
                    \end{align}
                    となる。
                </p>
@@ -1212,7 +1213,7 @@
                    \partial_{\bar{w}}\left(\frac{\partial w}{\partial z}\right)^{\frac{1}{2}}\psi(w,\bar{w})\right.\nonumber\\
                    &+&\left.\left(\frac{\partial\bar{w}}{\partial\bar{z}}\right)^{\frac{1}{2}}\overline{\psi}(w,\bar{w})\frac{\partial w}{\partial z}
                    \partial_{w}\left(\frac{\partial\bar{w}}{\partial\bar{z}}\right)^{\frac{1}{2}}\overline{\psi}(w,\bar{w})\right)\nonumber\\
-                   &=&\frac{1}{4\pi\kappa}\int dwd\bar{w}(\psi(w,\bar{w})\partial_{\bar{w}}\psi(w,\bar{w})+\overline{\psi}(w,\bar{w})\partial_{w}\overline{\psi}(w,\bar{w})\nonumber
+                   &=&\frac{1}{4\pi\kappa}\int dwd\bar{w}(\psi(w,\bar{w})\partial_{\bar{w}}\psi(w,\bar{w})+\overline{\psi}(w,\bar{w})\partial_{w}\overline{\psi}(w,\bar{w}))\nonumber
                   \end{eqnarray}
                    となり共形不変である。よって，フェルミオン場の共形次元は$(1/2,0)$か$(0,1/2)$であることが確かめられた。
 　　　　　　　　　</p>
@@ -1222,5 +1223,221 @@
                 \psi(e^{2\pi i}z)&=&-\psi(z)\quad\mathrm{Ramon}セクタ(\mathrm{R}セクタ)\nonumber
                \end{eqnarray}
 　　　　　　　　　</p>
+               <h4>Radial順序とLaurent展開</h4>
+               <p>自由ボゾンのときと同様にRadial順序積を考えなければならないが，フェルミオンの場は反交換なので
+                   \begin{equation}
+                     R(\mathit{\Psi}(z)\mathit{\Theta}(z))\triangleq
+                   \begin{cases}
+                     +\mathit{\Psi}(z)\mathit{\Theta}(w)& (|z|>|w|)\\
+                     -\mathit{\Theta}(w)\mathit{\Psi}(z)& (|w|>|z|)
+                   \end{cases}
+                   \label{eq:2.105}
+                   \end{equation}
+                   と定義する。次に，フェルミオン場の共形次元が$\frac{1}{2}$だったことを考慮してLaurent展開を
+                   \begin{equation}
+                     \psi(z)=\sum_{r}\psi_{r}z^{-r-\frac{1}{2}}\label{eq:2.106}
+                   \end{equation}
+                   とする。$r$は整数か半整数を取りうるが容易にわかるように
+                   \begin{align}
+                     r&\in\mathbb{Z}+\frac{1}{2}& \mathrm{Neveu}-\mathrm{Schwarz}セクタ(\mathrm{NS}セクタ)\nonumber\\
+                     r&\in\mathbb{Z} & \mathrm{Ramond}セクタ(\mathrm{R}セクタ)\nonumber
+                   \end{align}
+                   である。</p>
+                 <h4>演算子積展開とLaurentモードの代数</h4>
+                 <p>$\psi(z)$が共形次元$\frac{1}{2}$の場であることから，OPEを
+                     \begin{equation}
+                       \psi(z)\psi(w)=\frac{\kappa}{z-w}+\cdots\label{eq:2.107}
+                     \end{equation}
+                     と決めることができる。$\cdots$は非特異項である。
+                 </p>
+                 <p>Laurentモードの代数を決定するわけだが，Laurent係数は
+                     \begin{equation}
+                       \psi_{r}=\oint\frac{dz}{2\pi i}\psi(z)z^{r-\frac{1}{2}}\nonumber
+                     \end{equation}
+                     である。Laurentモードの代数は反交換関係となる。これを計算してみよう。
+                     \begin{eqnarray}
+                       \{\psi_{r},\psi_{s}\}&=&\oint\frac{dz}{2\pi i}\oint\frac{dw}{2\pi i}\{\psi(z),\psi(w)\}z^{r-\frac{1}{2}}w^{s-\frac{1}{2}}\nonumber\\
+                       &=&\oint\frac{dw}{2\pi i}w^{s-\frac{1}{2}}\left(
+                     \oint_{|z|>|w|}\frac{dz}{2\pi i}\psi(z)\psi(w)z^{r-\frac{1}{2}}-
+                     \oint_{|z|<|w|}\frac{dz}{2\pi i}-\psi(w)\psi(z)z^{r-\frac{1}{2}}\right)\nonumber\\
+                       &=&\oint\frac{dw}{2\pi i}w^{s-\frac{1}{2}}\oint_{\mathcal{C}(w)}\frac{dz}{2\pi i}\underbrace{R(\psi(z)\psi(w))}_{\frac{\kappa}{z-w}}z^{r-\frac{1}{2}}\nonumber\\
+                       &=&\kappa\oint\frac{dw}{2\pi i}w^{r+s-1}\nonumber\\
+                       &=&\kappa\delta(r+s=0)\label{eq:2.108}
+                     \end{eqnarray}
+                     となる。
+                 </p>
+                 <h4>エネルギー-運動量テンソル</h4>
+                 <p>エネルギー運動量テンソルは，
+                     \begin{align}
+                       T_{zz}&=\gamma\psi\partial\psi,& T_{z\bar{z}}&=-\gamma\overline{\psi}\partial\overline{\psi},&
+                       T_{\bar{z}z}&=-\gamma\psi\bar{\partial}\psi,& T_{\bar{z}\bar{z}}&=\gamma\overline{\psi}\bar{\partial}\overline{\psi}\nonumber
+                     \end{align}
+                     エネルギー-運動量テンソルは対称ではない。しかし，運動方程式$(\ref{eq:2.103})$を使うと$T_{z\bar{z}}=T_{\bar{z}z}=0$
+                     であることがわかる。さらに，エネルギーは正定値でなければならないため，正規順序積でかけなければならない。よって
+                     \begin{equation}
+                       T(z)=\gamma N(\psi\partial\psi)\label{eq:2.109}
+                     \end{equation}
+                     となる。$\gamma$は後で決める定数である。エネルギー-運動量テンソルのLaurent係数を計算するときは，Radial順序積のことを考慮して
+                     \begin{equation}
+                       N(\psi\theta)_{r}=-\sum_{s>-h^{\theta}}\psi_{r-s}\theta_{s}+\sum_{s\leqq h^{\theta}}\theta_{s}\psi_{r-s}\label{eq:2.110}
+                     \end{equation}
+                     となる。ここで，公式$(\ref{eq:2.69})$を使うと，Laurent係数$(\ref{eq:2.109})$は
+                     \begin{equation}
+                       L_{m}=\gamma\sum_{s>-\frac{3}{2}}\psi_{m-s}\psi_{s}\left(s+\frac{1}{2}\right)
+                     -\gamma\sum_{s\leqq-\frac{3}{2}}\psi_{s}\psi_{m-s}\left(s+\frac{1}{2}\right)\label{eq:2.111}
+                     \end{equation}
+                     となる。$L_{m}$と$\psi_{r}$の交換関係を計算してみよう。
+                     \begin{equation}
+                       [L_{m},\psi_{r}]=+\gamma\sum_{s>-\frac{3}{2}}[\psi_{m-s}\psi_{s},\psi_{r}]\left(s+\frac{1}{2}\right)
+                     -\gamma\sum_{s\leqq-\frac{3}{2}}[\psi_{s}\psi_{m-s},\psi_{r}]\left(s+\frac{1}{2}\right)\nonumber
+                     \end{equation}
+                     ここで
+                     \begin{eqnarray}
+                       [\psi_{m-s}\psi_{s},\psi_{r}]&=&\psi_{m-s}[\psi_{s},\psi_{r}]+[\psi_{m-s},\psi_{r}]\psi_{s}\nonumber\\
+                     &=&\psi_{m-s}\psi_{s}\psi_{r}-\psi_{m-s}\psi_{r}\psi_{s}+\psi_{m-s}\psi_{r}\psi_{s}-\psi_{r}\psi_{m-s}\psi_{s}\nonumber\\
+                     &=&\psi_{m-s}\{\psi_{r},\psi_{s}\}-\{\psi_{m-s},\psi_{r}\}\psi_{s}\nonumber
+                     \end{eqnarray}
+                     なので
+                     \begin{eqnarray}
+                       [L_{m},\psi_{r}]&=&+\gamma\sum_{s>-\frac{3}{2}}\left(s+\frac{1}{2}\right)
+                     (\psi_{m-s}\{\psi_{s},\psi_{r}\}-\{\psi_{m-s},\psi_{r}\}\psi_{s})
+                     -\gamma\sum_{s\leqq-\frac{3}{2}}\left(s+\frac{1}{2}\right)
+                     (\psi_{s}\{\psi_{m-s},\psi_{r}\}-\{\psi_{s},\psi_{r}\}\psi_{m-s})\nonumber\\
+                     &=&+\gamma\kappa\sum_{s>-\frac{3}{2}}\left(s+\frac{1}{2}\right)(\psi_{m-s}\delta(r+s=0)-\psi_{s}\delta(r+m-s=0))\nonumber\\
+                     &-&\gamma\kappa\sum_{s\leqq-\frac{3}{2}}\left(s+\frac{1}{2}\right)
+                     (\psi_{s}\delta(r+m-s=0)-\psi_{m-s}\delta(r+s=0))\nonumber\\
+                     &=&\gamma\kappa\left(\left(-r+\frac{1}{2}\right)\psi_{m+r}-\left(m+r+\frac{1}{2}\right)\psi_{m+r}\right)\nonumber\\
+                     &=&+\gamma\kappa(-m-2r)\psi_{m+r}\nonumber
+                     \end{eqnarray}
+                     ここで，$\gamma\kappa=\frac{1}{2}$を選ぶと
+                     \begin{equation}
+                       [L_{m},\psi_{r}]=\left(-\frac{m}{2}-r\right)\psi_{m+r}\nonumber
+                     \end{equation}
+                     となる。$(\ref{eq:2.45})$と比較すれば，$\psi(z)$が共形次元$h=\frac{1}{2}$のプライマリ場であることがわかる。公式を簡単にするために
+                     \begin{equation}
+                       \kappa=+1\nonumber
+                     \end{equation}
+                     を選ぶ。
+                 </p>
+                 <h4>セントラルチャージ</h4>
+                 <p>セントラルチャージは
+                     \begin{equation}
+                       \langle 0|L_{2}L_{-2}|0\rangle=\frac{c}{2}\nonumber
+                     \end{equation}
+                     から決める。
+                     \begin{equation}
+                     L_{-2}|0\rangle=\frac{1}{2}\psi_{-\frac{3}{2}}\psi_{-\frac{1}{2}}|0\rangle\nonumber\\
+                     \end{equation}
+                     \begin{eqnarray}
+                       \langle 0|L_{2}&=&\frac{1}{2}\langle 0|\left(\psi_{\frac{3}{2}}\psi_{\frac{1}{2}}+2\psi_{\frac{1}{2}}\psi_{\frac{3}{2}}\right)\nonumber\\
+                     &=&\frac{1}{2}\langle 0|\left(\{\psi_{\frac{3}{2}},\psi_{\frac{1}{2}}\}+\psi_{\frac{1}{2}}\psi_{\frac{3}{2}}\right)\nonumber\\
+                     &=&\frac{1}{2}\langle 0|\psi_{\frac{1}{2}}\psi_{\frac{3}{2}}\nonumber
+                     \end{eqnarray}
+                     となる。ここで反交換関係$(\ref{eq:2.108})$を使うと
+                     \begin{eqnarray}
+                       \frac{c}{2}=\langle 0|L_{2}L_{-2}|0\rangle&=&\frac{1}{4}\langle 0|\psi_{\frac{1}{2}}\psi_{\frac{3}{2}}
+                     \psi_{-\frac{3}{2}}\psi_{-\frac{1}{2}}|0\rangle\nonumber\\
+                        &=&\frac{1}{4}\langle 0|\psi_{\frac{1}{2}}\{\psi_{\frac{3}{2}},\psi_{-\frac{3}{2}}\}\psi_{-\frac{1}{2}}|0\rangle-0\nonumber\\
+                        &=&\frac{1}{4}\langle 0|\{\psi_{\frac{1}{2}},\psi_{-\frac{1}{2}}\}|0\rangle-0=\frac{1}{4}\nonumber
+                     \end{eqnarray}
+                     を得る。以上から以下の事実がわかった。
+                     <fieldset>自由な実フェルミオン場のセントラルチャージは$c=\frac{1}{2}$である。</fieldset>
+                 </p>
+                 <h3>$(b,c)$ゴースト</h3>
+                 <p>自由ボゾン場と自由フェルミオン場の共形場理論を学んだ後で，ボゾン弦の共変的量子化に重要な役割を果たす$(b,c)$ゴーストの共形場理論を解説しよう。</p>
+　　　　　　　　　　<h4>基本的性質</h4>
+　　　　　　　　　　<p>$(b,c)$ゴーストの作用は
+                    \begin{equation}
+                       \mathcal{S}=\frac{1}{4\pi}\int d^{2}z\left(b_{zz}\partial^{z}c^{z}+b_{\bar{z}\bar{z}}\partial^{\bar{z}}c^{\bar{z}}\right)
+                       \label{eq:2.115}
+                    \end{equation}
+                    で与えられる。ここで，$\partial^{z}=2\partial_{\bar{z}},\partial^{\bar{z}}=2\partial_{z}$である。これは計量$(\ref{eq:2.101})$からくる性質である。
+                    ここで場$b$の共形次元は$h^{b}=2,$場$c$の共形次元は$h^{c}=-1$で反交換するボゾン場とする。
+                 </p>
+                 <p>運動方程式は作用を場$b,c$で変分して得られる。
+                     \begin{eqnarray}
+                       \partial_{\bar{z}}b_{zz}=0&\Rightarrow& b_{zz}=b(z)\nonumber\\
+                       \partial_{z}b_{\bar{z}\bar{z}}=0&\Rightarrow& b_{\bar{z}\bar{z}}=\bar{b}(\bar{z})\nonumber\\
+                       \partial_{\bar{z}}c^{z}=0&\Rightarrow& c^{z}=c(z)\nonumber\\
+                       \partial_{z}c^{\bar{z}}=0&\Rightarrow& c^{\bar{z}}=\bar{c}(\bar{z})\nonumber
+                     \end{eqnarray}
+                     こうして，正則，反正則な関数が定義される。共形次元を考慮すると$b(z),c(z)$のLaurent展開は
+                     \begin{align}
+                       b(z)&=\sum_{n\in\mathbb{Z}}b_{n}z^{-n-2}& c(z)&=\sum_{n\in\mathbb{Z}}c_{n}z^{-n+1}\nonumber
+                     \end{align}
+                     となる。$b_{n}|0\rangle = 0(n>-2), c_{n}|0\rangle=0(n>1)$であることに注意しよう。
+                 </p>
+                 <p>作用$(\ref{eq:2.115})$で与えられる理論のプロパゲーターを求めてみよう。プロパゲーターの満たすべき方程式
+                    \begin{equation}
+                     \partial^{z}\langle b(z)c(w)\rangle=4\pi\delta^{(2)}(z-w)\nonumber
+                    \end{equation}
+                    より，プロパゲーターは
+                     \begin{equation}
+                       \langle b(z)c(w)\rangle=\frac{1}{z-w}\nonumber
+                     \end{equation}
+                    が決まる。また，$(\ref{eq:2.53})$より，演算子積展開は
+                     \begin{equation}
+                       b(z)c(w)=\frac{1}{z-w}+\ldots\nonumber
+                     \end{equation}
+                     で与えられる。$b,c$のLaurent展開の展開係数は
+                     \begin{align}
+                       b_{n}&=\frac{1}{2\pi i}\oint dzz^{n+1}b(z)& c_{n}&=\frac{1}{2\pi i}\oint dzz^{n-2}c(z)\nonumber
+                     \end{align}
+                     で与えられる。これから
+                     \begin{align}
+                       \{b_{m},c_{n}\}&=\delta(m+n=0)&\{b_{m},b_{n}\}&= 0&\{c_{m},c_{n}\}&= 0\label{eq:2.116}
+                     \end{align}
+                     がわかる。
+                 </p>
+                 <h4>エネルギー-運動量テンソルとセントラルチャージ</h4>
+                 <p>ここでは，理論の詳細に立ち入らずにエネルギー-運動量テンソルを決めてみよう。まず，自由なフェルミオンのエネルギー-運動量テンソルは
+                     \begin{equation}
+                       T(z)=\alpha N(b\partial c)+\beta N(\partial bc)\nonumber
+                     \end{equation}
+                     となるはずである。Laurent係数は，共形次元を考慮に入れて
+                     \begin{eqnarray}
+                      L_{m}&=&+\alpha\left(-\sum_{k>0}b_{m-k}c_{k}(+1-k)+\sum_{k\leqq 0}(+1-k)c_{k}b_{m-k}\right)\nonumber\\
+                     &+&\beta\left(-\sum_{k>1}b_{m-k}c_{k}(-2-m+k)+\sum_{k\leqq 1}c_{k}b_{m-k}(-2-m+k)\right)\label{eq:2.117}
+                     \end{eqnarray}
+                     となる。反交換関係$(\ref{eq:2.116})$を使うと
+                     \begin{eqnarray}
+                       L_{0}|b\rangle=L_{0}b_{-2}|0\rangle=\{L_{0},b_{-2}\}|0\rangle=\alpha b_{-2}\{c_{2},b_{-2}\}|0\rangle=alpha|b\rangle\nonumber\\
+                       L_{0}|c\rangle=L_{0}c_{1}|0\rangle=\{L_{0},c_{1}\}|0\rangle=-\beta c_{1}\{b_{-1},c_{1}\}|0\rangle=-\beta|c\rangle\nonumber
+                     \end{eqnarray}
+                     から$\alpha=2,\beta=1$であることがわかる。エネルギー-運動量テンソルがわかったところで，セントラルチャージを求めてみよう。まず
+                     \begin{equation}
+                       L_{2}L_{-2}|0\rangle=\frac{c}{2}|0\rangle\nonumber
+                     \end{equation}
+                     であることと，$(\ref{eq:2.117)$より
+                     \begin{equation}
+                       L_{-2}|0\rangle=2c_{0}b_{-2}|0\rangle=c_{1}b_{-3}|0\rangle\nonumber
+                     \end{equation}
+                     であることがわかる。さらに
+                     \begin{eqnarray}
+                      L_{2}&=&+2\left(-\sum_{k>0}b_{2-k}c_{k}(+1-k)+\sum_{k\leqq 0}(+1-k)c_{k}b_{2-k}\right)\nonumber\\
+                     &+&\left(-\sum_{k>1}b_{2-k}c_{k}(-2-2+k)+\sum_{k\leqq 1}c_{k}b_{2-k}(-2-2+k)\right)\nonumber
+                     \end{eqnarray}
+                     であるので，$(c_{2},b_{0}),(c_{3},b_{-1}),\ldots$と$0$にならない場の組み合わせは増えていく。よって
+                     \begin{equation}
+                       L_{2}=2(b_{0}c_{2}+2b_{-1}c_{3})+(2b_{0}c_{2}+b_{-1}c_{3})+\ldots=4b_{0}c_{2}+5b_{-1}c_{3}+\ldots\nonumber
+                     \end{equation}
+                     となる。よって
+                     \begin{equation}
+                       L_{2}L_{-2}|0\rangle=8b_{0}c_{2}c_{0}b_{-2}|0\rangle+5b_{-1}c_{3}c_{1}b_{-3}|0\rangle=(-8-5)|0\rangle=-13|0\rangle\nonumber
+                     \end{equation}
+                     を得る。これとセントラルチャージの定義
+                     \begin{equation}
+                       L_{2}L_{-2}|0\rangle=\frac{c}{2}|0\rangle\nonumber
+                     \end{equation}
+                     と比較すると以下の結論を得る。
+                     <fieldset>$(b,c)$ゴーストの共形場理論のセントラルチャージは$c=-26$である。</fieldset>
+                 </p>
+                 <p>$(b,c)$ゴーストのセントラルチャージが$c=-26$であることが，ボゾン弦がアノマリーから逃れられるためには時空の次元が$D=26$という条件の根拠となっている。
+                    というのも共形場理論では$1$つのボゾンのセントラルチャージが$c=1$なので，$D=26$個だけのボゾンが必要なのである。一方，超弦理論では自由ボゾン$X^{\mu}$
+                    とペアになる自由フェルミオン$\psi^{\mu}$が$\mu=0,\ldots, D$次元時空を運動していることになる。さらに，$(b,c)$ゴーストとフェルミオンのゴースト
+                    $(\beta,\gamma)$が加わる。フェルミオンのゴーストの共形次元は$(3/2,-1/2)$である。フェルミオンゴースト部分のセントラルチャージは$c=11$である。
+                    よって，時空の次元は$D=\frac{2}{3}(26-11)=10$である。ここで，$\frac{2}{3}$の因子は単一のボゾンとフェルミオンのペアのセントラルチャージの合計
+                    $c=1+\frac{1}{2}=\frac{3}{2}$からきている。
+                 </p>
     </body>
 </html>
