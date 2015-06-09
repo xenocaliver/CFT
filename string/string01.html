@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+  				tex2jax: {
+    					inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+    					processEscapes: true
+  				},
+  				"HTML-CSS": {
+    					availableFonts: ["STIX"],
+    					preferredFont: "STIX",
+    					webFont: "STIX-Web"
+  				},
+                TeX: { equationNumbers: { autoNumber: "AMS" },
+                       extensions: ["autoload-all.js"]
+                     }
+			});
+		</script>
+    	<script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+        </script>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>超弦理論(String Theory Demystified)</title>
+        <style type="text/css">/*<![CDATA[ */
+        h1, h2, h3, h4 { line-height: 1.1; margin: 0.2em; }
+        body { counter-reset: part; }
+        h1 { counter-reset: chapter; }
+        h1:before {
+            content: counter(part) ". ";
+            counter-increment: part;
+        }
+        h2 { counter-reset: section; }
+        h2:before {
+            content: counter(part) ". " counter(chapter) ". ";
+            counter-increment: chapter;
+        }
+        h3 { counter-reset: subsection; }
+        h3:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". ";
+            counter-increment: section;
+        }
+        h4:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". " counter(subsection) ". ";
+            counter-increment: subsection;
+        }
+        /* ]]> */</style>
+        <style type="text/css">
+
+        p {text-indent:1em;} 
+
+
+        ul { list-style-type: disc; }
+
+        </style>
+    </head>
+    <body>
+        <h1>はじめに</h1>
+        <p>現代の素粒子論とは超弦理論と言ってもよいほどに超弦理論が主流となっている。本ブログでもこれを攻略してみようと思う。
+           しかし，超弦理論は高度な数学を必要としており，専門外の人間が理解するのは非常に困難とされている。しかし，
+           難しい学問を最短経路で理解できる解説書シリーズ"Demystified"シリーズにいよいよ超弦理論が登場した。本ブログでは
+           David MacMahon著”String Theory Demystified"を解説しようと思う。本書で十分でないと感じた部分は，適宜他書を
+           参照することにした。参考文献は適宜示すこととする。
+        </p>
+        <h1>第2章The Classical String I: Equation of Motion</h1>
+        <p>本章では，古典的な相対論的点粒子の運動方程式から出発して，弦の古典的な性質を解説する。</p>
+        <h2>相対論的点粒子</h2>
+        <p>本書では，Minkowski計量を
+            \begin{equation}
+              \eta_{\mu\nu}=\left(
+                \begin{array}{cccc}
+                  -1& 0& 0& 0\\
+                   0& 1& 0& 0\\
+                   0& 0& 1& 0\\
+                   0& 0& 0& 1
+                \end{array}
+               \right)\label{eq:2.2}
+            \end{equation}
+            とする。$4$次元から一般の$d$次元に拡張したときも，時間部分は$-1$，空間部分は$+1$とする。
+        </p>
+        <p>このような約束の下，ローレンツ不変な距離は
+            \begin{equation}
+              (X^{\mu})^{2}=\eta_{\mu\nu}X^{\mu}X^{\nu}=-(X^{0})^{2}+(X^{1})^{2}+\cdots+(X^{d})^{2}\label{eq:2.3}
+            \end{equation}
+            とかける。$d$次元時空内の微小距離は
+            \begin{equation}
+              ds^{2}=-\eta_{\mu\nu}dX^{\mu}dX^{\nu}=(dX^{0})^{2}-(dX^{1})^{2}-\cdots-(dX^{d})^{2}\label{eq:2.4}
+            \end{equation}
+        とかける。したがって，$ds=\sqrt{-\eta_{\mu\nu}dX^{\mu}dX^{\nu}}$は時間的な場合実数となる。
+        </p>
+        <p><b>作用原理</b>とは，自由な相対論的粒子の運動はその不変距離に比例するというものである。すなわち，
+            \begin{equation}
+              S=-\alpha\int ds\label{eq:2.5}
+            \end{equation}
+        である。この比例定数$\alpha$が何なのかを考えていこう。そのために，作用$S$の単位は量子論における物理量の単位である$\hbar$と同じ
+        である。$[\cdot]$で単位を表すことにすると，$(\ref{eq:2.5})$は
+            \begin{equation}
+              \frac{[M][L^{2}]}{[T]}=[\alpha][L]\nonumber
+            \end{equation}
+        ということになる。よって，$\alpha$の単位は
+             \begin{equation}
+               [\alpha]=\frac{[M][L]}{[T]}\nonumber
+             \end{equation}
+        となる。
+        </p>
+        <p>これは，
+            \begin{equation}
+               \alpha = \frac{m}{c}\nonumber
+            \end{equation}
+        を示している。さらに自然単位系$\hbar=c=1$をとると，作用は無次元になるため
+            \begin{align}
+              \begin{split}
+                \alpha&=& m\\
+                \Rightarrow[\alpha]&=& [M] = \frac{1}{[L]}
+              \end{split}
+              \label{eq:2.7}
+            \end{align}
+        となる。
+        </p>
+        <p>以上から，$\alpha$は定まって
+            \begin{equation}
+              S=-m\int\sqrt{-\eta_{\mu\nu}dX^{\mu}dX^{\nu}}\label{eq:2.8}
+            \end{equation}
+        を得る。平方根の中に$dX^{\mu}dX^{\nu}$があるというのは都合が悪いので，固有時$\tau$を使ってこれをかきなおそう。
+            \begin{eqnarray}
+              \sqrt{-\eta_{\mu\nu}dX^{\mu}dX^{\nu}}&=& \sqrt{-\eta_{\mu\nu}\left(\frac{d\tau}{d\tau}\right)^{2}dX^{\mu}dX^{\nu}}\nonumber\\
+               &=& d\tau\sqrt{-\eta_{\mu\nu}\frac{dX^{\mu}}{d\tau}\frac{dX^{\nu}}{d\tau}}=d\tau\sqrt{-\eta_{\mu\nu}\dot{X}^{\mu}\dot{X}^{\nu}}
+              \nonumber
+            \end{eqnarray}
+        以上から，作用は
+            \begin{equation}
+               S=-m\int d\tau\sqrt{-\eta_{\mu\nu}d\dot{X}^{\mu}\dot{X}^{\nu}}\label{eq:2.9}
+            \end{equation}
+        となる。この被積分関数を<b>ラグランジアン</b>と呼ぶ。
+        </p>
+        <h2>時空内の弦</h2>
+        <p>時空を運動する点粒子の軌跡は$1$本の曲線をなす。弦理論の基本的なアイデアは，微小な弦の運動が物質の根本であるということである。したがって，
+        微小な弦が時空を運動する軌跡は曲面をなす。これを<b>世界面(World Sheet)</b>という。この弦が閉じている場合，世界面は筒状の曲面をなす。
+        世界面は$2$次元なので，$2$つのパラメータで特徴付けられる。これを$\xi_{1},\xi_{2}$とする。どのようなパラメータを選べばよいかという問題だが，
+        時間方向のパラメータに固有時を選ぶのが適当と思われる。そうすると，もう$1$つは空間方向のパラメータを選ぶ。すなわち
+            \begin{align}
+              \xi_{1}&=\tau&\xi_{2}&=\sigma\nonumber
+            \end{align}
+        とする。世界面上の座標$(\tau,\sigma)$を時空への写像
+            \begin{equation}
+              X^{\mu}(\tau,\sigma)\label{eq:2.12}
+            \end{equation}
+        とする。これを<b>string coordinate</b>という。これを$(d+1)$次元時空に拡張して
+            \begin{equation}
+              \{X^{0}(\tau,\sigma),X^{1}(\tau,\sigma),\ldots,X^{d}(\tau,\sigma)\}\nonumber
+            \end{equation}
+        となる。
+        </p>
+        <p>では，作用$(\ref{eq:2.8})$を$(d+1)$次元時空を運動する弦に拡張しようとするわけだが，点粒子に立ち戻って考えてみよう。
+        作用は点粒子が運動する軌跡のなす曲線の長さに比例していた。これを$2$次元に拡張しようとすると，作用は世界面の面積に比例する
+        と考えるのが妥当だろう。$dA$を世界面の微小面積要素とすると，
+            \begin{equation}
+              S=-T\int dA\label{eq:2.13}
+            \end{equation}
+        とかける。$T$は後でわかることだが，弦の張力である。さて，$dA$は何なのかと考えてみると微小線素から出発しよう。
+            \begin{eqnarray}
+              ds^{2}&=&-\eta_{\mu\nu}dX^{\mu}dX^{\nu}\nonumber\\
+                    &=&-\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial\xi^{\alpha}}\frac{\partial X^{\nu}}{\partial\xi^{\beta}}d\xi^{\alpha}d\xi^{\beta}\nonumber
+            \end{eqnarray}
+        ここで，世界面上の<b>誘導計量(induced metric)</b>を定義しよう。これは
+            \begin{equation}
+              \gamma_{\alpha\beta}=\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial\xi^{\alpha}}\frac{\partial X^{\nu}}{\partial\xi^{\beta}}\label{eq:2.14}
+            \end{equation}
+        この計量は世界面上の距離を決定する。この計量は背景時空の定義から誘導されたものと考えられる。それ故に誘導計量というのである。では，
+        誘導計量を計算してみよう。
+            \begin{align}
+              \dot{X}^{\mu}&=\frac{\partial X^{\mu}}{\partial\tau}& X^{\mu\prime}&=\frac{\partial X^{\mu}}{\partial\sigma}\nonumber
+            \end{align}
+        とかくと，誘導計量は
+            \begin{align}
+              \begin{split}
+               \gamma_{\tau\tau}&=&\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial\tau}\frac{\partial X^{\nu}}{\partial\tau}=\dot{X}^{2}\nonumber\\
+               \gamma_{\sigma\tau}&=&\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial\sigma}\frac{\partial X^{\nu}}{\partial\tau}=\dot{X}\cdot X^{\prime}
+                =\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial \tau}\frac{\partial X^{\nu}}{\partial\sigma}\nonumber\\
+               \gamma_{\sigma\sigma}&=&\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial\sigma}\frac{\partial X^{\nu}}{\partial\sigma}=X^{\prime 2}\nonumber
+              \end{split}
+               \label{eq:2.15}
+            \end{align}
+        となる。$(\ref{eq:2.15})$を使うと
+            \begin{equation}
+              \gamma_{ab}=\left(
+                 \begin{array}{cc}
+                    \dot{X}^{2}&\dot{X}\cdot X^{\prime}\\
+                    \dot{X}\cdot X^{\prime}& X^{\prime 2}
+                 \end{array}
+               \right)\label{eq:2.16}
+            \end{equation}
+        を得る。この行列の行列式を求めよう。
+            \begin{equation}
+              \gamma=\det\gamma_{ab}=\dot{X}^{2}X^{\prime 2}-(\dot{X}\cdot X^{\prime})^{2}\label{eq:2.17}
+            \end{equation}
+        最初の
+            \begin{equation}
+              S=-T\int dA\nonumber
+            \end{equation}
+        戻ってみよう。一般に計量$G_{\alpha\beta}$が与えられたときの微小面積要素は
+            \begin{equation}
+              dA=\sqrt{-\det G_{\alpha\beta}}d^{2}\xi\nonumber
+            \end{equation}
+        で与えられる。我々の場合では誘導計量を使うと$dA=\sqrt{-\gamma}d\tau d\sigma$である。よって，作用は
+            \begin{equation}
+              S=-T\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\ell}d\sigma\sqrt{-\gamma}\label{eq:2.18}
+            \end{equation}
+        とかける。$(\ref{eq:2.17})$を使うと
+            \begin{equation}
+              S=-T\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\ell}d\sigma\sqrt{(\dot{X}\cdot X^{\prime})^{2}-\dot{X}^{2}X^{\prime 2}}\label{eq:2.19}
+            \end{equation}
+        を得る。$(\ref{eq:2.18}),(\ref{eq:2.19})$に現れる作用を<b>南部-後藤作用</b>という。
+        </p>
+        <h2>Polyakov作用</h2>
+        <p>南部-後藤作用は平方根が入っているので，その後の議論が面倒である。そこで，南部-後藤作用と等価なPolyakov作用を使う。この作用を
+        発見したのはPolyakovではなく，Brink,Di Vecchia, Howe, Deser, Zuminoらによって発見された。Polyakovはこの作用の経路積分量子化
+        に成功したため，このように呼ばれる。Polyakov作用は
+            \begin{equation}
+              S_{\mathrm{P}}=-\frac{T}{2}\int d\tau d\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}
+              \label{eq:2.27}
+            \end{equation}
+        という形をしている。$h^{ab}$は世界面上の独立な計量で$(-,+)$の符号を持っているものとする。これが，南部-後藤作用と等価である
+        ことを確認するために，作用を計量$h^{ab}$で変分してみる。計量について変分する場合，公式
+            \begin{equation}
+              \delta h=hh^{ab}\delta h_{ab}=-hh_{ab}\delta h^{ab}\label{eq:P1.2.15}
+            \end{equation}
+        を使う。そうすると，
+            \begin{equation}
+              \delta_{\gamma}S_{\mathrm{P}}=-\frac{T}{2}\int d\tau d\sigma\sqrt{-h}\delta h^{ab}\left(\gamma_{ab}-\frac{1}{2}h_{ab}h^{cd}\gamma_{cd}\right)
+              \label{eq:P1.2.14}
+            \end{equation}
+        を得る。$\delta_{\gamma}S_{\mathrm{P}}=0$という条件をつけると
+            \begin{equation}
+              \gamma_{ab}=\frac{1}{2}h_{ab}h^{cd}\gamma_{cd}\label{eq:P1.2.16}
+            \end{equation}
+        を得る。これは，スカラー関数$A(x)$が存在して
+            \begin{equation}
+              h_{ab}=A(x)\gamma_{ab}\nonumber
+            \end{equation}
+        であることを意味している。というわけで，計量$h_{ab}$は誘導計量$\gamma_{ab}$に比例することがわかった。よって，Polyakov作用から$h_{ab}$を消去できて
+            \begin{equation}
+              S_{\mathrm{P}}\rightarrow -T\int d\tau d\sigma\sqrt{-\gamma}=S_{\mathrm{NG}}\nonumber
+            \end{equation}
+        と南部-後藤作用と等価であることがわかる。
+        </p>
+    </body>
+</html

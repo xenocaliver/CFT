@@ -311,7 +311,7 @@
              共形変換$z\mapsto f(z)$に対して場$\phi(z,\bar{z})$が
              \begin{equation}
                \phi(z,\bar{z})\mapsto\phi^{\prime}(z,\bar{z})=\left(\frac{\partial f}{\partial z}\right)^{h}
-               \left(\frac{\partial\bar{f}}{\partial\bar{z}}\right)^{\bar{h}}\phi(f(z),\bar{f}(\bar{z})\label{eq:2.17}
+               \left(\frac{\partial\bar{f}}{\partial\bar{z}}\right)^{\bar{h}}\phi(f(z),\bar{f}(\bar{z}))\label{eq:2.17}
              \end{equation}
              と変換されるとき，$\phi(z,\bar{z})$を共形次元$(h,\bar{h})$の<b>プライマリ場</b>という。
          </fieldset>
@@ -1013,11 +1013,11 @@
                    となる。ここで，$\bar{v}(\bar{z})$は反正則な部分である。$[j_{m},j_{n}]=m\delta(m+n=0)$であることを使うと
                    \begin{equation}
                      [j_{0},e^{i\alpha x_{0}}]=\sum_{k=0}^{\infty}\frac{(i\alpha)^{k}}{k!}\underbrace{[j_{0},x_{0}^{k}]}_{=k(-i)x_{0}^{k-1}}
-                   =-sum_{k=1}^{\infty}\frac{i(i\alpha)^{k}}{(k-1)!}x_{0}^{k-1}=-i(i\alpha)e^{i\alpha x_{0}}\label{eq:2.94}
+                   =-\sum_{k=1}^{\infty}\frac{i(i\alpha)^{k}}{(k-1)!}x_{0}^{k-1}=-i(i\alpha)e^{i\alpha x_{0}}\label{eq:2.94}
                    \end{equation}
                    というわけで，$[j_{0},V]=\alpha V$であることがわかる。漸近的な初期状態は
                    \begin{equation}
-                     j_{0}|\alpha\rangle=\lim_{z,\bar{z}\rightarrow 0}[j_{0},V_{\alpha}(z,\bar{z})|0\rangle
+                     j_{0}|\alpha\rangle=\lim_{z,\bar{z}\rightarrow 0}[j_{0},V_{\alpha}(z,\bar{z})]|0\rangle
                      =\lim_{z,\bar{z}\rightarrow 0}\alpha V(z,\bar{z})|0\rangle=\alpha|\alpha\rangle\nonumber
                    \end{equation}
                    となる。よって，頂点演算子$(\ref{eq:2.93})$の$j_{0}$固有値は$\alpha$であることがわかる。
@@ -1400,14 +1400,14 @@
                      \end{eqnarray}
                      となる。反交換関係$(\ref{eq:2.116})$を使うと
                      \begin{eqnarray}
-                       L_{0}|b\rangle=L_{0}b_{-2}|0\rangle=\{L_{0},b_{-2}\}|0\rangle=\alpha b_{-2}\{c_{2},b_{-2}\}|0\rangle=alpha|b\rangle\nonumber\\
+                       L_{0}|b\rangle=L_{0}b_{-2}|0\rangle=\{L_{0},b_{-2}\}|0\rangle=\alpha b_{-2}\{c_{2},b_{-2}\}|0\rangle=\alpha|b\rangle\nonumber\\
                        L_{0}|c\rangle=L_{0}c_{1}|0\rangle=\{L_{0},c_{1}\}|0\rangle=-\beta c_{1}\{b_{-1},c_{1}\}|0\rangle=-\beta|c\rangle\nonumber
                      \end{eqnarray}
                      から$\alpha=2,\beta=1$であることがわかる。エネルギー-運動量テンソルがわかったところで，セントラルチャージを求めてみよう。まず
                      \begin{equation}
                        L_{2}L_{-2}|0\rangle=\frac{c}{2}|0\rangle\nonumber
                      \end{equation}
-                     であることと，$(\ref{eq:2.117)$より
+                     であることと，$(\ref{eq:2.117})$より
                      \begin{equation}
                        L_{-2}|0\rangle=2c_{0}b_{-2}|0\rangle=c_{1}b_{-3}|0\rangle\nonumber
                      \end{equation}
