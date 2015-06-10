@@ -246,5 +246,214 @@
             \end{equation}
         と南部-後藤作用と等価であることがわかる。
         </p>
+        <p>(どういう理由かよくわからないが)世界面のオイラー標数$\chi=0$のときは，パラメータをうまく選ぶと
+            \begin{equation}
+              h_{ab}=\left(
+                \begin{array}{cc}
+                  -1& 0\\
+                   0& 1
+                \end{array}
+                \right)\label{eq:2.30}
+            \end{equation}
+        とできる。こうすると
+            \begin{equation}
+              h^{ab}\partial_{a}X\cdot\partial_{b}X=-\partial_{\tau}X\cdot\partial_{\tau}X+\partial_{\sigma}X\cdot\partial_{\sigma}X
+            =-\dot{X}^{2}+X^{\prime 2}\nonumber
+            \end{equation}
+        となる。よって，Polyakov作用は
+            \begin{equation}
+              S_{\mathrm{P}}=\frac{T}{2}\int d^{2}\sigma(\dot{X}^{2}-X^{\prime 2})\label{eq:2.31}
+            \end{equation}
+        と簡単になる。
+        </p>
+        <h3>例題</h3>
+        <p>Polyakov作用の補助場が平坦な計量であった場合の運動方程式を求めよ。</p>
+        <h3>解答</h3>
+        <p>平坦な計量であった場合，
+            \begin{eqnarray}
+              S_{\mathrm{P}}&=&-\frac{T}{2}\int d^{2}\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}\nonumber\\
+            &=&-\frac{T}{2}\int d^{2}\sigma(-\partial_{\tau}X\cdot\partial_{\tau}X+\partial_{\sigma}X\cdot\partial_{\sigma}X)\nonumber\\
+            &=&-\frac{T}{2}\int d^{2}\sigma(-\eta_{\mu\nu}\partial_{\tau}X^{\mu}\partial_{\tau}X^{\nu}+\eta_{\mu\nu}\partial_{\sigma}X^{\mu}\partial_{\sigma}X^{\nu})\nonumber
+            \end{eqnarray}
+        である。よってラグランジアンは
+            \begin{eqnarray}
+              L&=&-\eta_{\mu\nu}\partial_{\tau}X^{\mu}\partial_{\tau}X^{\nu}+\eta_{\mu\nu}\partial_{\sigma}X^{\mu}\partial_{\sigma}X^{\nu}\nonumber\\
+               &=&-\eta_{\mu\nu}\dot{X}^{\mu}\dot{X}^{\nu}+\eta_{\mu\nu}X^{\prime\mu}X^{\prime\nu}\nonumber
+            \end{eqnarray}
+        それ故に
+            \begin{eqnarray}
+              \frac{\partial L}{\partial\dot{X}^{\mu}}&=&\frac{\partial}{\partial\dot{X}^{\mu}}\left(-\eta_{\mu\nu}\dot{X}^{\mu}\dot{X}^{\nu}+\eta_{\mu\nu}X^{\prime\mu}X^{\prime\nu}\right)
+            =-\eta_{\mu\nu}\dot{X}^{\nu}=-\dot{X}_{\mu}\nonumber\\
+              \frac{\partial L}{\partial X^{\prime\mu}}&=&\frac{\partial}{\partial X^{\prime\mu}}\left(-\eta_{\mu\nu}\dot{X}^{\mu}\dot{X}^{\nu}+\eta_{\mu\nu}X^{\prime\mu}X^{\prime\nu}\right)=\eta_{\mu\nu}X^{\prime\nu}=X_{\mu}^{\prime}\nonumber
+            \end{eqnarray}
+        となる。Euler-Lagrange方程式は
+            \begin{equation}
+              \partial_{\tau}\left(\frac{\partial L}{\partial\dot{X}^{\mu}}\right)+\partial_{\sigma}\left(\frac{\partial L}{\partial X^{\prime\mu}}\right)=0
+              \label{eq:2.32}
+            \end{equation}
+        となる。相対論的弦の運動方程式は
+            \begin{equation}
+              \frac{\partial^{2}X_{\mu}}{\partial\tau^{2}}-\frac{\partial^{2}X_{\mu}}{\partial\sigma^{2}}=0\label{eq:2.33}
+            \end{equation}
+        となる。
+        </p>
+        <h2>光円錐座標系</h2>
+        <p>ここで，<b>光円錐座標系</b>を導入しよう。これを導入すると，運動方程式が簡明な形になる。</p>
+        <p>通常の$(3+1)$次元時空を考えよう。反変ベクトルは
+            \begin{equation}
+              x^{\mu}=(x^{0},x^{1},x^{2},x^{3})\nonumber
+            \end{equation}
+           である。光円錐座標を
+            \begin{align}
+              x^{+}&=\frac{x^{0}+x^{1}}{\sqrt{2}}& x^{-}&=\frac{x^{0}-x^{1}}{\sqrt{2}}\label{eq:2.34}
+            \end{align}
+            とする。$x^{2},x^{3}$についてはそのままとする。
+        </p>
+        <p>$(\ref{eq:2.34})$については，逆に
+            \begin{align}
+              x^{0}&=\frac{x^{+}+x^{-}}{\sqrt{2}}& x^{1}&=\frac{x^{+}-x^{-}}{\sqrt{2}}\nonumber
+            \end{align}
+            とできる。Minkowski計量における無限小距離は
+            \begin{equation}
+              ds^{2}=-\eta_{\mu\nu}dx^{\mu}dx^{\nu}=(dx^{0})^{2}-(dx^{1})^{2}-(dx^{2})^{2}-(dx^{3})^{2}\nonumber
+            \end{equation}
+            である。よって，
+            \begin{align}
+              dx^{0}&=\frac{dx^{+}+dx^{-}}{\sqrt{2}}& dx^{1}&=\frac{dx^{+}-dx^{-}}{\sqrt{2}}\label{eq:2.35}
+            \end{align}
+            である。これで無限小距離を書き直すと
+            \begin{equation}
+              ds^{2}=2dx^{+}dx^{-}-(dx^{2})^{2}-(dx^{3})^{2}\label{eq:2.36}
+            \end{equation}
+            となる。したがって，光円錐Minkowski計量は
+            \begin{equation}
+              \hat{\eta}_{\mu\nu}=\left(
+                \begin{array}{cccc}
+                   0& -1& 0& 0\\
+                  -1& 0 & 0& 0\\
+                   0&  0& 1& 0\\
+                   0&  0& 0& 1
+            　　 \end{array}
+            \right)\label{eq:2.37}
+            \end{equation}
+            と定義できる。$(\ref{eq:2.37})$を使うと，無限小距離は
+            \begin{equation}
+              ds^{2}=-\hat{\eta}_{\mu\nu}dx^{\mu}dx^{\nu}\label{eq:2.38}
+            \end{equation}
+            となる。
+        </p>
+        <p>ベクトルについても光円錐成分を
+            \begin{align}
+              v^{+}&= \frac{v^{0}+v^{1}}{\sqrt{2}} & v^{-}&= \frac{v^{0}-v^{1}}{\sqrt{2}}\label{eq:2.39}
+            \end{align}
+           と定義できる。そうすると，$2$つのベクトルの内積は
+            \begin{equation}
+              \boldsymbol{v}\cdot\boldsymbol{w}=\hat{\eta}_{\mu\nu}v^{\mu}w^{\nu}=v^{\mu}w_{\mu}=-v^{+}w^{-}-v^{-}w^{+}+\sum_{i}v^{i}w^{i}\label{eq:2.40}
+            \end{equation}
+            とできる。ただし，$i=1,\ldots, d-1$である。添字の上げ下げについては
+            \begin{align}
+              v^{+}=-v_{-}& v^{-}&= v_{+}\nonumber
+            \end{align}
+            である。その他のベクトル成分は同じである。
+        </p>
+        <p>世界面上の光円錐座標は
+            \begin{align}
+              \sigma^{+}&=\tau+\sigma & \sigma^{-}&= \tau - \sigma\label{eq:2.41}
+            \end{align}
+            と定義する。明らかに$d\sigma^{+}=d\tau+d\sigma,d\sigma^{-}=d\tau-d\sigma$なので
+            \begin{equation}
+              ds^{2}=-d\sigma^{+}d\sigma^{-}\label{eq:2.42}
+            \end{equation}
+            である。補助場の計量は
+            \begin{equation}
+              h_{ab}=\left(
+              \begin{array}{cc}
+                0&-1/2\\
+               -1/2 & 0
+            \end{array}
+            \right)\label{eq:2.43}
+            \end{equation}
+           となる。逆行列は
+            \begin{equation}
+               h^{ab}=\left(
+                \begin{array}{cc}
+                   0& -2\\
+                  -2& 0
+                \end{array}
+               \right)\nonumber
+            \end{equation}
+            である。微分演算子については
+            \begin{align}
+               \partial_{+}&= \frac{\partial_{+}+\partial_{-}}{2}& \partial_{-}&=\frac{\partial_{+} - \partial_{-}}{2}\label{eq:2.44}
+            \end{align}
+            と定義する。これをPolyakov作用
+            \begin{equation}
+              S_{\mathrm{P}}=-\frac{T}{2}\int d^{2}\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}\nonumber
+            \end{equation}
+            に代入すると
+            \begin{eqnarray}
+              \sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}&=& -\sqrt{\frac{1}{4}}h^{+-}\partial_{+}X^{\mu}\partial_{-}X^{\nu}\eta_{\mu\nu}
+            -\sqrt{\frac{1}{4}}h^{-+}\partial_{-}X^{\mu}\partial_{+}X^{\nu}\eta_{\mu\nu}\nonumber\\
+            &=&-2\partial_{+}X^{\mu}\partial_{-}X^{\nu}\eta_{\mu\nu}\nonumber
+            \end{eqnarray}
+            となる。というわけで，光円錐座標系を用いるとPolyakov作用は
+            \begin{equation}
+              S_{\mathrm{P}}=T\int d^{2}\sigma\partial_{+}X^{\mu}\partial_{-}X^{\nu}\eta_{\mu\nu}\label{eq:2.45}
+            \end{equation}
+            と変形できる。
+        </p>
+        <p>運動方程式を得るにはPolyakov作用を変分して
+            \begin{equation}
+              \delta S_{\mathrm{P}}=T\int d^{2}\sigma\partial_{+}(\delta X^{\mu})\partial_{-}X^{\nu}\eta_{\mu\nu}+
+              T\int d^{2}\sigma\partial_{+}X^{\mu}\partial_{-}(\delta X^{\nu})\eta_{\mu\nu}\nonumber
+            \end{equation}
+            となる。ここで，部分積分をして，Neumann条件によって表面項は$0$になると仮定すると
+            \begin{equation}
+              \delta S_{\mathrm{P}}=-T\int d^{2}\sigma(\delta X^{\mu})\partial_{+}\partial_{-}X^{\nu}\eta_{\mu\nu}
+              -T\int d^{2}\sigma\partial_{-}\partial_{+}X^{\mu}(\delta X^{\nu})\eta_{\mu\nu}\nonumber
+            \end{equation}
+            任意の$\delta X^{\mu}$に対してこれが$0$になっていないといけないので，
+            \begin{equation}
+              \partial_{+}\partial_{-}X^{\mu}=0\label{eq:2.46}
+            \end{equation}
+            を得る。これが，光円錐座標系における相対論的な弦の波動方程式である。
+        </p>
+        <h2>波動方程式の解</h2>
+        <p>古典物理学で習った通り，波動方程式の解は一般に
+            \begin{equation}
+              f(t,x)=f_{L}(x-vt)+f_{R}(x+vt)\nonumber
+            \end{equation}
+            である。これを$(\ref{eq:2.46})$に適用すると，左へ行く解と右へ行く解の重ねあわせとなる。すなわち，
+            \begin{equation}
+              X^{\mu}(\tau,\sigma)=X_{L}^{\mu}(\tau+\sigma)+X_{R}^{\mu}(\tau-\sigma)\label{eq:2.47}
+            \end{equation}
+            である。これをフーリエ級数展開すると
+            \begin{eqnarray}
+              X_{L}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau+\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}
+            \frac{\alpha_{k}^{\mu}}{k}e^{-ik(\tau+\sigma)}\label{eq:2.48}\\
+            X_{R}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau-\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}
+            \frac{\bar{\alpha}_{k}^{\mu}}{k}e^{-ik(\tau-\sigma)}\label{eq:2.49}
+            \end{eqnarray}
+            を得る。
+        </p>
+        <p>ここで，新しいパラメータを導入した。すなわち，$\ell_{s}$である。これは弦の特徴的な長さで
+            \begin{align}
+              T&=\frac{1}{2\pi\alpha^{\prime}}&\frac{1}{2}\ell_{s}^{2}&=\alpha^{\prime}\label{eq:2.50}
+            \end{align}
+            という関係にある。$\alpha^{\prime}$をReggeの傾きパラメータという。また，$p^{\mu},\bar{p}^{\mu}$はフーリエ級数の$0$モードに対応しており，
+            \begin{align}
+              \alpha_{0}^{\mu}&=\frac{\ell_{s}}{\sqrt{2}}p^{\mu}&\bar{\alpha}_{0}^{\mu}&=\frac{\ell_{s}}{\sqrt{2}}\bar{p}^{\mu}\label{eq:2.51}
+            \end{align}
+            である。これは物理的に何を意味しているだろうか？　その答えは弦は時空を$1$つの単位で移動しているということである。そして，フーリエモード$\alpha_{k}^{\mu}$
+            で振動しているのである。
+        </p>
+        <p>覚えておかなければならないことは，我々はいまだ，古典物理学の世界にいるということである。だから，波動方程式の解は実関数でなければならない。すなわち，
+            $X^{\mu},X_{L}^{\mu},X_{R}^{\mu}$は<b>実</b>関数でなければならない。このことは$x^{\mu},p^{\mu}$は実関数であるということを意味している。
+            また，負の振動数のフーリエ係数については
+            \begin{align}
+              \alpha_{-k}^{\mu}&=\left(\alpha_{k}^{\mu}\right)^{\ast}&\bar{\alpha}_{-k}^{\mu}&=\left(\bar{\alpha}_{k}^{\mu}\right)^{\ast}\label{eq:2.52}
+            \end{align}
+            である。$\ast$は複素共役を表している。次の節では，異なる境界条件を課した時の解を求めよう。
+        </p>
     </body>
 </html
