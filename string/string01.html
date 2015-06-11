@@ -76,26 +76,26 @@
                    0& 0& 1& 0\\
                    0& 0& 0& 1
                 \end{array}
-               \right)\label{eq:2.2}
+               \right)\label{eq:msd:2.2}
             \end{equation}
             とする。$4$次元から一般の$d$次元に拡張したときも，時間部分は$-1$，空間部分は$+1$とする。
         </p>
         <p>このような約束の下，ローレンツ不変な距離は
             \begin{equation}
-              (X^{\mu})^{2}=\eta_{\mu\nu}X^{\mu}X^{\nu}=-(X^{0})^{2}+(X^{1})^{2}+\cdots+(X^{d})^{2}\label{eq:2.3}
+              (X^{\mu})^{2}=\eta_{\mu\nu}X^{\mu}X^{\nu}=-(X^{0})^{2}+(X^{1})^{2}+\cdots+(X^{d})^{2}\label{eq:msd:2.3}
             \end{equation}
             とかける。$d$次元時空内の微小距離は
             \begin{equation}
-              ds^{2}=-\eta_{\mu\nu}dX^{\mu}dX^{\nu}=(dX^{0})^{2}-(dX^{1})^{2}-\cdots-(dX^{d})^{2}\label{eq:2.4}
+              ds^{2}=-\eta_{\mu\nu}dX^{\mu}dX^{\nu}=(dX^{0})^{2}-(dX^{1})^{2}-\cdots-(dX^{d})^{2}\label{eq:msd:2.4}
             \end{equation}
         とかける。したがって，$ds=\sqrt{-\eta_{\mu\nu}dX^{\mu}dX^{\nu}}$は時間的な場合実数となる。
         </p>
         <p><b>作用原理</b>とは，自由な相対論的粒子の運動はその不変距離に比例するというものである。すなわち，
             \begin{equation}
-              S=-\alpha\int ds\label{eq:2.5}
+              S=-\alpha\int ds\label{eq:msd:2.5}
             \end{equation}
         である。この比例定数$\alpha$が何なのかを考えていこう。そのために，作用$S$の単位は量子論における物理量の単位である$\hbar$と同じ
-        である。$[\cdot]$で単位を表すことにすると，$(\ref{eq:2.5})$は
+        である。$[\cdot]$で単位を表すことにすると，$(\ref{eq:msd:2.5})$は
             \begin{equation}
               \frac{[M][L^{2}]}{[T]}=[\alpha][L]\nonumber
             \end{equation}
@@ -115,13 +115,13 @@
                 \alpha&=& m\\
                 \Rightarrow[\alpha]&=& [M] = \frac{1}{[L]}
               \end{split}
-              \label{eq:2.7}
+              \label{eq:msd:2.7}
             \end{align}
         となる。
         </p>
         <p>以上から，$\alpha$は定まって
             \begin{equation}
-              S=-m\int\sqrt{-\eta_{\mu\nu}dX^{\mu}dX^{\nu}}\label{eq:2.8}
+              S=-m\int\sqrt{-\eta_{\mu\nu}dX^{\mu}dX^{\nu}}\label{eq:msd:2.8}
             \end{equation}
         を得る。平方根の中に$dX^{\mu}dX^{\nu}$があるというのは都合が悪いので，固有時$\tau$を使ってこれをかきなおそう。
             \begin{eqnarray}
@@ -131,7 +131,7 @@
             \end{eqnarray}
         以上から，作用は
             \begin{equation}
-               S=-m\int d\tau\sqrt{-\eta_{\mu\nu}d\dot{X}^{\mu}\dot{X}^{\nu}}\label{eq:2.9}
+               S=-m\int d\tau\sqrt{-\eta_{\mu\nu}d\dot{X}^{\mu}\dot{X}^{\nu}}\label{eq:msd:2.9}
             \end{equation}
         となる。この被積分関数を<b>ラグランジアン</b>と呼ぶ。
         </p>
@@ -145,7 +145,7 @@
             \end{align}
         とする。世界面上の座標$(\tau,\sigma)$を時空への写像
             \begin{equation}
-              X^{\mu}(\tau,\sigma)\label{eq:2.12}
+              X^{\mu}(\tau,\sigma)\label{eq:msd:2.12}
             \end{equation}
         とする。これを<b>string coordinate</b>という。これを$(d+1)$次元時空に拡張して
             \begin{equation}
@@ -153,11 +153,11 @@
             \end{equation}
         となる。
         </p>
-        <p>では，作用$(\ref{eq:2.8})$を$(d+1)$次元時空を運動する弦に拡張しようとするわけだが，点粒子に立ち戻って考えてみよう。
+        <p>では，作用$(\ref{eq:msd:2.8})$を$(d+1)$次元時空を運動する弦に拡張しようとするわけだが，点粒子に立ち戻って考えてみよう。
         作用は点粒子が運動する軌跡のなす曲線の長さに比例していた。これを$2$次元に拡張しようとすると，作用は世界面の面積に比例する
         と考えるのが妥当だろう。$dA$を世界面の微小面積要素とすると，
             \begin{equation}
-              S=-T\int dA\label{eq:2.13}
+              S=-T\int dA\label{eq:msd:2.13}
             \end{equation}
         とかける。$T$は後でわかることだが，弦の張力である。さて，$dA$は何なのかと考えてみると微小線素から出発しよう。
             \begin{eqnarray}
@@ -166,7 +166,7 @@
             \end{eqnarray}
         ここで，世界面上の<b>誘導計量(induced metric)</b>を定義しよう。これは
             \begin{equation}
-              \gamma_{\alpha\beta}=\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial\xi^{\alpha}}\frac{\partial X^{\nu}}{\partial\xi^{\beta}}\label{eq:2.14}
+              \gamma_{\alpha\beta}=\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial\xi^{\alpha}}\frac{\partial X^{\nu}}{\partial\xi^{\beta}}\label{eq:msd:2.14}
             \end{equation}
         この計量は世界面上の距離を決定する。この計量は背景時空の定義から誘導されたものと考えられる。それ故に誘導計量というのである。では，
         誘導計量を計算してみよう。
@@ -181,20 +181,20 @@
                 =\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial \tau}\frac{\partial X^{\nu}}{\partial\sigma}\nonumber\\
                \gamma_{\sigma\sigma}&=&\eta_{\mu\nu}\frac{\partial X^{\mu}}{\partial\sigma}\frac{\partial X^{\nu}}{\partial\sigma}=X^{\prime 2}\nonumber
               \end{split}
-               \label{eq:2.15}
+               \label{eq:msd:2.15}
             \end{align}
-        となる。$(\ref{eq:2.15})$を使うと
+        となる。$(\ref{eq:msd:2.15})$を使うと
             \begin{equation}
               \gamma_{ab}=\left(
                  \begin{array}{cc}
                     \dot{X}^{2}&\dot{X}\cdot X^{\prime}\\
                     \dot{X}\cdot X^{\prime}& X^{\prime 2}
                  \end{array}
-               \right)\label{eq:2.16}
+               \right)\label{eq:msd:2.16}
             \end{equation}
         を得る。この行列の行列式を求めよう。
             \begin{equation}
-              \gamma=\det\gamma_{ab}=\dot{X}^{2}X^{\prime 2}-(\dot{X}\cdot X^{\prime})^{2}\label{eq:2.17}
+              \gamma=\det\gamma_{ab}=\dot{X}^{2}X^{\prime 2}-(\dot{X}\cdot X^{\prime})^{2}\label{eq:msd:2.17}
             \end{equation}
         最初の
             \begin{equation}
@@ -206,13 +206,13 @@
             \end{equation}
         で与えられる。我々の場合では誘導計量を使うと$dA=\sqrt{-\gamma}d\tau d\sigma$である。よって，作用は
             \begin{equation}
-              S=-T\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\ell}d\sigma\sqrt{-\gamma}\label{eq:2.18}
+              S=-T\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\ell}d\sigma\sqrt{-\gamma}\label{eq:msd:2.18}
             \end{equation}
-        とかける。$(\ref{eq:2.17})$を使うと
+        とかける。$(\ref{eq:msd:2.17})$を使うと
             \begin{equation}
-              S=-T\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\ell}d\sigma\sqrt{(\dot{X}\cdot X^{\prime})^{2}-\dot{X}^{2}X^{\prime 2}}\label{eq:2.19}
+              S=-T\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\ell}d\sigma\sqrt{(\dot{X}\cdot X^{\prime})^{2}-\dot{X}^{2}X^{\prime 2}}\label{eq:msd:2.19}
             \end{equation}
-        を得る。$(\ref{eq:2.18}),(\ref{eq:2.19})$に現れる作用を<b>南部-後藤作用</b>という。
+        を得る。$(\ref{eq:msd:2.18}),(\ref{eq:msd:2.19})$に現れる作用を<b>南部-後藤作用</b>という。
         </p>
         <h2>Polyakov作用</h2>
         <p>南部-後藤作用は平方根が入っているので，その後の議論が面倒である。そこで，南部-後藤作用と等価なPolyakov作用を使う。この作用を
@@ -220,21 +220,21 @@
         に成功したため，このように呼ばれる。Polyakov作用は
             \begin{equation}
               S_{\mathrm{P}}=-\frac{T}{2}\int d\tau d\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}
-              \label{eq:2.27}
+              \label{eq:msd:2.27}
             \end{equation}
         という形をしている。$h^{ab}$は世界面上の独立な計量で$(-,+)$の符号を持っているものとする。これが，南部-後藤作用と等価である
         ことを確認するために，作用を計量$h^{ab}$で変分してみる。計量について変分する場合，公式
             \begin{equation}
-              \delta h=hh^{ab}\delta h_{ab}=-hh_{ab}\delta h^{ab}\label{eq:P1.2.15}
+              \delta h=hh^{ab}\delta h_{ab}=-hh_{ab}\delta h^{ab}\label{eq:msd:P1.2.15}
             \end{equation}
         を使う。そうすると，
             \begin{equation}
               \delta_{\gamma}S_{\mathrm{P}}=-\frac{T}{2}\int d\tau d\sigma\sqrt{-h}\delta h^{ab}\left(\gamma_{ab}-\frac{1}{2}h_{ab}h^{cd}\gamma_{cd}\right)
-              \label{eq:P1.2.14}
+              \label{eq:msd:P1.2.14}
             \end{equation}
         を得る。$\delta_{\gamma}S_{\mathrm{P}}=0$という条件をつけると
             \begin{equation}
-              \gamma_{ab}=\frac{1}{2}h_{ab}h^{cd}\gamma_{cd}\label{eq:P1.2.16}
+              \gamma_{ab}=\frac{1}{2}h_{ab}h^{cd}\gamma_{cd}\label{eq:msd:P1.2.16}
             \end{equation}
         を得る。これは，スカラー関数$A(x)$が存在して
             \begin{equation}
@@ -253,7 +253,7 @@
                   -1& 0\\
                    0& 1
                 \end{array}
-                \right)\label{eq:2.30}
+                \right)\label{eq:msd:2.30}
             \end{equation}
         とできる。こうすると
             \begin{equation}
@@ -262,7 +262,7 @@
             \end{equation}
         となる。よって，Polyakov作用は
             \begin{equation}
-              S_{\mathrm{P}}=\frac{T}{2}\int d^{2}\sigma(\dot{X}^{2}-X^{\prime 2})\label{eq:2.31}
+              S_{\mathrm{P}}=\frac{T}{2}\int d^{2}\sigma(\dot{X}^{2}-X^{\prime 2})\label{eq:msd:2.31}
             \end{equation}
         と簡単になる。
         </p>
@@ -289,11 +289,11 @@
         となる。Euler-Lagrange方程式は
             \begin{equation}
               \partial_{\tau}\left(\frac{\partial L}{\partial\dot{X}^{\mu}}\right)+\partial_{\sigma}\left(\frac{\partial L}{\partial X^{\prime\mu}}\right)=0
-              \label{eq:2.32}
+              \label{eq:msd:2.32}
             \end{equation}
         となる。相対論的弦の運動方程式は
             \begin{equation}
-              \frac{\partial^{2}X_{\mu}}{\partial\tau^{2}}-\frac{\partial^{2}X_{\mu}}{\partial\sigma^{2}}=0\label{eq:2.33}
+              \frac{\partial^{2}X_{\mu}}{\partial\tau^{2}}-\frac{\partial^{2}X_{\mu}}{\partial\sigma^{2}}=0\label{eq:msd:2.33}
             \end{equation}
         となる。
         </p>
@@ -305,11 +305,11 @@
             \end{equation}
            である。光円錐座標を
             \begin{align}
-              x^{+}&=\frac{x^{0}+x^{1}}{\sqrt{2}}& x^{-}&=\frac{x^{0}-x^{1}}{\sqrt{2}}\label{eq:2.34}
+              x^{+}&=\frac{x^{0}+x^{1}}{\sqrt{2}}& x^{-}&=\frac{x^{0}-x^{1}}{\sqrt{2}}\label{eq:msd:2.34}
             \end{align}
             とする。$x^{2},x^{3}$についてはそのままとする。
         </p>
-        <p>$(\ref{eq:2.34})$については，逆に
+        <p>$(\ref{eq:msd:2.34})$については，逆に
             \begin{align}
               x^{0}&=\frac{x^{+}+x^{-}}{\sqrt{2}}& x^{1}&=\frac{x^{+}-x^{-}}{\sqrt{2}}\nonumber
             \end{align}
@@ -319,11 +319,11 @@
             \end{equation}
             である。よって，
             \begin{align}
-              dx^{0}&=\frac{dx^{+}+dx^{-}}{\sqrt{2}}& dx^{1}&=\frac{dx^{+}-dx^{-}}{\sqrt{2}}\label{eq:2.35}
+              dx^{0}&=\frac{dx^{+}+dx^{-}}{\sqrt{2}}& dx^{1}&=\frac{dx^{+}-dx^{-}}{\sqrt{2}}\label{eq:msd:2.35}
             \end{align}
             である。これで無限小距離を書き直すと
             \begin{equation}
-              ds^{2}=2dx^{+}dx^{-}-(dx^{2})^{2}-(dx^{3})^{2}\label{eq:2.36}
+              ds^{2}=2dx^{+}dx^{-}-(dx^{2})^{2}-(dx^{3})^{2}\label{eq:msd:2.36}
             \end{equation}
             となる。したがって，光円錐Minkowski計量は
             \begin{equation}
@@ -334,21 +334,21 @@
                    0&  0& 1& 0\\
                    0&  0& 0& 1
             　　 \end{array}
-            \right)\label{eq:2.37}
+            \right)\label{eq:msd:2.37}
             \end{equation}
-            と定義できる。$(\ref{eq:2.37})$を使うと，無限小距離は
+            と定義できる。$(\ref{eq:msd:2.37})$を使うと，無限小距離は
             \begin{equation}
-              ds^{2}=-\hat{\eta}_{\mu\nu}dx^{\mu}dx^{\nu}\label{eq:2.38}
+              ds^{2}=-\hat{\eta}_{\mu\nu}dx^{\mu}dx^{\nu}\label{eq:msd:2.38}
             \end{equation}
             となる。
         </p>
         <p>ベクトルについても光円錐成分を
             \begin{align}
-              v^{+}&= \frac{v^{0}+v^{1}}{\sqrt{2}} & v^{-}&= \frac{v^{0}-v^{1}}{\sqrt{2}}\label{eq:2.39}
+              v^{+}&= \frac{v^{0}+v^{1}}{\sqrt{2}} & v^{-}&= \frac{v^{0}-v^{1}}{\sqrt{2}}\label{eq:msd:2.39}
             \end{align}
            と定義できる。そうすると，$2$つのベクトルの内積は
             \begin{equation}
-              \boldsymbol{v}\cdot\boldsymbol{w}=\hat{\eta}_{\mu\nu}v^{\mu}w^{\nu}=v^{\mu}w_{\mu}=-v^{+}w^{-}-v^{-}w^{+}+\sum_{i}v^{i}w^{i}\label{eq:2.40}
+              \boldsymbol{v}\cdot\boldsymbol{w}=\hat{\eta}_{\mu\nu}v^{\mu}w^{\nu}=v^{\mu}w_{\mu}=-v^{+}w^{-}-v^{-}w^{+}+\sum_{i}v^{i}w^{i}\label{eq:msd:2.40}
             \end{equation}
             とできる。ただし，$i=1,\ldots, d-1$である。添字の上げ下げについては
             \begin{align}
@@ -358,11 +358,11 @@
         </p>
         <p>世界面上の光円錐座標は
             \begin{align}
-              \sigma^{+}&=\tau+\sigma & \sigma^{-}&= \tau - \sigma\label{eq:2.41}
+              \sigma^{+}&=\tau+\sigma & \sigma^{-}&= \tau - \sigma\label{eq:msd:2.41}
             \end{align}
             と定義する。明らかに$d\sigma^{+}=d\tau+d\sigma,d\sigma^{-}=d\tau-d\sigma$なので
             \begin{equation}
-              ds^{2}=-d\sigma^{+}d\sigma^{-}\label{eq:2.42}
+              ds^{2}=-d\sigma^{+}d\sigma^{-}\label{eq:msd:2.42}
             \end{equation}
             である。補助場の計量は
             \begin{equation}
@@ -371,7 +371,7 @@
                 0&-1/2\\
                -1/2 & 0
             \end{array}
-            \right)\label{eq:2.43}
+            \right)\label{eq:msd:2.43}
             \end{equation}
            となる。逆行列は
             \begin{equation}
@@ -384,7 +384,7 @@
             \end{equation}
             である。微分演算子については
             \begin{align}
-               \partial_{+}&= \frac{\partial_{+}+\partial_{-}}{2}& \partial_{-}&=\frac{\partial_{+} - \partial_{-}}{2}\label{eq:2.44}
+               \partial_{+}&= \frac{\partial_{+}+\partial_{-}}{2}& \partial_{-}&=\frac{\partial_{+} - \partial_{-}}{2}\label{eq:msd:2.44}
             \end{align}
             と定義する。これをPolyakov作用
             \begin{equation}
@@ -398,7 +398,7 @@
             \end{eqnarray}
             となる。というわけで，光円錐座標系を用いるとPolyakov作用は
             \begin{equation}
-              S_{\mathrm{P}}=T\int d^{2}\sigma\partial_{+}X^{\mu}\partial_{-}X^{\nu}\eta_{\mu\nu}\label{eq:2.45}
+              S_{\mathrm{P}}=T\int d^{2}\sigma\partial_{+}X^{\mu}\partial_{-}X^{\nu}\eta_{\mu\nu}\label{eq:msd:2.45}
             \end{equation}
             と変形できる。
         </p>
@@ -414,7 +414,7 @@
             \end{equation}
             任意の$\delta X^{\mu}$に対してこれが$0$になっていないといけないので，
             \begin{equation}
-              \partial_{+}\partial_{-}X^{\mu}=0\label{eq:2.46}
+              \partial_{+}\partial_{-}X^{\mu}=0\label{eq:msd:2.46}
             \end{equation}
             を得る。これが，光円錐座標系における相対論的な弦の波動方程式である。
         </p>
@@ -423,26 +423,26 @@
             \begin{equation}
               f(t,x)=f_{L}(x-vt)+f_{R}(x+vt)\nonumber
             \end{equation}
-            である。これを$(\ref{eq:2.46})$に適用すると，左へ行く解と右へ行く解の重ねあわせとなる。すなわち，
+            である。これを$(\ref{eq:msd:2.46})$に適用すると，左へ行く解と右へ行く解の重ねあわせとなる。すなわち，
             \begin{equation}
-              X^{\mu}(\tau,\sigma)=X_{L}^{\mu}(\tau+\sigma)+X_{R}^{\mu}(\tau-\sigma)\label{eq:2.47}
+              X^{\mu}(\tau,\sigma)=X_{L}^{\mu}(\tau+\sigma)+X_{R}^{\mu}(\tau-\sigma)\label{eq:msd:2.47}
             \end{equation}
             である。これをフーリエ級数展開すると
             \begin{eqnarray}
               X_{L}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau+\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}
-            \frac{\alpha_{k}^{\mu}}{k}e^{-ik(\tau+\sigma)}\label{eq:2.48}\\
+            \frac{\alpha_{k}^{\mu}}{k}e^{-ik(\tau+\sigma)}\label{eq:msd:2.48}\\
             X_{R}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau-\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}
-            \frac{\bar{\alpha}_{k}^{\mu}}{k}e^{-ik(\tau-\sigma)}\label{eq:2.49}
+            \frac{\bar{\alpha}_{k}^{\mu}}{k}e^{-ik(\tau-\sigma)}\label{eq:msd:2.49}
             \end{eqnarray}
             を得る。
         </p>
         <p>ここで，新しいパラメータを導入した。すなわち，$\ell_{s}$である。これは弦の特徴的な長さで
             \begin{align}
-              T&=\frac{1}{2\pi\alpha^{\prime}}&\frac{1}{2}\ell_{s}^{2}&=\alpha^{\prime}\label{eq:2.50}
+              T&=\frac{1}{2\pi\alpha^{\prime}}&\frac{1}{2}\ell_{s}^{2}&=\alpha^{\prime}\label{eq:msd:2.50}
             \end{align}
             という関係にある。$\alpha^{\prime}$をReggeの傾きパラメータという。また，$p^{\mu},\bar{p}^{\mu}$はフーリエ級数の$0$モードに対応しており，
             \begin{align}
-              \alpha_{0}^{\mu}&=\frac{\ell_{s}}{\sqrt{2}}p^{\mu}&\bar{\alpha}_{0}^{\mu}&=\frac{\ell_{s}}{\sqrt{2}}\bar{p}^{\mu}\label{eq:2.51}
+              \alpha_{0}^{\mu}&=\frac{\ell_{s}}{\sqrt{2}}p^{\mu}&\bar{\alpha}_{0}^{\mu}&=\frac{\ell_{s}}{\sqrt{2}}\bar{p}^{\mu}\label{eq:msd:2.51}
             \end{align}
             である。これは物理的に何を意味しているだろうか？　その答えは弦は時空を$1$つの単位で移動しているということである。そして，フーリエモード$\alpha_{k}^{\mu}$
             で振動しているのである。
@@ -451,7 +451,7 @@
             $X^{\mu},X_{L}^{\mu},X_{R}^{\mu}$は<b>実</b>関数でなければならない。このことは$x^{\mu},p^{\mu}$は実関数であるということを意味している。
             また，負の振動数のフーリエ係数については
             \begin{align}
-              \alpha_{-k}^{\mu}&=\left(\alpha_{k}^{\mu}\right)^{\ast}&\bar{\alpha}_{-k}^{\mu}&=\left(\bar{\alpha}_{k}^{\mu}\right)^{\ast}\label{eq:2.52}
+              \alpha_{-k}^{\mu}&=\left(\alpha_{k}^{\mu}\right)^{\ast}&\bar{\alpha}_{-k}^{\mu}&=\left(\bar{\alpha}_{k}^{\mu}\right)^{\ast}\label{eq:msd:2.52}
             \end{align}
             である。$\ast$は複素共役を表している。次の節では，異なる境界条件を課した時の解を求めよう。
         </p>
@@ -460,7 +460,7 @@
             \begin{equation}
               \frac{\partial X^{\mu}}{\partial\sigma}(\tau,0)=\frac{\partial X^{\mu}}{\partial\sigma}(\tau,\pi)=0\nonumber
             \end{equation}
-          である。これを$(\ref{eq:2.48}),(\ref{eq:2.49})$をみると
+          である。これを$(\ref{eq:msd:2.48}),(\ref{eq:msd:2.49})$をみると
             \begin{eqnarray}
               \frac{\partial X_{L}^{\mu}}{\partial\sigma}=\frac{\ell_{s}^{2}}{2}p^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik(\tau+\sigma)}\nonumber\\
               \frac{\partial X_{R}^{\mu}}{\partial\sigma}=\frac{\ell_{s}^{2}}{2}\bar{p}^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\bar{\alpha}_{k}^{\mu}e^{-ik(\tau+\sigma)}\nonumber
@@ -486,57 +486,57 @@
             \end{eqnarray}
             である。これが成り立つのは$\sin(k\pi)=0$のときのみである。これは$k$が整数でなければならない。よって，$k=n$とかくと
             \begin{equation}
-              X^{\mu}=x^{\mu}+\ell_{s}^{2}p^{\mu}\tau+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\alpha_{n}^{\mu}}{n}e^{-in\tau}\cos(n\sigma)\label{eq:2.53}
+              X^{\mu}=x^{\mu}+\ell_{s}^{2}p^{\mu}\tau+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\alpha_{n}^{\mu}}{n}e^{-in\tau}\cos(n\sigma)\label{eq:msd:2.53}
             \end{equation}
             となる。
         </p>
         <h2>閉じた弦の運動方程式の解</h2>
         <p>閉じた弦では周期的境界条件
             \begin{equation}
-              X^{\mu}(\tau,\sigma)=X^{\mu}(\tau,\sigma+2\pi)\label{eq:2.54}
+              X^{\mu}(\tau,\sigma)=X^{\mu}(\tau,\sigma+2\pi)\label{eq:msd:2.54}
             \end{equation}
             を課す。そうすると
             \begin{eqnarray}
-              X_{L}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau+\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\alpha_{n}^{\mu}}{n}e^{-in(\tau+\sigma)}\label{eq:2.55}\\
-              X_{R}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau-\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\bar{\alpha}_{n}^{\mu}}{n}e^{-in(\tau-\sigma)}\label{eq:2.56}
+              X_{L}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau+\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\alpha_{n}^{\mu}}{n}e^{-in(\tau+\sigma)}\label{eq:msd:2.55}\\
+              X_{R}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau-\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\bar{\alpha}_{n}^{\mu}}{n}e^{-in(\tau-\sigma)}\label{eq:msd:2.56}
             \end{eqnarray}
             となる。ここで，$n$は整数である。そして，周期的境界条件から
             \begin{equation}
-              p^{\mu}=\bar{p}^{\mu}\label{eq:2.57}
+              p^{\mu}=\bar{p}^{\mu}\label{eq:msd:2.57}
             \end{equation}
             である。
         </p>
         <h2>固定端条件における開いた弦</h2>
         <p>固定端の境界条件(Dirichlet条件)は
             \begin{equation}
-              \left.\dot{X}^{\mu}\right|_{\sigma=0}=0\label{eq:2.60}
+              \left.\dot{X}^{\mu}\right|_{\sigma=0}=0\label{eq:msd:2.60}
             \end{equation}
-           である。$(\ref{eq:2.48}),(\ref{eq:2.49})$は
+           である。$(\ref{eq:msd:2.48}),(\ref{eq:msd:2.49})$は
             \begin{eqnarray}
-              \dot{X}_{L}^{\mu}(\tau,\sigma=0)&=&\frac{\ell_{s}^{2}}{2}p^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik\tau}\label{eq:2.61}\\
-              \dot{X}_{R}^{\mu}(\tau,\sigma=0)&=&\frac{\ell_{s}^{2}}{2}\bar{p}^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\bar{\alpha}_{k}^{\mu}e^{-ik\tau}\label{eq:2.62}
+              \dot{X}_{L}^{\mu}(\tau,\sigma=0)&=&\frac{\ell_{s}^{2}}{2}p^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik\tau}\label{eq:msd:2.61}\\
+              \dot{X}_{R}^{\mu}(\tau,\sigma=0)&=&\frac{\ell_{s}^{2}}{2}\bar{p}^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\bar{\alpha}_{k}^{\mu}e^{-ik\tau}\label{eq:msd:2.62}
             \end{eqnarray}
-            である。これに$(\ref{eq:2.60})$を課すと
+            である。これに$(\ref{eq:msd:2.60})$を課すと
             \begin{equation}
-              p^{\mu}+\bar{p}^{\mu}=0\rightarrow\bar{p}^{\mu}=-p^{\mu}\label{eq:2.63}
+              p^{\mu}+\bar{p}^{\mu}=0\rightarrow\bar{p}^{\mu}=-p^{\mu}\label{eq:msd:2.63}
             \end{equation}
             と
             \begin{equation}
-              \alpha_{k}^{\mu}+\bar{\alpha}_{k}^{\mu}=0\label{eq:2.64}
+              \alpha_{k}^{\mu}+\bar{\alpha}_{k}^{\mu}=0\label{eq:msd:2.64}
             \end{equation}
         </p>
         <h2>Poisson括弧</h2>
         <p>Poisson括弧を計算すると
             \begin{equation}
-              \{X^{\mu}(\tau,\sigma),\dot{X}^{\nu}(\tau,\sigma^{2})\}=\frac{1}{T}\delta(\sigma-\sigma^{\prime})\eta_{\mu\nu}\label{eq:2.67}
+              \{X^{\mu}(\tau,\sigma),\dot{X}^{\nu}(\tau,\sigma^{2})\}=\frac{1}{T}\delta(\sigma-\sigma^{\prime})\eta_{\mu\nu}\label{eq:msd:2.67}
             \end{equation}
             を得る。運動量では
             \begin{equation}
-              \{P^{\mu}(\tau,\sigma),X^{\nu}(\tau,\sigma^{\prime})\}=\delta(\sigma-\sigma^{\prime})\eta_{\mu\nu}\label{eq:2.68}
+              \{P^{\mu}(\tau,\sigma),X^{\nu}(\tau,\sigma^{\prime})\}=\delta(\sigma-\sigma^{\prime})\eta_{\mu\nu}\label{eq:msd:2.68}
             \end{equation}
             となる。さらにFourierモードでは
             \begin{equation}
-              \{\alpha_{m}^{\mu},\alpha_{n}^{\nu}\}=-im\delta(m+n=\sigma)\eta_{\mu\nu}\label{eq:2.69}
+              \{\alpha_{m}^{\mu},\alpha_{n}^{\nu}\}=-im\delta(m+n=\sigma)\eta_{\mu\nu}\label{eq:msd:2.69}
             \end{equation}
             という結果を得る。
         </p>
