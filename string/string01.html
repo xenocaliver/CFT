@@ -455,5 +455,90 @@
             \end{align}
             である。$\ast$は複素共役を表している。次の節では，異なる境界条件を課した時の解を求めよう。
         </p>
+        <h2>自由端の開いた弦</h2>
+        <p>開いた弦の自由端境界条件はNeumann条件で，
+            \begin{equation}
+              \frac{\partial X^{\mu}}{\partial\sigma}(\tau,0)=\frac{\partial X^{\mu}}{\partial\sigma}(\tau,\pi)=0\nonumber
+            \end{equation}
+          である。これを$(\ref{eq:2.48}),(\ref{eq:2.49})$をみると
+            \begin{eqnarray}
+              \frac{\partial X_{L}^{\mu}}{\partial\sigma}=\frac{\ell_{s}^{2}}{2}p^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik(\tau+\sigma)}\nonumber\\
+              \frac{\partial X_{R}^{\mu}}{\partial\sigma}=\frac{\ell_{s}^{2}}{2}\bar{p}^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\bar{\alpha}_{k}^{\mu}e^{-ik(\tau+\sigma)}\nonumber
+            \end{eqnarray}
+            両辺を足して$\sigma=0$とおくと
+            \begin{eqnarray}
+            \frac{\partial X^{\mu}}{\partial\sigma}&=&0\nonumber\\
+            \Rightarrow 0&=&\frac{\ell_{s}^{2}}{2}(p^{\mu}-\bar{p}^{\mu})+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}(\alpha_{k}^{\mu}-\bar{\alpha}_{k}^{\mu})e^{-ik\tau}\nonumber
+            \end{eqnarray}
+            を得る。自由端境界条件から
+            \begin{eqnarray}
+              p^{\mu}&=&\bar{p}^{\mu}\quad(弦は自分に巻き付くことはない)\nonumber\\
+             \alpha_{k}^{\mu}&=&\bar{\alpha}_{k}^{\mu}\quad (左波，右波ともに同じモードで動く)\nonumber
+            \end{eqnarray}
+        </p>
+        <p>物理的には，自由端の開いた弦は<b>停留波</b>であるということである。さらに，$\sigma=\pi$のときの条件を考えると
+            \begin{eqnarray}
+              0&=&\left.\frac{\partial X_{L}^{\mu}}{\partial\sigma}\right|_{\sigma=\pi}+\left.\frac{\partial X_{R}^{\mu}}{\partial\sigma}\right|_{\sigma=\pi}\nonumber\\
+            &=&\frac{\ell_{s}^{2}}{2}p^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik(\tau+\pi)}
+            -\frac{\ell_{s}^{2}}{2}p^{\mu}-\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik(\tau-\pi)}\nonumber\\
+            &=& \frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik\tau}\left(\frac{e^{-ik\pi}-e^{ik\pi}}{2i}\right)(2i)\nonumber\\
+            &=&i\sqrt{2}\ell_{2}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik\tau}\sin(k\pi)\nonumber
+            \end{eqnarray}
+            である。これが成り立つのは$\sin(k\pi)=0$のときのみである。これは$k$が整数でなければならない。よって，$k=n$とかくと
+            \begin{equation}
+              X^{\mu}=x^{\mu}+\ell_{s}^{2}p^{\mu}\tau+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\alpha_{n}^{\mu}}{n}e^{-in\tau}\cos(n\sigma)\label{eq:2.53}
+            \end{equation}
+            となる。
+        </p>
+        <h2>閉じた弦の運動方程式の解</h2>
+        <p>閉じた弦では周期的境界条件
+            \begin{equation}
+              X^{\mu}(\tau,\sigma)=X^{\mu}(\tau,\sigma+2\pi)\label{eq:2.54}
+            \end{equation}
+            を課す。そうすると
+            \begin{eqnarray}
+              X_{L}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau+\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\alpha_{n}^{\mu}}{n}e^{-in(\tau+\sigma)}\label{eq:2.55}\\
+              X_{R}^{\mu}(\tau,\sigma)&=&\frac{x^{\mu}}{2}+\frac{\ell_{s}^{2}}{2}p^{\mu}(\tau-\sigma)+i\frac{\ell_{s}}{\sqrt{2}}\sum_{n\neq 0}\frac{\bar{\alpha}_{n}^{\mu}}{n}e^{-in(\tau-\sigma)}\label{eq:2.56}
+            \end{eqnarray}
+            となる。ここで，$n$は整数である。そして，周期的境界条件から
+            \begin{equation}
+              p^{\mu}=\bar{p}^{\mu}\label{eq:2.57}
+            \end{equation}
+            である。
+        </p>
+        <h2>固定端条件における開いた弦</h2>
+        <p>固定端の境界条件(Dirichlet条件)は
+            \begin{equation}
+              \left.\dot{X}^{\mu}\right|_{\sigma=0}=0\label{eq:2.60}
+            \end{equation}
+           である。$(\ref{eq:2.48}),(\ref{eq:2.49})$は
+            \begin{eqnarray}
+              \dot{X}_{L}^{\mu}(\tau,\sigma=0)&=&\frac{\ell_{s}^{2}}{2}p^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\alpha_{k}^{\mu}e^{-ik\tau}\label{eq:2.61}\\
+              \dot{X}_{R}^{\mu}(\tau,\sigma=0)&=&\frac{\ell_{s}^{2}}{2}\bar{p}^{\mu}+\frac{\ell_{s}}{\sqrt{2}}\sum_{k\neq 0}\bar{\alpha}_{k}^{\mu}e^{-ik\tau}\label{eq:2.62}
+            \end{eqnarray}
+            である。これに$(\ref{eq:2.60})$を課すと
+            \begin{equation}
+              p^{\mu}+\bar{p}^{\mu}=0\rightarrow\bar{p}^{\mu}=-p^{\mu}\label{eq:2.63}
+            \end{equation}
+            と
+            \begin{equation}
+              \alpha_{k}^{\mu}+\bar{\alpha}_{k}^{\mu}=0\label{eq:2.64}
+            \end{equation}
+        </p>
+        <h2>Poisson括弧</h2>
+        <p>Poisson括弧を計算すると
+            \begin{equation}
+              \{X^{\mu}(\tau,\sigma),\dot{X}^{\nu}(\tau,\sigma^{2})\}=\frac{1}{T}\delta(\sigma-\sigma^{\prime})\eta_{\mu\nu}\label{eq:2.67}
+            \end{equation}
+            を得る。運動量では
+            \begin{equation}
+              \{P^{\mu}(\tau,\sigma),X^{\nu}(\tau,\sigma^{\prime})\}=\delta(\sigma-\sigma^{\prime})\eta_{\mu\nu}\label{eq:2.68}
+            \end{equation}
+            となる。さらにFourierモードでは
+            \begin{equation}
+              \{\alpha_{m}^{\mu},\alpha_{n}^{\nu}\}=-im\delta(m+n=\sigma)\eta_{\mu\nu}\label{eq:2.69}
+            \end{equation}
+            という結果を得る。
+        </p>
     </body>
 </html
