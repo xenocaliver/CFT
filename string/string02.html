@@ -1,0 +1,437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+  				tex2jax: {
+    					inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+    					processEscapes: true
+  				},
+  				"HTML-CSS": {
+    					availableFonts: ["STIX"],
+    					preferredFont: "STIX",
+    					webFont: "STIX-Web"
+  				},
+                TeX: { equationNumbers: { autoNumber: "AMS" },
+                       extensions: ["autoload-all.js"]
+                     }
+			});
+		</script>
+    	<script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+        </script>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>超弦理論(String Theory Demystified)</title>
+        <style type="text/css">/*<![CDATA[ */
+        h1, h2, h3, h4 { line-height: 1.1; margin: 0.2em; }
+        body { counter-reset: part; }
+        h1 { counter-reset: chapter; }
+        h1:before {
+            content: counter(part) ". ";
+            counter-increment: part;
+        }
+        h2 { counter-reset: section; }
+        h2:before {
+            content: counter(part) ". " counter(chapter) ". ";
+            counter-increment: chapter;
+        }
+        h3 { counter-reset: subsection; }
+        h3:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". ";
+            counter-increment: section;
+        }
+        h4:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". " counter(subsection) ". ";
+            counter-increment: subsection;
+        }
+        /* ]]> */</style>
+        <style type="text/css">
+
+        p {text-indent:1em;} 
+
+
+        ul { list-style-type: disc; }
+
+        </style>
+    </head>
+    <body>
+        <h1>第3章The Classical String II: Symmetries and Worldsheet Current</h1>
+        <p>本章では，弦の対称性と保存量について解説する。</p>
+        <h2>エネルギー-運動量テンソル</h2>
+        <p>世界面上の距離は
+            \begin{equation}
+              ds^{2}=h_{ab}d\sigma^{a}d\sigma^{b}\label{eq:msd:3.1}
+            \end{equation}
+            で与えられる。ここで，$\sigma^{0}=\tau,\sigma^{1}=\sigma$である。$X^{\mu}(\tau,\sigma)$は世界面を形作る。
+            弦のダイナミックスを決定するにはPolyakov作用
+            \begin{equation}
+              S_{\mathrm{P}}=-\frac{T}{2}\int d^{2}\sigma\sqrt{-\det(h)}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}\label{eq:msd:3.2}
+            \end{equation}
+            から決定される。<b>エネルギー-運動量テンソル</b>はPolyakov作用$S_{\mathrm{P}}$を$h_{ab}$で変分することで得られる。
+            すなわち，
+            \begin{equation}
+              T_{ab}=-\frac{2}{T}\frac{1}{\sqrt{-h}}\frac{\delta\mathcal{S}}{\delta h_{ab}}\label{eq:msd:3.3}
+            \end{equation}
+            である。これは，二章$(\ref{eq:mds:P1.2.15})$の公式を用いれば
+            \begin{equation}
+              T_{ab}=\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}-\frac{1}{2}h_{ab}\left(h^{cd}\partial_{c}X^{\mu}\partial_{d}X^{\nu}\eta_{\mu\nu}\right)
+            \label{eq:msd:3.4}
+            \end{equation}
+            となる。エネルギー-運動量テンソルの第一の性質は$\mathrm{Tr}(T_{ab})=T_{\,\,a}^{a}=0$であるということである。これは定義に
+            従って$\mathrm{Tr}(T_{ab})=h^{ab}T_{ab}$を計算すればよい。
+            \begin{eqnarray}
+              h^{ab}T_{ab}&=& h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}-\frac{1}{2}h^{ab}h_{ab}\left(h^{cd}\partial_{c}X^{\mu}\partial_{d}X^{\nu}\right)\nonumber\\
+            &=& h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}-h^{cd}\partial{c}X^{\mu}\partial_{d}X^{\nu}\eta_{\mu\nu}\quad(h^{ab}h_{ab}=\delta_{a}^{a}=2)\\
+            &=& 0\nonumber
+            \end{eqnarray}
+            となり，エネルギー-運動量テンソルはトレースレス，すなわち，
+            \begin{equation}
+              T_{\,\,a}^{a}=0\label{eq:msd:3.5}
+            \end{equation}
+            である。
+        </p>
+        <h2>Polyakov作用の対称性</h2>
+        <p>本節ではPolyakov作用の対称性(すなわちボゾン弦のMinkowski時空における対称性)をみていく。Polyakov作用には$3$つの対称性が存在する。
+           <ul>
+               <li>Poincar&eacute;対称性</li>
+               <li>世界面上の座標パラメータの付け替えに関する不変性</li>
+               <li>Weyl変換</li>
+           </ul> 
+        </p>
+        <p>Polyakov作用の対称性について論じる前に，対称性の果たす役割について説明する。物理における対称性は<b>大域的対称性</b>と<b>局所的対称性</b>からなる。
+           これらは以下のように定義される。
+           <ul>
+               <li>大域的対称性は時空の任意の点で成り立つ対称性である。変換のパラメータは時空の場所に依存しない。</li>
+               <li>局所的対称性は時空の各点で異なるものである。すなわち，変換のパラメータは時空の点の関数である。</li>
+           </ul>
+        </p>
+        <p>古典物理学や場の量子論における保存則について思い出してみよう。これを<b>Noetherの定理</b>という。復習するのに最も有名な例である電荷の保存則について振り返ってみよう。</p>
+        <p>電磁場のテンソル$F_{\mu\nu}$は$4$-ベクトルポテンシャルによって定義される。
+            \begin{equation}
+              F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}\nonumber
+            \end{equation}
+            Maxwell方程式は
+            \begin{equation}
+              \partial_{\mu}F^{\mu\nu}=J^{\nu}\nonumber
+            \end{equation}
+            である。これは
+            \begin{eqnarray}
+              \partial_{\mu}F^{\mu\nu}&=&\partial_{\mu}\partial^{\mu}A^{\nu}-\partial_{\mu}\partial^{\nu}A^{\mu}\Rightarrow\partial_{\nu}\partial_{\mu}F^{\mu\nu}\nonumber\\
+            &=&\partial_{\nu}\partial_{\mu}\partial^{\mu}A^{\nu}-\partial_{\nu}\partial_{\mu}\partial^{\nu}A^{\mu}\nonumber\\
+            &=&\partial_{\nu}\partial_{\mu}\partial^{\mu}A^{\nu}-\partial_{\mu}\partial_{\nu}\partial^{\nu}A^{\mu}\quad(偏微分は交換できる)\nonumber\\
+            &=&0\nonumber
+            \end{eqnarray}
+            となり，$\partial_{\nu}J^{\nu}=0$を得る。それゆえに$J^{\mu}$が保存量である。これは$J^{0}=\rho$とすると
+            \begin{equation}
+              \frac{\partial\rho}{\partial t}+\nabla\cdot\boldsymbol{J}=0\nonumber
+            \end{equation}
+            という連続の式になる。$\rho$を電荷密度，$\boldsymbol{J}$をカレント密度という。電荷$Q$は
+            \begin{equation}
+              Q=\int d^{3}x\rho\nonumber
+            \end{equation}
+            である。$Q$の時間変化は連続の式を使うと
+            \begin{equation}
+              \frac{dQ}{dt}=\int d^{3}x\frac{\partial\rho}{\partial t}=-\int d^{3}x\nabla\cdot\boldsymbol{J}=-\oint_{S}\boldsymbol{J}\cdot d\boldsymbol{A}=0\nonumber
+            \end{equation}
+            となり，表面項は無限遠で0になることから電荷が保存することがわかる。
+        </p>
+        <p>Poincar&eacute;変換
+            Poincar&eacute;変換は$2$つの変換からなっている。
+            <ul>
+                <li>時空内の並進</li>
+                <li>Lorentz変換</li>
+            </ul>
+        </p>
+        <p>平坦な$D$次元時給では，Polyakov作用はPoincar&eacute;変換に関して不変である。時空並進は
+            \begin{equation}
+              X^{\mu}\mapsto X^{\mu}+b^{\mu}\label{eq:msd:3.7}
+            \end{equation}
+           と表される。ここで，$\delta X^{\mu}=b^{\mu}$である。無限小Lorentz変換は
+            \begin{equation}
+              X^{\mu}\mapsto X^{\mu}+\omega_{\,\,\nu}^{\mu}X^{\nu}\label{eq:msd:3.8}
+            \end{equation}
+            と表される。ここで，$\delta X^{\mu}=\omega_{\,\,\nu}^{\mu}X^{\nu}$である。この$2$つを組み合わせると
+            \begin{equation}
+              \delta X^{\mu}=\omega_{\,\,\nu}^{\mu}X^{\nu}+b^{\mu}\label{eq:msd:3.9}
+            \end{equation}
+            となる。世界面の計量はPoincar&eacute;不変である。すなわち
+            \begin{equation}
+              \delta h^{ab}=0\label{eq:msd:3.10}
+            \end{equation}
+            である。実際に確かめてみよう。
+            \begin{eqnarray}
+              S_{\mathrm{P}}&\mapsto&-\frac{T}{2}\int d^{2}\sigma\sqrt{-h}h^{ab}\partial_{a}(\omega_{\,\,\gamma}^{\mu}X^{\gamma})\partial_{b}
+              (\omega_{\,\,\delta}^{\nu}X^{\delta})\eta_{\mu\nu}\nonumber\\
+              &=&-\frac{T}{2}\int d^{2}\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\gamma}\partial_{b}X^{\delta}\omega_{\,\,\gamma}^{\mu}\omega_{\,\,\delta}^{\nu}\eta_{\mu\nu}\nonumber\\
+              &=&-\frac{T}{2}\int d^{2}\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\gamma}\partial_{b}X^{\delta}\omega_{\nu\gamma}\omega_{\,\,\delta}^{\nu}\nonumber\\
+              &=&-\frac{T}{2}\int d^{2}\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\gamma}\partial_{b}X^{\delta}\eta_{\gamma\delta}\nonumber
+            \end{eqnarray}
+            となり，Polyakov作用はPoincar&eacute;変換に関して不変である。
+        </p>
+        <p>Poincar&eacute;変換は背景時空に関する変換であり，世界面の座標$(\tau,\sigma)$には依存しない。これは世界面上ではこれらの変換は大域的変換であるといえる。このことを
+           <b>大域的内部対称性</b>と呼ぶ。大域的内部対称性は場$X^{\mu}$にのみ作用し，世界面の$2$次元時空には作用しない。すなわち，大域的内部対称性のパラメータは世界面の座標
+            $(\tau,\sigma)$には依存しないといえる。
+        </p>
+        <h2>パラメータのとりかえに関する不変性</h2>
+        <p>変数変換$(\tau,\sigma)\mapsto(\tau^{\prime},\sigma^{\prime})$に関して考えてみよう。これを世界面の<b>パラメータ変換(reparameterization)</b>あるいは
+           <b>deffeomorphism</b>という。$h_{ab}$は
+           \begin{equation}
+              h_{ab}=\frac{\partial\sigma^{\prime c}}{\partial\sigma^{a}}\frac{\partial\sigma^{\prime d}}{\partial\sigma^{b}}h_{cd}^{\prime}(\tau^{\prime},\sigma^{\prime})
+              \label{eq:msd:3.11}
+           \end{equation}
+           と変換される。
+           \begin{align}
+             \frac{\partial}{\partial\sigma^{\prime\alpha}}&=\frac{\partial\sigma^{\rho}}{\partial\sigma^{\prime\alpha}}\frac{\partial}{\partial\sigma^{\rho}}&
+             X^{\mu}(\tau,\sigma)\mapsto X^{\prime\mu}(\tau^{\prime},\sigma^{\prime})\nonumber
+           \end{align}
+           なので
+           \begin{equation}
+             h^{ab}(\tau,\sigma)\frac{\partial X^{\mu}}{\partial\sigma^{a}}\frac{\partial X_{\mu}}{\partial\sigma^{b}}
+            =h^{\prime cd}(\tau^{\prime},\sigma^{\prime})\frac{\partial X^{\prime\mu}}{\partial\sigma^{\prime c}}\frac{\partial X_{\mu}^{\prime}}{\partial\sigma^{\prime d}}
+            \nonumber
+           \end{equation}
+           である。$\sigma\mapsto\sigma^{\prime}$という変換でヤコビアンは
+           \begin{equation}
+              J\triangleq\det\left(\frac{\partial\sigma^{\prime\alpha}}{\partial\sigma^{c}}\right)\nonumber
+           \end{equation}
+           と定義される。一方，
+           \begin{equation}
+              \det(h_{ab}^{\prime})=J^{2}\det(h_{ab})\nonumber
+           \end{equation}
+           である。また積分測度は
+           \begin{equation}
+              d^{2}\sigma^{\prime 2}=Jd^{2}\sigma\nonumber
+           \end{equation}
+           となるので，Polyakov作用$(\ref{eq:msd:3.2})$に現れる積分測度
+           \begin{equation}
+              d^{2}\sigma\sqrt{-\det h^{\prime}}=d^{2}\sigma\sqrt{-\det h}\nonumber
+           \end{equation}
+           に一致する。よって，Polyakov作用はパラメータのとりかえに関して不変である。この変換は$(\tau,\sigma)$に依存しているので<b>局所的</b>対称性である。
+        </p>
+        <h2>Weyl変換</h2>
+　　　　 <p><b>Weyl変換</b>あるいは<b>Weylリスケーリング</b>とは，世界面の計量に対する共形変換であり，
+          \begin{equation}
+            h_{ab}\mapsto e^{\phi(\tau,\sigma)}h_{ab}\label{eq:msd:3.12}
+          \end{equation}
+         という変換である。$h^{ab}h_{bc}=\delta_{c}^{a}$なので$(\ref{eq:msd:3.12})$の逆行列に対する変換は$h^{ab}\mapsto e^{-\phi(\tau,\sigma)}h^{ab}$となる。
+         一般に$n\times n$正方行列$A,B$に対して
+         \begin{eqnarray}
+           \det(AB)&=&\det(A)\det(B)\nonumber\\
+           \det(\alpha A)&=&\det(\alpha\boldsymbol{1}_{n}A)=\alpha^{n}\det A\nonumber
+         \end{eqnarray}
+         である。世界面は$2$次元なので
+         \begin{equation}
+           \det(e^{\phi}h)=e^{2\phi}\det h\nonumber
+         \end{equation}
+         である。これは
+         \begin{equation}
+           \sqrt{-\det h}h^{ab}\mapsto\sqrt{e^{2\phi}\det h}e^{-\phi}h^{ab}=\sqrt{-\det h}h^{ab}\nonumber
+         \end{equation}
+         となり，Polyakov作用はWeyl変換の下で不変である。$(\ref{eq:msd:3.12})$は世界面座標$(\tau,\sigma)$に依存しているので，局所的対称性である。
+       </p>
+       <h2>平坦な世界面計量への変換</h2>
+       <p><b>ゲージ自由度</b>は世界面の計量を単純にする。これは作用に現れる計量をもっと簡単にできることを意味している。ここでは世界面のオイラー標数が$0$の場合を考える。</p>
+       <p>世界面は$(\tau,\sigma)$からなるので，$h_{ab}$は$2\times 2$行列
+           \begin{equation}
+             h_{ab}=\left(
+               \begin{array}{cc}
+                  h_{00}& h_{01}\\
+                  h_{10}& h_{11}
+               \end{array}
+             \right)\label{eq:msd:3.13}
+           \end{equation}
+           である。さらに，一般に計量テンソルは対称テンソルであるから
+           \begin{equation}
+             g_{\mu\nu}=g_{\nu\mu}\nonumber
+           \end{equation}
+           である。これは
+           \begin{equation}
+             h_{01}=h_{10}\nonumber
+           \end{equation}
+           となる。
+       </p>
+　　　　<p>$h_{ab}$で独立な成分は$3$成分に減らすことができた。さらに
+          <ul>
+              <li>パラーメータとりかえに関する不変性</li>
+              <li>Weyl変換に関する不変性</li>
+          </ul>
+　　　　　　を使って$h_{ab}$の自由度を減らせる。
+      </p>
+      <p>まず，パラメータとりかえに関する不変性は座標変換である。というわけで，世界面の計量をMinkowski計量に比例するようにできる。すなわち，
+          \begin{equation}
+            h_{ab}\mapsto e^{\phi(\tau,\sigma)}\eta_{ab}=e^{\phi(\tau,\sigma)}\left(
+              \begin{array}{cc}
+                 -1& 0\\
+                  0& 1
+              \end{array}
+          \right)\label{eq:msd:3.14}
+          \end{equation}
+          である。これは非常に有用である。なぜなら，これにWeyl変換をほどこすとMikowski計量に変換できるからである。
+          \begin{equation}
+            h_{ab}\mapsto\eta_{ab}=\left(
+            \begin{array}{cc}
+              -1& 0\\
+               0& 1
+            \end{array}
+            \right)\label{eq:msd:3.15}
+          \end{equation}
+          となる。そうすると，Polyakov作用$(\ref{eq:msd:3.2})$
+          \begin{equation}
+            S_{\mathrm{P}}=-\frac{T}{2}\int d^{2}\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}\nonumber
+          \end{equation}
+          を簡単にできる。$(\ref{eq:msd:3.15})$に関しては
+          \begin{equation}
+            h=\det h_{ab}=\det \left|
+            \begin{array}{cc}
+              -1 & 0\\
+               0 & 1
+            \end{array}
+            \right|=-1\nonumber
+          \end{equation}
+          となる。よって
+          \begin{equation}
+            \sqrt{-h}=+1\nonumber
+          \end{equation}
+          となる。また，
+          \begin{equation}
+            h^{ab}=\left(
+            \begin{array}{cc}
+              -1 & 0\\
+               0 & 1
+            \end{array}
+            \right)\nonumber
+          \end{equation}
+          であるから，
+          \begin{eqnarray}
+            h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}&=& h^{\tau\tau}\partial_{\tau}X^{\mu}\partial_{\tau}X^{\nu}\eta_{\mu\nu}
+            +h^{\sigma\sigma}\partial_{\sigma}X^{\mu}\partial_{\sigma}X^{\nu}\eta_{\mu\nu}\nonumber\\
+            &=& -\partial_{\tau}X^{\mu}\partial_{\tau}X^{\nu}\eta_{\mu\nu}+\partial_{\sigma}X^{\mu}\partial_{\sigma}X^{\nu}\eta_{\mu\nu}\nonumber\\
+            &=& -\partial_{\tau}X^{\mu}\partial_{\tau}X_{\mu}+\partial_{\sigma}X^{\mu}\partial_{\sigma}X_{\mu}\nonumber
+          \end{eqnarray}
+          となる。したがって，Polyakov作用は
+          \begin{eqnarray}
+            S_{\mathrm{P}}&=&-\frac{T}{2}\int d^{2}\sigma\sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}\nonumber\\
+            &\rightarrow&\frac{T}{2}\int d^{2}\sigma(\partial_{\tau}X^{\mu}\partial_{\tau}X_{\mu}-\partial_{\sigma}X^{\mu}\partial_{\sigma}X_{\mu})
+            \label{eq:msd:3.16}
+          \end{eqnarray}
+          と簡単になる。ここで，
+          \begin{align}
+            \frac{\partial X^{\mu}}{\partial\tau}&= \dot{X}^{\mu}& \frac{\partial X^{\mu}}{\partial\sigma}&= X^{\prime\mu}\nonumber
+          \end{align}
+          とかく。平坦な時空ではエネルギー-運動量テンソルは
+          \begin{equation}
+            T_{ab}=\partial_{a}X^{\mu}\partial_{b}X_{\mu}-\frac{1}{2}\eta_{ab}(\eta^{cd}\partial_{c}X^{\mu}\partial_{d}X_{\mu})\nonumber
+          \end{equation}
+          となる。これを使うと
+          \begin{eqnarray}
+            T_{\tau\tau}&=& \dot{X}^{\mu}\dot{X}_{\mu}+\frac{1}{2}(\eta^{cd}\partial_{c}X^{\mu}\partial_{d}X_{\mu})\nonumber\\
+           &=& \dot{X}^{\mu}\dot{X}_{\mu}+\frac{1}{2}(-\partial_{\tau}X^{\mu}\partial_{\tau}X_{\mu}+\partial_{\sigma}X^{\mu}\partial_{\sigma}X_{\mu})\nonumber\\
+           &=& \frac{1}{2}(\dot{X}^{\mu}\dot{X}_{\mu}+X^{\prime\mu}X_{\mu}^{\prime})\nonumber
+          \end{eqnarray}
+          となる。同様に
+          \begin{eqnarray}
+            T_{\sigma\sigma}&=&\frac{1}{2}(\dot{X}^{\mu}\dot{X}_{\mu}+X^{\prime\mu}X_{\mu}^{\prime})\nonumber\\
+            T_{\tau\sigma} &=& \partial_{\tau}X^{\mu}\partial_{\sigma}X_{\mu}=\dot{X}^{\mu}X_{\mu}^{\prime}\nonumber\\
+            T_{\sigma\tau} &=& T_{\tau\sigma}\nonumber
+          \end{eqnarray}
+          となる。この結果から明らかに
+          \begin{equation}
+            \mathrm{Tr}(T_{ab})=T_{\,\,a}^{a}=\eta^{ab}T_{ab}=-T_{\tau\tau}+T_{\sigma\sigma}=0\nonumber
+          \end{equation}
+          とトレースレスであることがわかる。さらに，運動方程式を使うと
+          \begin{equation}
+            T_{ab}=0\nonumber
+          \end{equation}
+          さらに，世界面のエネルギー-運動量テンソルは保存する。
+          \begin{equation}
+            \partial^{a}T_{ab}=0\nonumber
+          \end{equation}
+      </p>
+      <h2>Poincar&eacute;不変性からでてくる保存カレント</h2>
+　　　 <p>Polyakov作用のラグランジアンは
+         \begin{equation}
+           L_{\mathrm{P}}=-\frac{T}{2}\sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}\label{eq:msd:3.19}
+         \end{equation}
+        である。ここで時空並進
+         \begin{equation}
+            X^{\mu}\mapsto X^{\mu}+b^{\mu}\nonumber
+         \end{equation}
+        を施す($b$は位置に依存)。
+         \begin{eqnarray}
+           L_{\mathrm{P}}&\mapsto& -\frac{1}{2}\sqrt{-h}h^{ab}(X^{\mu}+b^{\mu})\partial{b}(X^{\nu}+b^{\nu})\eta_{\mu\nu}\nonumber\\
+           &=& -\frac{1}{2}\sqrt{-h}h^{ab}(\partial_{a}X^{\mu}\partial_{b}X^{\nu}+\partial_{a}X^{\mu}\partial_{b}b^{\nu}
+               +\partial_{a}b^{\mu}\partial_{b}X^{\nu}+\partial_{a}b^{\mu}\partial_{b}X^{\nu})\eta_{\mu\nu}\nonumber\\
+           &=& -\frac{1}{2}\sqrt{-h}h^{ab}(\partial_{a}X^{\mu}\partial_{b}X^{\nu}+\partial_{a}X^{\mu}\partial_{b}b^{\nu}
+               +\partial_{a}b^{\mu}\partial_{b}X^{\nu})\eta_{\mu\nu}\nonumber\\
+           &=& -\frac{1}{2}\sqrt{-h}h^{ab}\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu}
+               -\frac{1}{2}\sqrt{-h}h^{ab}(\partial_{a}X^{\mu}\partial_{b}b^{\nu}+\partial_{a}b^{\mu}\partial_{b}X^{\nu})\eta_{\mu\nu}\nonumber
+         \end{eqnarray}
+        となる。ここで，差分を$\delta L_{\mathrm{P}}$とかくと，第一項は$\mu\leftrightarrow\nu$と入れ替えると
+        \begin{equation}
+         -\frac{1}{2}\sqrt{-h}h^{ab}(\partial_{a}X^{\nu}\partial_{b}b^{\mu})\eta_{\mu\nu}=-\frac{1}{2}\sqrt{-h}h^{ab}(\partial_{a}X_{\mu}\partial_{b}b^{\mu})\nonumber
+        \end{equation}
+        となる。さらに$h^{ab}$は$a\leftrightarrow b$に関して対称なので
+        \begin{equation}
+          \delta L_{\mathrm{P}}=-T\sqrt{-h}h^{ab}(\partial_{a}X_{\mu})\partial_{b}b^{\mu}\nonumber
+        \end{equation}
+       　となる。一般に保存カレントは無限小変換のパラメータを$\epsilon$とすると
+        \begin{equation}
+          \epsilon^{\mu}J_{\mu}^{a}=\frac{\partial L}{\partial (\partial_{a}X^{\mu})}\epsilon^{\mu}\label{eq:msd:3.18}
+        \end{equation}
+        という関係にあり，この場合，$\epsilon^{\mu}=\partial_{b}b^{\mu}$である。よって
+        \begin{equation}
+          P_{\mu}^{b}=-T\sqrt{-h}h^{ab}(\partial_{a}X_{\mu})\label{eq:msd:3.20}
+        \end{equation}
+        となる。パラメータのとりかえとWeyl不変性より$h_{ab}\rightarrow\eta_{ab}$となる。よって
+        \begin{eqnarray}
+          P_{\mu}^{b}&=& -T\partial_{a}X_{\mu}\nonumber\\
+        \Rightarrow P_{\mu}^{\tau}&=& -T\partial_{\tau}X_{\mu}\quad P_{\mu}^{\sigma}=-T\partial_{\sigma}X_{\mu}\nonumber\\
+        \end{eqnarray}
+        となる。カレントの保存則は
+        \begin{equation}
+          \partial_{a}P_{\mu}^{a}=0\label{eq:msd:3.21}
+        \end{equation}
+        となる。弦の張力項を落とすと
+        \begin{equation}
+          \partial_{\tau}P_{\mu}^{\tau}+\partial_{\sigma}P_{\mu}^{\sigma}=0\label{eq:msd:3.22}
+        \end{equation}
+        これは弦の運動方程式である。弦の全運動量は
+        \begin{equation}
+          p_{\mu}=\int_{0}^{\sigma_{1}}d\sigma P_{\mu}^{\tau}\label{eq:msd:3.23}
+        \end{equation}
+        で与えられる。
+      </p>
+      <p>他の大域的対称性に伴う保存カレントはLorentz変換の下で作用が不変であることからでてくる。この場合，
+          \begin{equation}
+            \delta X^{\mu}=\omega_{\,\,\nu}^{\mu}X^{\nu}\nonumber
+          \end{equation}
+         である。ここではラグランジアン$(\ref{eq:msd:3.19})$がLorentz変換の下で不変であることを示そう。
+          \begin{eqnarray}
+            \delta(\partial_{a}X^{\mu}\partial_{b}X^{\nu}\eta_{\mu\nu})&=& \delta(\partial_{a}X^{\mu})\partial_{\beta}X^{\nu}\eta_{\mu\nu}
+             +\partial_{a}X^{\mu}\delta(\partial{b}X^{\nu})\eta_{\mu}\nonumber\\
+            &=&\partial_{a}(\delta X^{\mu})\partial_{b}X^{\nu}\eta_{\mu\nu}+\partial_{a}X^{\mu}\partial_{b}(\delta X^{\nu})\eta_{\mu\nu}\nonumber\\
+            &=&\omega_{\,\,\rho}^{\mu}\partial_{\alpha}X^{\rho}\partial_{b}X^{\nu}\eta_{\mu\nu}
+            +\omega_{\,\,\lambda}^{\nu}\partial_{a}X^{\mu}\partial_{b}X^{\lambda}\eta_{\mu\nu}\nonumber\\
+          &=&\omega_{\nu\rho}\partial_{a}X^{\rho}\partial_{b}X^{\nu}+\omega_{\mu\lambda}\partial_{a}X^{\mu}\partial_{b}X^{\lambda}\quad(\omega の添字を下げる)\nonumber\\
+          &=&\omega_{\nu\rho}\partial_{a}X^{\rho}\partial_{b}X^{\nu}+\omega_{\rho\lambda}\partial_{a}X^{\rho}\partial_{b}X^{\lambda}\quad(\mu\leftrightarrow\rho)\nonumber\\
+          &=&\omega_{\nu\rho}\partial_{a}X^{\rho}\partial_{b}X^{\nu}+\omega_{\rho\lambda}\partial_{a}X^{\rho}\partial_{b}X^{\lambda}\quad(\lambda\rightarrow\nu)\nonumber\\
+          &=&\omega_{\nu\rho}\partial_{a}X^{\rho}\partial_{b}X^{\nu}+\omega_{\rho\nu}\partial_{a}X^{\rho}\partial_{b}X^{\nu}=0\quad(\omega_{\mu\nu}=-\omega_{\nu\mu})\nonumber
+          \end{eqnarray}
+          となり，ラグランジアンはLorentz不変である。では，保存カレントは何だろうか?　まず，
+          \begin{equation}
+            \frac{\partial L_{\mathrm{P}}}{\partial(\partial_{a}X^{\mu})}=-\frac{T}{2}\sqrt{-h}h^{ab}\partial_{b}X^{\nu}\eta_{\mu\nu}=-\frac{T}{2}\sqrt{-h}h^{ab}P_{b}^{\mu}\nonumber
+          \end{equation}
+          である。さらに，
+          \begin{equation}
+            \epsilon^{\mu\nu}J_{\mu\nu}^{a}=\frac{\partial L_{\mathrm{P}}}{\partial_{a}X^{\mu}}
+          \end{equation}
+          で，$\delta X^{\mu}=\omega_{\,\,\nu}^{\mu}X^{\nu}$であることを使うとLorentzカレントは
+          \begin{equation}
+            J_{a}^{\mu\nu}=T(X^{\mu}P_{a}^{\nu}-X^{\nu}P_{a}^{\mu})\label{eq:msd:3.24}
+          \end{equation}
+          となることがわかった。
+      </p>
+    </body>
+</html
