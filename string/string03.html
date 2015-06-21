@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+  				tex2jax: {
+    					inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+    					processEscapes: true
+  				},
+  				"HTML-CSS": {
+    					availableFonts: ["STIX"],
+    					preferredFont: "STIX",
+    					webFont: "STIX-Web"
+  				},
+                TeX: { equationNumbers: { autoNumber: "AMS" },
+                       extensions: ["autoload-all.js"]
+                     }
+			});
+		</script>
+    	<script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+        </script>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>超弦理論(String Theory Demystified)</title>
+        <style type="text/css">/*<![CDATA[ */
+        h1, h2, h3, h4 { line-height: 1.1; margin: 0.2em; }
+        body { counter-reset: part; }
+        h1 { counter-reset: chapter; }
+        h1:before {
+            content: counter(part) ". ";
+            counter-increment: part;
+        }
+        h2 { counter-reset: section; }
+        h2:before {
+            content: counter(part) ". " counter(chapter) ". ";
+            counter-increment: chapter;
+        }
+        h3 { counter-reset: subsection; }
+        h3:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". ";
+            counter-increment: section;
+        }
+        h4:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". " counter(subsection) ". ";
+            counter-increment: subsection;
+        }
+        /* ]]> */</style>
+        <style type="text/css">
+
+        p {text-indent:1em;} 
+
+
+        ul { list-style-type: disc; }
+
+        </style>
+    </head>
+    <body>
+        <h1>第4章Polyakov Path Integral and Ghosts</h1>
+        <p>String Theory Demystifiedでは，正準量子化に入るのだが，後で振り返ると無駄足を踏まされた感じがしてしまうので，弦の量子化については別の書籍を
+           参考にする。本章ではケンブリッジ大学の<A Href="http://www.damtp.cam.ac.uk/user/tong/string/" Target="_blank">David Tongの講義</A>の第5章を解説する。
+        </p>
+        <h2>Polyakov作用の対称性</h2>
+        <p>Polyakov作用は
+        <ul>
+           <li>パラメータとりかえに関する不変性</li>
+           <li>Weyl変換に関する不変性</li>
+        </ul>
+        という不変性(=対称性)を持っている。パラメータとりかえに関する不変性とは，世界面上の座標$(\tau,\sigma)$は人間が勝手に導入したものであるから，理論がこのパラメータ
+        に依存してはならないということを主張しているのである。Polyakov作用はこのパラメータのとりかえに関して不変であるので，作用として好ましい性質を持っているといえる。
+        Weyl変換に関する不変性はスケール変換に関する不変性である。これらをゲージ不変性という。このような不変性は好ましいと思われる反面，量子論を展開する上で問題をはらんでいる。というのもある物理状態
+        から別の物理状態に上記$2$つのいずれかの変換で写ることができるなら，この$2$つの状態は物理的に等価である。量子論を展開する上で，基底状態，励起状態を考えるが，
+        理論からは物理的に等価な状態が複数出現することになり，非常に面倒なことになる。さらに，本章では触れないが，Polyakov作用から形式的に正準交換関係を導き出してみると，
+        負の確率をもった状態が出現してしまう。これは量子論の正当性を揺るがす問題であり，量子論が正しい理論であるためには，負の確率が現れないことを保証しなければならない。
+        本章とそれに続く章はこの点について議論しているのである。
+        </p>
+        <h2>経路積分</h2>
+        <p>Euclid化したPolyakov作用は
+            \begin{equation}
+              S_{\mathrm{Polyakov}}=\frac{1}{4\pi\alpha^{\prime}}\int d^{2}\sigma\sqrt{g}g^{\alpha\beta}\partial_{\alpha}X^{\mu}\partial_{\beta}X^{\nu}\delta_{\mu\nu}
+              \nonumber
+            \end{equation}
+           である。経路積分による分配関数は
+            \begin{equation}
+              Z=\frac{1}{V_{\mathrm{diff}\times\mathrm{Weyl}}}\int\mathcal{D}g\mathcal{D}X\exp\left[-S_{\mathrm{Polyakov}}[X,g]\right]\nonumber
+            \end{equation}
+            で与えられる。
+            $V_{\mathrm{diff}\times\mathrm{Weyl}}$は非常に重要である。パラメータとりかえとWeyl対称性に伴う重複分の経路積分の測度を割るということである。
+            数学的にいうと，パラメータとりかえとWeyl対称性による同値類の代表元だけを取り出すといえる。これはYang-Mills理論の量子化ですでに処方箋が与えられている。本章では
+            これを弦に適用するのである。
+        </p>
+        <h3>Faddeev-Popovの方法</h3>
+        <p>ゲージ対称性による同値類の中から代表元を取り出すという処方箋とはFaddeev-Popov行列式というものを経路積分に挿入するというものである。あるパラメータとりかえとWeyl変換をまとめて
+           $\zeta$で表す。$\zeta$は写像であるから，群をなすと考えて良い。ある計量$\hat{g}$に固定してみよう。そこで，ある$\zeta$に対応する計量を$g^{\zeta}$とかく。
+           そして，汎関数
+           \begin{equation}
+              \int\mathcal{D}\zeta\delta(g-\hat{g}^{\zeta})=\mathit{\Delta}_{FP}^{-1}[g]\label{eq:tong:5.1}
+           \end{equation}
+           を定義する。これを<b>Faddeev-Popov行列式</b>という。ちょうど
+           \begin{equation}
+             \int dx\delta(f(x))=\frac{1}{|f^{\prime}(x)|}\nonumber
+           \end{equation}
+           のアナロジーである。この場合，多成分になっているので行列式になっている。次のステップに進むために，次の補題を示そう。</p>
+    <fieldset><legend><b>補題</b></legend>
+         <p>
+             Faddeev-Popov行列式$\mathit{\Delta}_{FP}[g]$はゲージ不変，すなわち
+             \begin{equation}
+              \mathit{\Delta}_{FP}[g]=\mathit{\Delta}_{FP}[g^{\zeta}]\nonumber
+             \end{equation}
+             である。
+         </p>
+    </fieldset>
+        <b>証明:</b><br>
+    <p>
+        \begin{eqnarray}
+          \mathit{\Delta}_{FP}^{-1}[g^{\zeta}]&=&\int\mathcal{D}\zeta^{\prime}\delta(g^{\zeta}-g^{\zeta^{\prime}})\nonumber\\
+        &=&\int\mathcal\zeta^{\prime}\delta(g-g^{\zeta^{-1}\zeta^{\prime}})\nonumber
+        \end{eqnarray}
+        であるが，$\zeta^{-1}\zeta^{\prime}=\zeta^{\prime\prime}$とすると
+        \begin{equation}
+          \mathit{\Delta}_{FP}^{-1}[g^{\zeta}]=\int\mathcal{D}\zeta^{\prime}\delta(g-g^{\zeta^{\prime\prime}})\nonumber
+        \end{equation}
+        となる。ここで，被積分関数がデルタ関数なので積分測度を$\mathcal{D}\zeta^{\prime}$から$\mathcal{D}\zeta^{\prime\prime}$に変更しても
+        かまわない(本当はHaar測度であると仮定が必要)。というわけで
+        \begin{equation}
+          \mathit{\Delta}_{FP}^{-1}[g^{\zeta}]=\int\mathcal{D}\zeta^{\prime\prime}\delta(g-g^{\zeta^{\prime\prime}})
+        =\mathit{\Delta}_{FP}^{-1}[g]\nonumber
+        \end{equation}
+        となり，$\mathit{\Delta}_{FP}^{-1}[g]$はゲージ不変である。 $$\tag*{$\blacksquare$}$$</p>
+    <p>Faddeev-Popov行列式がゲージ不変であることが証明できたところで，
+        \begin{equation}
+          1=\mathit{\Delta}_{FP}[g]\int\mathcal{D}\zeta\delta(g-g^{\zeta})\nonumber
+        \end{equation}
+        を経路積分$(\ref{eq:tong:5.1})$に挿入しよう。
+        \begin{eqnarray}
+        Z[\hat{g}]&=&\frac{1}{V_{\mathrm{diff}\times\mathrm{Weyl}}}\int\mathcal{D}\zeta\mathcal{D}X\mathcal{D}g\mathit{\Delta}_{FP}[g]
+        \delta(g-\hat{g}^{\zeta})\exp\left[-S_{\mathrm{polyakov}}[X,g]\right]\nonumber\\
+        &=&\frac{1}{V_{\mathrm{diff}\times\mathrm{Weyl}}}\int\mathcal{D}\zeta\mathcal{D}X\mathit{\Delta}_{FP}[\hat{g}^{\zeta}]
+        \exp\left[-S_{\mathrm{polyakov}}[X,\hat{g}^{\zeta}]\right]\nonumber\\
+        &=&\frac{1}{V_{\mathrm{diff}\times\mathrm{Weyl}}}\int\mathcal{D}\zeta\mathcal{D}X\mathit{\Delta}_{FP}[\hat{g}]
+        \exp\left[-S_{\mathrm{polyakov}}[X,\hat{g}]\right]\nonumber\\
+        \end{eqnarray}
+        となる。最後で，被積分関数は$\zeta$に依存していないので，$\zeta$積分は定数としてくくりだしてしまえる。これが$V_{\mathrm{diff}\times\mathrm{Weyl}}$
+        なのである。よって，
+        \begin{equation}
+          Z[\hat{g}]=\int\mathcal{D}X\mathit{\Delta}_{FP}[\hat{g}]\exp\left[-S_{\mathrm{polyakov}}[X,\hat{g}]\right]\label{eq:tong:5.2}
+        \end{equation}
+        を得る。
+    </p>
+    <h3>Faddeev-Popov行列式</h3>
+    <p>$\mathit{\Delta}_{FP}[\hat{g}]$を計算しよう。まずは，ゲージ変換$\zeta$が単位元近傍でどうなるかみてみよう。単位元近傍だけに限定するのはGribov問題
+        を無視することになるが，ひとまずここではGribov問題を脇においておく。無限小パラメータ変換の差分を$\delta\sigma^{\alpha}=v^{\alpha}(\sigma)$
+        とかくことにする。そうすると，無限小ゲージ変換(パラメータ変換+Weyl変換)による計量の変化分は
+        \begin{equation}
+          \delta\hat{g}_{\alpha\beta}=2\omega\hat{g}_{\alpha\beta}+\nabla_{\alpha}v_{\beta}+\nabla_{\beta}v_{\alpha}\nonumber
+        \end{equation}
+        となる。これを$\delta$関数にいれると
+        \begin{equation}
+          \mathit{\Delta}_{FP}^{-1}[\hat{g}]=\int\mathcal{\omega}\mathcal{D}v\delta
+        (2\omega\hat{g}_{\alpha\beta}+\nabla_{\alpha}v_{\beta}+\nabla_{\beta}v_{\alpha})\label{eq:tong:5.3}
+        \end{equation}
+        を得る。$\nabla_{\alpha}$は共変微分である。積分測度は$\mathcal{D}\zeta$から$\mathcal{D}\omega\mathcal{D}v$になる。添字の$\alpha$は省略した。
+    </p>
+    <p>ここで，$\delta$関数の積分表示の一つ
+       \begin{equation}
+         \delta (x)=\int dp\exp [2\pi ipx]\nonumber
+       \end{equation}
+       を使うと，
+       \begin{equation}
+         \mathit{\Delta}_{FP}^{-1}[\hat{g}]=\int\mathcal{D}\omega\mathcal{D}v\mathcal{D}\beta
+        \exp\left[2\pi i\int d^{2}\sigma\sqrt{\hat{g}}\beta^{\alpha\beta}(2\omega\hat{g}_{\alpha\beta}+\nabla_{\alpha}v_{\beta}
+        +\nabla_{\beta}v_{\alpha})\right]\nonumber
+       \end{equation}
+       を得る。$\beta^{\alpha\beta}$は世界面上の対称テンソルである。
+    </p>
+    <p>まずは$\omega$積分をしよう。そうすると$\omega$積分の部分は$\delta$関数になるので
+        \begin{equation}
+          \beta^{\alpha\beta}\hat{g}_{\alpha\beta}=0\nonumber
+        \end{equation}
+    となる。この式は，$\beta^{\alpha\beta}$が対称でトレース$0$のテンソルであることを表している。そうすると，
+        \begin{equation}
+          \mathit{\Delta}_{FP}^{-1}[\hat{g}]=\int\mathcal{D}v\mathcal{D}\beta\exp
+        \left[4\pi i\int d^{2}\sigma\sqrt{\hat{g}}\beta^{\alpha\beta}\nabla_{\alpha}v_{\beta}\right]\nonumber
+        \end{equation}
+    となる。
+    </p>
+    <h3>ゴースト</h3>
+    <p>我々がほしいのは$\mathit{\Delta}_{FP}^{-1}$ではなくて$\mathit{\Delta}_{FP}$である。そこで，積分公式をつくろう。
+        ガウス積分公式は
+        \begin{equation}
+          \int_{-\infty}^{\infty}dx e^{-ax^{2}}=\sqrt{\frac{\pi}{a}}\nonumber
+        \end{equation}
+        だったわけだが，これを多次元に拡張すると
+        \begin{equation}
+          \int_{-\infty}^{\infty}dx_{1}\cdots dx_{n}\exp\left[\boldsymbol{x}^{T}A\boldsymbol{x}\right]=\frac{\pi^{n/2}}{\sqrt{\det A}}\nonumber
+        \end{equation}
+        であると考えられる。一方，反交換するグラスマン数$c$については，積分は
+        \begin{align}
+          \int dc&= 0&\int dc c&=1\nonumber
+        \end{align}
+        と定義される。まず，
+        \begin{equation}
+          \int dce^{-c}=\int dc(1-c)=-1\nonumber
+        \end{equation}
+        である。$2$成分グラスマン数については，
+        \begin{eqnarray}
+          \int dc_{1}dc_{2}\exp\left[-\boldsymbol{c}^{T}A\boldsymbol{c}\right]&=&-\int dc_{1}dc_{2}\boldsymbol{c}^{T}A\boldsymbol{c}\nonumber\\
+               &=&-\int dc_{1}dc_{2}(
+          \begin{array}{cc}
+            c_{1}&c_{2}\\
+          \end{array}
+           )\left(
+          \begin{array}{cc}
+            a_{11}&a_{12}\\
+            a_{21}&a_{22}
+          \end{array}
+           \right)\left(
+          \begin{array}{c}
+            c_{1}\\
+            c_{2}
+          \end{array}
+          \right)\nonumber\\
+        &=&-\int dc_{1}dc_{2}(a_{11}a_{22}c_{1}c_{2}+a_{12}a_{21}c_{2}c_{1})\nonumber\\
+        &=&-\det A\int dc_{1}dc_{2}c_{1}c_{2}=\det A\nonumber
+        \end{eqnarray}
+        となり，一般に$n$次元グラスマン数積分は
+        \begin{equation}
+          \int d^{n}c\exp\left[-\boldsymbol{c}^{T}A\boldsymbol{c}\right]=\det A\nonumber
+        \end{equation}
+        となり，普通の数の積分と分子，分母が逆になる。したがって，Faddeev-Popov行列式の$\beta_{\alpha\beta},v^{\alpha}$をグラスマン数の場$b_{\alpha\beta},c^{\alpha}$
+        に置き換えると，
+        \begin{eqnarray}
+          \beta_{\alpha\beta}&\rightarrow& b_{\alpha\beta}\nonumber\\
+          v^{\alpha}&\rightarrow&c^{\alpha}\nonumber
+        \end{eqnarray}
+        \begin{equation}
+          \mathit{\Delta}_{FP}[g]=\int\mathcal{D}b\mathcal{D}c\exp\left[iS_{\mathrm{ghost}}\right]\nonumber
+        \end{equation}
+        となる。ただし，
+        \begin{equation}
+          S_{\mathrm{ghost}}=\frac{1}{2\pi}\int d^{2}\sigma\sqrt{g}b_{\alpha\beta}\nabla^{\alpha}c^{\beta}\label{eq:tong:5.4}
+        \end{equation}
+        である。この反交換する場$b_{\alpha\beta},c^{\alpha}$を<b>ゴースト場</b>という。これを$(\ref{eq:tong:5.2})$に代入すると
+        \begin{equation}
+          Z[\hat{g}]=\int\mathcal{D}X\mathcal{D}b\mathcal{D}c\exp\left[-S_{\mathrm{polyakov}}[X,\hat{g}]-S_{\mathrm{ghost}}[b,c,\hat{g}]\right]\nonumber
+        \end{equation}
+        とかける。このように扱いやすい形に変形できた。
+    </p>
+    <p>ゴーストの作用をもっと簡単にしよう。まず，計量を共形ゲージ
+        \begin{equation}
+          \hat{g}_{\alpha\beta}=e^{2\omega}\delta_{\alpha\beta}\nonumber
+        \end{equation}
+    に固定する。そうすると，計量の行列式は$\sqrt{\hat{g}}=e^{2\omega}$となる。ここで，複素化する。共形場理論のゴースト場の部分を思い出すとよい。
+        \begin{align}
+          x^{0}&=\frac{z+\bar{z}}{2}& x^{1}&=\frac{z-\bar{z}}{2i}\nonumber
+        \end{align}
+        \begin{align}
+          \frac{\partial x^{0}}{\partial z}&= \frac{1}{2} & \frac{\partial x^{0}}{\partial\bar{z}}&=\frac{1}{2}\nonumber\\
+          \frac{\partial x^{1}}{\partial z}&= \frac{1}{2i} & \frac{\partial x^{1}}{\partial\bar{z}}&= -\frac{1}{2i}\nonumber
+        \end{align}
+        \begin{equation}
+          d^{2}\sigma=\frac{1}{2}d^{2}z\nonumber
+        \end{equation}
+        \begin{equation}
+          b_{\mu\nu}=\frac{\partial x^{\alpha}}{\partial x^{\mu}}\frac{\partial x^{\beta}}{\partial x^{\nu}}b_{\alpha\beta}\nonumber
+        \end{equation}
+        なので
+        \begin{eqnarray}
+          b_{zz}&=&\frac{1}{4}(b_{00}-2ib_{10}-b_{11})\nonumber\\
+          b_{z\bar{z}}&=& \frac{1}{4}(b_{00}+b_{11})=0\nonumber
+        \end{eqnarray}
+        である。さらに$g^{zz}\nabla_{\bar{z}}=2e^{-2\omega}\nabla_{\bar{z}}$で共変微分の添字を下げる。そうすると，ゴーストの作用は
+        \begin{equation}
+          S_{\mathrm{ghost}}=\frac{1}{2\pi}\int d^{2}z(b_{zz}\nabla_{\bar{z}}c^{z}+b_{\bar{z}\bar{z}}\nabla_{z}c^{\bar{z}})\nonumber
+        \end{equation}
+        となる。ここで，共変微分が普通の微分であることを示そう。共変微分は定義から
+        \begin{equation}
+          \nabla_{\bar{z}}c^{z}=\partial_{\bar{z}}c^{z}+\mathit{\Gamma}_{\bar{z}\alpha}^{z}c^{\alpha}\quad(\alpha=z,\bar{z})\nonumber
+        \end{equation}
+        である。クリストッフェル記号は
+        \begin{equation}
+          \mathit{\Gamma}_{\bar{z}\alpha}^{z}=\frac{1}{2}g^{z\bar{z}}(\partial_{\bar{z}}g_{\alpha\bar{z}}+\partial_{\alpha}g_{\bar{z}\bar{z}}
+        -\partial_{\bar{z}}g_{\bar{z}\alpha})=0\nonumber
+        \end{equation}
+        となる(共形ゲージのだからか？)。よって，ゴーストの作用は
+        \begin{equation}
+          S_{\mathrm{ghost}}=\frac{1}{2\pi}\int d^{2}z(b_{zz}\partial_{\bar{z}}c^{z}+b_{\bar{z}\bar{z}}\partial_{z}c^{\bar{z}})\nonumber
+        \end{equation}
+        となる。ゴーストの作用にWeyl変換のパラメータ$\omega$が入っていないことに注意が必要である。要するにゴーストはWeyl変換の影響を受けないということである。
+    </p>
+    <h2>ゴーストの共形場理論</h2>
+    <p>ゴーストの共形場理論はゴースト場を
+        \begin{align}
+          b&\triangleq b_{zz},&\bar{b}&\triangleq b_{\bar{z}\bar{z}}\nonumber\\
+          c&\triangleq c^{z},& \bar{c}&\triangleq c^{\bar{z}}\nonumber
+        \end{align}
+        とおくところから始まる。そうすると，ゴーストの作用は
+        \begin{equation}
+          S_{\mathrm{ghost}}=\frac{1}{2\pi}\int d^{2}z(b\bar{\partial} c+\bar{b}\partial\bar{c})\nonumber
+        \end{equation}
+        となる。運動方程式は，
+        \begin{equation}
+          \bar{\partial}b=\partial\bar{b}=\bar{\partial}c=\partial\bar{c}=0\nonumber
+        \end{equation}
+        となる(共形場理論を参照のこと)。運動方程式から$b,c$は正則な場，$\bar{b},\bar{c}$は反正則な場であることがわかる。さらにエネルギー-運動量テンソルは
+        \begin{align}
+          T&= 2(\partial c)b+c\partial b& \bar{T}&= 2(\bar{\partial}\bar{c})\bar{b}+\bar{c}\bar{\partial}\bar{b}\nonumber
+        \end{align}
+        である(共形場理論参照のこと)。
+    </p>
+    </body>
+</html>
