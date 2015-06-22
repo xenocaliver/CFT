@@ -309,5 +309,65 @@
         \end{align}
         である(共形場理論参照のこと)。
     </p>
+    <p>ゴーストの演算子積展開を求めてみよう。まず，
+        \begin{equation}
+          0=\int\mathcal{D}b\mathcal{D}c\frac{\delta}{\delta b(\sigma)}\left[e^{-S_{\mathrm{ghost}}}b(\sigma^{\prime})\right]
+        =\int\mathcal{D}b\mathcal{D}ce^{-S_{\mathrm{ghost}}}\left[-\frac{1}{2\pi}\bar{\partial}c(\sigma)b(\sigma^{\prime})
+        +\delta(\sigma-\sigma^{\prime})\right]\nonumber
+        \end{equation}
+      なので
+        \begin{equation}
+          \bar{\partial}c(\sigma)b(\sigma^{\prime})=2\pi\delta(\sigma-\sigma^{\prime})\nonumber
+        \end{equation}
+        である。同様に，$\delta/\delta c(\sigma)$を作用させると
+        \begin{equation}
+          \bar{\partial}b(\sigma)c(\sigma^{\prime})=2\pi\delta(\sigma-\sigma^{\prime})\nonumber
+        \end{equation}
+       である。ここで，$\bar{partial}(1/z)=2\pi\delta(z,\bar{z})$であることを使うと
+        \begin{eqnarray}
+          b(z)c(w)&=&\frac{1}{z-w}+\ldots\nonumber\\
+          c(w)b(z)&=&\frac{1}{w-z}+\ldots\nonumber
+        \end{eqnarray}
+        であることがわかる。$b(z)$と$c(w)$を入れ替えると$-$がでるところから，$b(z)$と$c(w)$は反交換なフェルミオン場であることが確認できる。
+    </p>
+    <p>最後にエネルギー-運動量テンソルは正規順序積になっていないといけないので，
+        \begin{equation}
+          T(z)=2:\partial c(z)b(z):+:c(z)\partial b(z):\nonumber
+        \end{equation}
+     となる。
+    </p>
+    <p>次に$b$の共形次元が$2$，$c$の共形次元が$-1$であることを示そう。エネルギー-運動量テンソルの演算子積展開は
+        \begin{eqnarray}
+          T(z)c(w)&=& 2:\partial c(z)b(z):c(w)+:c(z)\partial b(z):c(w)\nonumber\\
+                  &=& \frac{2\partial c(z)}{z-w}-\frac{c(z)}{(z-w)^{2}}+\ldots\nonumber\\
+                  &=&-\frac{c(w)}{(z-w)^{2}}+\frac{\partial c(w)}{z-w}+\ldots\nonumber
+        \end{eqnarray}
+       となり，$c$の共形次元が$-1$になることがわかる。さらに，$T(z)b(w)$を計算すると
+        \begin{eqnarray}
+          T(z)b(w)&=&2:\partial c(z)b(z):b(w)+:c(z)\partial b(z):b(w)\nonumber\\
+                  &=& -2b(z)\left(\frac{-1}{(z-w)^{2}}\right)-\frac{\partial b(z)}{z-w}+\ldots\nonumber\\
+                  &=& \frac{2b(w)}{(z-w)^{2}}+\frac{\partial b(w)}{z-w}+\ldots\nonumber
+        \end{eqnarray}
+        となるから，$b$の共形次元は$2$であることが確認できる。これまでも指摘してきたところだが，共形変換はパラメータとりかえとWeyl変換
+        の組み合わせである。そして，先に述べたように$b,c$はWeyl変換で不変である。このことが，$b_{zz}$と$c^{z}$成分のみが存在すること
+        につながっている。
+    </p>
+    <p>次にセントラルチャージを求めてみよう。
+        \begin{eqnarray}
+        T(z)T(w)&=& \frac{-4}{(z-w)^{4}}+\frac{4:\partial c(z)b(w):}{(z-w)^{2}}-\frac{4:b(z)\partial c(w)}{(z-w)^{2}}\nonumber\\
+                &-&\frac{4}{(z-w)^{4}}+\frac{2:\partial c(z)\partial b(w):}{z-w}-\frac{4:b(z)c(w):}{(z-w)^{3}}\nonumber\\
+                &-& \frac{4}{(z-w)^{4}}-\frac{4:c(z)b(w):}{(z-w)^{3}}+\frac{2:\partial b(z)\partial c(w):}{(z-w)^{2}}\nonumber\\
+                &-&\frac{1}{(z-w)^{2}}-\frac{:c(z)\partial b(w):}{(z-w)^{2}}+\frac{:\partial b(z)c(w):}{(z-w)^{2}}+\ldots\nonumber
+        \end{eqnarray}
+        となるので，
+        \begin{equation}
+          T(z)T(w)=\frac{-13}{(z-w)^{4}}+\frac{2T(w)}{(z-w)^{2}}+\frac{\partial T(w)}{z-w}+\ldots\nonumber
+        \end{equation}
+        となり，セントラルチャージは
+        \begin{equation}
+          c=-26\nonumber
+        \end{equation}
+        であることがわかる。
+    </p>
     </body>
 </html>
