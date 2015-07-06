@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+  				tex2jax: {
+    					inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+    					processEscapes: true
+  				},
+  				"HTML-CSS": {
+    					availableFonts: ["STIX"],
+    					preferredFont: "STIX",
+    					webFont: "STIX-Web"
+  				},
+                TeX: { equationNumbers: { autoNumber: "AMS" },
+                       extensions: ["autoload-all.js"]
+                     }
+			});
+		</script>
+    	<script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+        </script>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>超弦理論(String Theory Demystified)</title>
+        <style type="text/css">/*<![CDATA[ */
+        h1, h2, h3, h4 { line-height: 1.1; margin: 0.2em; }
+        body { counter-reset: part; }
+        h1 { counter-reset: chapter; }
+        h1:before {
+            content: counter(part) ". ";
+            counter-increment: part;
+        }
+        h2 { counter-reset: section; }
+        h2:before {
+            content: counter(part) ". " counter(chapter) ". ";
+            counter-increment: chapter;
+        }
+        h3 { counter-reset: subsection; }
+        h3:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". ";
+            counter-increment: section;
+        }
+        h4:before {
+            content: counter(part) ". " counter(chapter) ". " counter(section) ". " counter(subsection) ". ";
+            counter-increment: subsection;
+        }
+        /* ]]> */</style>
+        <style type="text/css">
+
+        p {text-indent:1em;} 
+
+
+        ul { list-style-type: disc; }
+
+        </style>
+    </head>
+    <body>
+        <h1>BRST対称性</h1>
+    <p>
+    String Theory DemystifiedでもBRST量子化を扱うが，ここでもわかった感じがしないので，<A href="https://esc.fnwi.uva.nl/thesis/centraal/files/f1989820784.pdf" Target="_blank">
+    BRST quantization and string theory spectra</A>を参照した。また，部分的に<A href="http://ebooks.cambridge.org/ebook.jsf?bid=CBO9780511816079" Target="_blank">String Theory</A>
+    も参照した。
+    </p>
+    <h2>BRST対称性</h2>
+    <p>
+        非物理的な自由度を拘束するために，Faddeev-Popov行列式を経路積分に挿入し，これを詳細に計算すると以下の作用を得ることは前の章で説明した。
+        \begin{eqnarray}
+         S_{\mathrm{polyakov}}&=&\frac{1}{4\pi\alpha^{\prime}}\int d^{2}z\partial X\bar{\partial}X\nonumber\\
+         S_{\mathrm{ghost}}&=&\frac{1}{2\pi}\int d^{2}z(b\bar{\partial}c+\bar{b}\partial\bar{c})\nonumber
+        \end{eqnarray}
+        実は，$S_{\mathrm{polyakov}}+S_{\mathrm{ghost}}$は以下の変換の下で不変である。$\epsilon$をグラスマン数の微小変換パラメータ
+        とすると，
+        \begin{eqnarray}
+          \delta_{B}X&=&-i\epsilon(c\partial+\bar{c}\bar{\partial})X\label{eq:bram:47a}\\
+          \delta_{B}b&=&i\epsilon(T_{X}+T_{\mathrm{ghost}})\label{eq:bram:47b}\\
+          \delta_{B}\bar{b}&=& i\epsilon(\bar{T}_{X}+\bar{T}_{\mathrm{ghost}})\label{eq:bram:47c}\\
+          \delta_{B}c&=&-i\epsilon c\partial c\label{eq:bram:47d}\\
+          \delta_{B}\bar{c}&=&-i\epsilon\bar{c}\bar{\partial}\bar{c}\label{eq:bram:47e}
+        \end{eqnarray}
+        である。$T_{X}$は弦のエネルギー-運動量テンソル，$T_{\mathrm{ghost}}$はゴーストのエネルギー-運動量テンソルである。
+        まず，$X$に関する部分のラグランジアン密度を$\mathscr{L}_{X}$とかくと
+        \begin{equation}
+          \mathscr{L}_{X}=\frac{1}{4\pi\alpha^{\prime}}\partial X\bar{\partial}X\nonumber
+        \end{equation}
+        である。$\delta_{B}$を施し，$\epsilon$の一次の項を残すと
+        \begin{eqnarray}
+          \delta\mathscr{L}_{X}/i\epsilon&=&\partial(\delta_{B}X)\bar{\partial}X+\partial X\bar{\partial}(\delta_{B}X)\nonumber\\
+           &=&\partial c\partial X\bar{\partial}X+c\partial^{2}X\bar{\partial}X+\partial\bar{c}\bar{\partial}X\bar{\partial}X+\bar{c}\partial\bar{\partial}X\bar{\partial}X\nonumber\\
+           &+&\partial X\bar{\partial}c\partial X+\partial Xc\bar{\partial}\partial X+\partial X\bar{\partial}\bar{c}\bar{\partial}X+\partial X\bar{c}\bar{\partial}^{2}X\nonumber\\
+           &=&\partial c\partial X\bar{\partial}X+c\partial^{2}X\bar{\partial}X+\bar{\partial}\bar{c}\partial X\bar{\partial}X+\bar{c}\partial X\bar{\partial}^{2}X\nonumber
+        \end{eqnarray}
+        となる。ここで，運動方程式$\bar{\partial}\partial X=0,\partial\bar{c}=0,\bar{\partial}c=0$を用いた。$\partial^{2},\bar{\partial}^{2}$の項は
+        部分積分すると
+        \begin{eqnarray}
+          c\partial^{2}X\bar{\partial}X&=&-\bar{\partial}c\partial^{2}XX+c\bar{\partial}\partial^{2}XX=0\nonumber\\
+          \bar{c}\partial X\bar{\partial}^{2}X&=&-\partial\bar{c}X\partial^{2}X+\bar{c}X\partial\bar{\partial}^{2}X=0\nonumber
+        \end{eqnarray}
+        と運動方程式を使えば$0$になる。よって，
+        \begin{equation}
+          \delta_{B}\mathscr{L}_{X}=-i\epsilon(\partial c\partial X\bar{\partial}X+\bar{\partial}\bar{c}\partial X\bar{\partial}X)\nonumber
+        \end{equation}
+        となる。ゴーストのラグランジアン密度を$\mathscr{L}_{\mathrm{ghost}}$とかくと
+        \begin{equation}
+          \delta_{B}\mathscr{L}_{\mathrm{ghost}}=i\epsilon(T_{X}+T_{\mathrm{ghost}})\bar{\partial}c+i\epsilon b\bar{\partial}(c\partial c)+\mathrm{c.c.}\nonumber
+        \end{equation}
+        第二項の符号が$+$なのは$\delta_{B}$の定義から$-$が$2$回でて$+$になっている。
+        ここで，$T_{\mathrm{ghost}}=2b\partial c+\partial b+\mathrm{c.c.}$であることを思い出すと
+        \begin{equation}
+          \delta_{B}\mathscr{L}_{\mathrm{ghost}}=i\epsilon T_{X}\bar{\partial}c+i\epsilon(2b\partial c\bar{\partial}c+\partial bc\bar{\partial}c+b\bar{\partial}c\partial c
+           +bc\bar{\partial}\partial c)+\mathrm{c.c.}\nonumber
+        \end{equation}
+        となる。最後の項を部分積分すると
+        \begin{eqnarray}
+          \delta_{B}\mathscr{L}_{\mathrm{ghost}}&=& i\epsilon T_{X}\bar{\partial}c+i\epsilon(2b\partial c\bar{\partial}c+\partial bc\bar{\partial}c+b\bar{\partial}c\partial c
+          -\partial bc\bar{\partial}c-b\partial c\bar{\partial}c)+\mathrm{c.c}\nonumber\\
+           &=&i\epsilon T_{X}\bar{\partial}c+\mathrm{c.c.}\nonumber
+        \end{eqnarray}
+        最後に
+        \begin{equation}
+          \partial c\bar{\partial}X=\bar{\partial}c\partial X\nonumber
+        \end{equation}
+        を使えば
+        \begin{equation}
+          \delta_{B}\mathscr{L}=-i\epsilon T_{X}\partial c+i\epsilon T_{X}\partial c+\mathrm{c.c.}=0\nonumber
+        \end{equation}
+        となり，$S_{\mathrm{polyakov}}+S_{\mathrm{ghost}}$が変換$\delta_{B}$の下で不変であることが確認できる。
+    </p>
+    <p>この変換$\delta_{B}$は提案した研究者の名前をとって<b>BRST変換</b>と呼ばれる。Faddeev-Popov行列式を経路積分に挿入したことは，ゲージ自由度を固定したことを意味しているのだから，ゲージ不変性は
+       なくなっている。Faddeev-Popov行列式を変形していくとゴーストが現れたわけだが，ゴーストの持つ作用と理論本来の作用を加えた作用に別の不変性，言い換えると対称性が現れたのである。
+       これこそが，量子力学的なゲージ対称性なのである。
+    </p>
+    </body>
+</html
